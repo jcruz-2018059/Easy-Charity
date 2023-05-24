@@ -1,18 +1,20 @@
-<h1 align="center">
+<div align="center">
   <a href="https://github.com/jcruz-2018059/Easy-Charity">
     <img src="https://i.imgur.com/xA8R0uW.png" alt="Logo" height="75">
   </a>
-</h1>
+</div>
 
 <div align="center">
 
-# **Easy Charity**
+<h1><strong>Easy Charity</strong></h1>
 
 </div>
+
 <div align="center">
   “Aquellos que son más felices son los que hacen más por otros”
   <br />
   <br />
+  
   <a href="https://github.com/jcruz-2018059/Laboratorio-1---Almacenador/issues/new">Reportar un bug</a>
   ·
   <a href="https://github.com/jcruz-2018059/Easy-Charity/pulls">Aportar al proyecto</a>
