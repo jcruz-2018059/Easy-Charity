@@ -34,17 +34,10 @@
 
 - [¿Quiénes somos?](#quiénes-somos)
   - [Hecho con:](#hecho-con)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Usage](#usage)
-    - [Cookiecutter template](#cookiecutter-template)
-    - [Manual setup](#manual-setup)
-    - [Variables reference](#variables-reference)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [Support](#support)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
+- [Instalación](#instalación)
+  - [Requisitos](#requisitos)
+  - [Dependencias](#dependencias)
+- [Ejecución](#ejecución)
 
 </details>
 
@@ -132,7 +125,7 @@ Para que la aplicación pueda ejecutar todas sus tareas satisfactoriamente, es *
 - [NodeJS](https://nodejs.org/es) en su versión más reciente.
 - [MongoDB](https://www.mongodb.com/) en su versión más reciente.
 
-### Dependenias
+### Dependencias
 
 - Dirígete al apartado `<>code` del repositorio y descarga la aplicación en .zip.
 
