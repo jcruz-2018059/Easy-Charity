@@ -16,12 +16,12 @@ const coSchema = mongoose.Schema({
         type: String,
         lowercase: true,
         unique: true,
-        required: [true, "Email required"],
+        required: [true, "Email requerido"],
         validate: {
             validator: function(v) {
                 return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v); 
             },
-            message: "Please enter a valid email"
+            message: "Porfavor Agregue un Correo Valido"
         }
     },
     phone: {
