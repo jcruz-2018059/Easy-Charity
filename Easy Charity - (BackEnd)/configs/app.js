@@ -15,7 +15,7 @@ const port = process.env.PORT || 3200;
 //rutas de bill
 //rutas de charityDonation
 //rutas de donation
-//rutas de project
+const projectRoutes = require('../src/project/project.routes');
 const userRoutes = require('../src/user/user.routes')
 const coRoutes = require('../src/charity organization/co.routes');
 //rutas de volunteering
@@ -32,7 +32,7 @@ app.use(morgan('dev'));
 //rutas de colección de charityDonation
 app.use('/co',coRoutes);
 //rutas de colección de donation
-//rutas de colección de project
+app.use('/project', projectRoutes);
 app.use('/user', userRoutes);
 //rutas de colección de volunteering
 
