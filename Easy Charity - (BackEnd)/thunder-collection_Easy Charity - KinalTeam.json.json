@@ -1,65 +1,156 @@
 {
     "client": "Thunder Client",
     "collectionName": "Easy Charity - KinalTeam.json",
-    "dateExported": "2023-05-25T15:21:50.975Z",
+    "dateExported": "2023-05-26T16:58:12.745Z",
     "version": "1.1",
     "folders": [
         {
-            "_id": "e00a1d6e-0ebc-4071-824f-facfe9fb432b",
+            "_id": "0ac84c59-5ff3-4aa5-aa56-428aac3ed611",
             "name": "Bill",
             "containerId": "",
-            "created": "2023-05-25T15:20:09.898Z",
+            "created": "2023-05-26T14:52:32.366Z",
             "sortNum": 10000
         },
         {
-            "_id": "94afd60c-2e93-4d2a-a37b-878842fa82a7",
+            "_id": "6589f42e-1ab5-4d88-b28f-6eae7465302c",
             "name": "Charity Donation",
             "containerId": "",
-            "created": "2023-05-25T15:20:18.585Z",
+            "created": "2023-05-26T14:52:32.367Z",
             "sortNum": 20000
         },
         {
-            "_id": "78892f14-ebc1-48a5-8147-31ea173cf1c5",
+            "_id": "d07ed6e8-7a10-46ca-abc9-b5002ac283f6",
             "name": "Donation",
             "containerId": "",
-            "created": "2023-05-25T15:20:24.026Z",
+            "created": "2023-05-26T14:52:32.368Z",
             "sortNum": 30000
         },
         {
-            "_id": "e9343ed3-89ae-492e-9039-50708aa00284",
+            "_id": "e5fb15e7-da1a-4a7c-81f1-97f4666e0081",
             "name": "Project",
             "containerId": "",
-            "created": "2023-05-25T15:20:29.730Z",
+            "created": "2023-05-26T14:52:32.369Z",
             "sortNum": 40000
         },
         {
-            "_id": "ada8d972-5206-4c9e-8550-f13c89fdde88",
+            "_id": "5f6714aa-2ebc-48d3-9244-a1f87980e669",
             "name": "User",
             "containerId": "",
-            "created": "2023-05-25T15:20:37.002Z",
+            "created": "2023-05-26T14:52:32.370Z",
             "sortNum": 50000
         },
         {
-            "_id": "03c99008-35eb-4b7f-a090-b8b79c9edfc2",
+            "_id": "f65006cd-c2f8-4fee-8a49-3d8383ad98f9",
             "name": "Volunteering",
             "containerId": "",
-            "created": "2023-05-25T15:20:46.105Z",
+            "created": "2023-05-26T14:52:32.371Z",
             "sortNum": 60000
         }
     ],
     "requests": [
         {
-            "_id": "07df9d5e-0810-4db5-9106-aafa5d1442dd",
-            "colId": "e3c7798c-deeb-4427-9e7a-d4cf3badc96c",
-            "containerId": "ada8d972-5206-4c9e-8550-f13c89fdde88",
+            "_id": "55434196-e5e2-46c0-9672-a317d1dd6915",
+            "colId": "4909c9d9-97db-4407-92e6-388da92a0889",
+            "containerId": "5f6714aa-2ebc-48d3-9244-a1f87980e669",
             "name": "Test",
             "url": "user",
             "method": "GET",
             "sortNum": 10000,
-            "created": "2023-05-25T15:20:56.312Z",
-            "modified": "2023-05-25T15:21:03.736Z",
+            "created": "2023-05-26T14:52:32.366Z",
+            "modified": "2023-05-26T14:52:32.366Z",
             "headers": [],
             "params": [],
+            "tests": []
+        },
+        {
+            "_id": "858989e2-d4c8-49ac-80e3-9d0109ba83ee",
+            "colId": "4909c9d9-97db-4407-92e6-388da92a0889",
+            "containerId": "6589f42e-1ab5-4d88-b28f-6eae7465302c",
+            "name": "test",
+            "url": "co/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-05-26T14:53:11.558Z",
+            "modified": "2023-05-26T15:06:04.127Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "97b98123-23bd-4237-8e31-6eed3bb85bf6",
+            "colId": "4909c9d9-97db-4407-92e6-388da92a0889",
+            "containerId": "5f6714aa-2ebc-48d3-9244-a1f87980e669",
+            "name": "login",
+            "url": "user/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-05-26T16:26:55.350Z",
+            "modified": "2023-05-26T16:28:09.136Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "username",
+                        "value": "admin"
+                    },
+                    {
+                        "name": "password",
+                        "value": "admin"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "ba38863f-1d6e-4c29-8500-d07242edc35f",
+            "colId": "4909c9d9-97db-4407-92e6-388da92a0889",
+            "containerId": "6589f42e-1ab5-4d88-b28f-6eae7465302c",
+            "name": "addOrganitation",
+            "url": "co/addCo",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-05-26T16:28:35.139Z",
+            "modified": "2023-05-26T16:37:52.577Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcwZGQ2Yzc2NTdkNzdmZDgyOWE3Y2QiLCJuYW1lIjoiR2VuZXJhbCIsInN1cm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZWFzeS5jaGFyaXR5Lmd0IiwicGhvbmUiOiIrNTAyIDU4OTcgMjE0NSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY4NTExODQ4OSwiZXhwIjoxNjg1MTI1Njg5fQ.Nt1AoUhFAY5L_dmbHfVkeWhN3IIE75ZiJTHomiaqTZQ\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Mamitas"
+                    },
+                    {
+                        "name": "description",
+                        "value": "Empresa con fines de ayudar a las mamás"
+                    },
+                    {
+                        "name": "email",
+                        "value": "mamitas@gmail.com"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "12345678"
+                    },
+                    {
+                        "name": "location",
+                        "value": "19 Avenida 8 - 10 Zona 11"
+                    },
+                    {
+                        "name": "user",
+                        "value": "6470dd6c7657d77fd829a7cd"
+                    }
+                ]
+            },
             "tests": []
         }
     ],
