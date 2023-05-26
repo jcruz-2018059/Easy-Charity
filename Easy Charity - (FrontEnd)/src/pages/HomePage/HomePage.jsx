@@ -11,7 +11,7 @@ export const HomePage = () => {
       </style>
       <header
         className="masthead"
-        style={{ paddingTop: "6.5rem", backgroundColor: "#e63946" }}
+        style={{ paddingTop: "6.5rem", backgroundColor: "#B82727" }}
       >
         <div className="container px-5">
           <div className="row gx-5 align-items-center">
@@ -120,7 +120,7 @@ export const HomePage = () => {
               <div className="col">
 
                 <div className="card" >
-                  <img src="\src\assets\heart.png" className="card-img-top" alt="..." />
+                  <img src="\src\assets\Card-Image.png" className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
                     <p className="card-text">
@@ -136,7 +136,7 @@ export const HomePage = () => {
               </div>
               <div class="col">
               <div className="card" >
-                  <img src="\src\assets\heart.png" className="card-img-top" alt="..." />
+                  <img src="\src\assets\Card-Image.png" className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
                     <p className="card-text">
@@ -151,7 +151,7 @@ export const HomePage = () => {
               </div>
               <div class="col">
               <div className="card" >
-                  <img src="\src\assets\heart.png" className="card-img-top" alt="..." />
+                  <img src="\src\assets\Card-Image.png" className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
                     <p className="card-text">

@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 export const Nabvar = () => {
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark fixed-top " style={{backgroundColor: "#e63946", paddingBottom: "1rem", paddingTop:"1rem"}}>
+        <nav className="navbar navbar-expand-lg navbar-dark fixed-top " style={{backgroundColor: "#B82727", paddingBottom: "1rem", paddingTop:"1rem"}}>
             <div className="container px-5">
-                <a className="navbar-brand ">Easy Charity</a>
+                <img src="\src\assets\logo.png" alt="" style={{width: "100px"}}/>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
