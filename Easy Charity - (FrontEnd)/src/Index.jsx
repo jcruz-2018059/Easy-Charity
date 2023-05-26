@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { HomePage } from './pages/HomePage/HomePage';
 import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 import { LoginPage } from './pages/UserPages/LoginPage';
+import { RegisterPage } from './pages/UserPages/RegisterPage';
 
 
 
@@ -34,6 +35,10 @@ export const Index = () => {
                     path: '/login',
                     element: <LoginPage></LoginPage>
                 },
+                {
+                    path: '/register',
+                    element: <RegisterPage></RegisterPage>
+                }     
             ]
         }     
     ])

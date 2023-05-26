@@ -26,12 +26,14 @@ export const HomePage = () => {
                 </p>
                 <div className="d-flex flex-column flex-lg-row align-items-center">
                   <Link
+                  to='/login'
                     type="button"
                     className="btn btn-danger btn-lg px-4 me-md-2 rounded-0"
                   >
                     Iniciar Sesión
                   </Link>
                   <Link
+                  to='/register'
                     type="button"
                     className="btn btn-outline-light btn-lg px-4 me-md-2 rounded-0"
                   >
@@ -135,7 +137,7 @@ export const HomePage = () => {
 
               </div>
               <div class="col">
-              <div className="card" >
+                <div className="card" >
                   <img src="\src\assets\Card-Image.png" className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
@@ -150,7 +152,7 @@ export const HomePage = () => {
                 </div>
               </div>
               <div class="col">
-              <div className="card" >
+                <div className="card" >
                   <img src="\src\assets\Card-Image.png" className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
@@ -190,12 +192,13 @@ export const HomePage = () => {
               servicio de los demás.
             </p>
             <div className="pt-2 d-grid gap-2 d-sm-flex justify-content-sm-center">
-              <button
+              <Link
+              to='/login'
                 type="button"
                 className="btn btn-danger rounded-0 btn-lg px-4 gap-3"
               >
                 Comenzar
-              </button>
+              </Link>
             </div>
           </div>
         </div>
