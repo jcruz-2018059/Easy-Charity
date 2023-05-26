@@ -16,7 +16,7 @@ const port = process.env.PORT || 3200;
 //rutas de charityDonation
 //rutas de donation
 //rutas de project
-//rutas de user
+const userRoutes = require('../src/user/user.routes')
 //rutas de volunteering
 
 //Configurar el servidor de express
@@ -31,7 +31,7 @@ app.use(morgan('dev'));
 //rutas de colección de charityDonation
 //rutas de colección de donation
 //rutas de colección de project
-//rutas de colección de user
+app.use('/user', userRoutes);
 //rutas de colección de volunteering
 
 //Función para levantar el puerto

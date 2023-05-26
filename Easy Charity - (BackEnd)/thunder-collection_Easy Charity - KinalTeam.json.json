@@ -1,0 +1,71 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Easy Charity - KinalTeam.json",
+    "dateExported": "2023-05-25T15:21:50.975Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "e00a1d6e-0ebc-4071-824f-facfe9fb432b",
+            "name": "Bill",
+            "containerId": "",
+            "created": "2023-05-25T15:20:09.898Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "94afd60c-2e93-4d2a-a37b-878842fa82a7",
+            "name": "Charity Donation",
+            "containerId": "",
+            "created": "2023-05-25T15:20:18.585Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "78892f14-ebc1-48a5-8147-31ea173cf1c5",
+            "name": "Donation",
+            "containerId": "",
+            "created": "2023-05-25T15:20:24.026Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "e9343ed3-89ae-492e-9039-50708aa00284",
+            "name": "Project",
+            "containerId": "",
+            "created": "2023-05-25T15:20:29.730Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "ada8d972-5206-4c9e-8550-f13c89fdde88",
+            "name": "User",
+            "containerId": "",
+            "created": "2023-05-25T15:20:37.002Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "03c99008-35eb-4b7f-a090-b8b79c9edfc2",
+            "name": "Volunteering",
+            "containerId": "",
+            "created": "2023-05-25T15:20:46.105Z",
+            "sortNum": 60000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "07df9d5e-0810-4db5-9106-aafa5d1442dd",
+            "colId": "e3c7798c-deeb-4427-9e7a-d4cf3badc96c",
+            "containerId": "ada8d972-5206-4c9e-8550-f13c89fdde88",
+            "name": "Test",
+            "url": "user",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-05-25T15:20:56.312Z",
+            "modified": "2023-05-25T15:21:03.736Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "localhost:2651/"
+        }
+    }
+}
