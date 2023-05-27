@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Easy Charity - KinalTeam.json",
-    "dateExported": "2023-05-27T04:24:39.302Z",
+    "dateExported": "2023-05-27T20:34:21.029Z",
     "version": "1.1",
     "folders": [
         {
@@ -73,6 +73,20 @@
             "containerId": "64939bfc-2553-40de-ba1e-eb682ce3367c",
             "created": "2023-05-27T03:09:14.591Z",
             "sortNum": 110000
+        },
+        {
+            "_id": "72fe4176-a690-401d-9bee-a28c72654aa9",
+            "name": "Client",
+            "containerId": "90ccb4e4-f849-43d4-a633-581a9e57533f",
+            "created": "2023-05-27T17:28:25.574Z",
+            "sortNum": 120000
+        },
+        {
+            "_id": "cfa48d50-2434-4829-ab22-b9cb3203536c",
+            "name": "Organization Admin",
+            "containerId": "90ccb4e4-f849-43d4-a633-581a9e57533f",
+            "created": "2023-05-27T18:51:47.247Z",
+            "sortNum": 130000
         }
     ],
     "requests": [
@@ -99,7 +113,7 @@
             "method": "POST",
             "sortNum": 30000,
             "created": "2023-05-27T01:34:00.681Z",
-            "modified": "2023-05-27T04:03:27.374Z",
+            "modified": "2023-05-27T18:52:15.030Z",
             "headers": [],
             "params": [],
             "body": {
@@ -303,11 +317,11 @@
             "method": "POST",
             "sortNum": 110000,
             "created": "2023-05-27T01:45:21.428Z",
-            "modified": "2023-05-27T01:55:48.995Z",
+            "modified": "2023-05-27T17:35:08.622Z",
             "headers": [
                 {
                     "name": "Authorization",
-                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxNjAxYTM0OGJjNmIyOTMxNWY3NGQiLCJuYW1lIjoiSmF2aWVyIiwic3VybmFtZSI6IkhlcnJlcmEiLCJ1c2VybmFtZSI6ImpoZXJyZXJhIiwiZW1haWwiOiJqaGVycmVyYUBnbWFpbC5jb20iLCJwaG9uZSI6IjEyMzQiLCJyb2xlIjoiT1JHQU5JWkFUSU9OIEFETUlOIiwiaWF0IjoxNjg1MTUyMTY2LCJleHAiOjE2ODUxNTkzNjZ9.A7cgmWPpQnMKI7KRI0ntt41Hx1USWj1mmmEze3slR0I\""
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxNjAxYTM0OGJjNmIyOTMxNWY3NGQiLCJuYW1lIjoiSmF2aWVyIiwic3VybmFtZSI6IkhlcnJlcmEiLCJ1c2VybmFtZSI6ImpoZXJyZXJhIiwiZW1haWwiOiJqaGVycmVyYUBnbWFpbC5jb20iLCJwaG9uZSI6IjEyMzQiLCJyb2xlIjoiT1JHQU5JWkFUSU9OIEFETUlOIiwiaWF0IjoxNjg1MjA4ODk5LCJleHAiOjE2ODUyMTYwOTl9.F0abiF9qgGnafrWb6CazANiHFK0W0AOZJH4eHCVs4EY\""
                 }
             ],
             "params": [],
@@ -443,6 +457,77 @@
                 {
                     "name": "Authorization",
                     "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxNjAxYTM0OGJjNmIyOTMxNWY3NGQiLCJuYW1lIjoiSmF2aWVyIiwic3VybmFtZSI6IkhlcnJlcmEiLCJ1c2VybmFtZSI6ImpoZXJyZXJhIiwiZW1haWwiOiJqaGVycmVyYUBnbWFpbC5jb20iLCJwaG9uZSI6IjEyMzQiLCJyb2xlIjoiT1JHQU5JWkFUSU9OIEFETUlOIiwiaWF0IjoxNjg1MTYwMjA3LCJleHAiOjE2ODUxNjc0MDd9.fgMJUPIT_P8C8qDLqmhGcbs66aSUvVU68IWYWYEAJt0\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "adc3e6e4-e964-480b-9803-fd775601b4fb",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "72fe4176-a690-401d-9bee-a28c72654aa9",
+            "name": "Add Donation",
+            "url": "donation/add/64723f4c84305626c6ab304c",
+            "method": "POST",
+            "sortNum": 170000,
+            "created": "2023-05-27T17:28:45.861Z",
+            "modified": "2023-05-27T17:37:53.580Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxNzRiZmI0NTNkNzIwN2YwY2U0YjQiLCJuYW1lIjoiQWJpbWFlbCIsInN1cm5hbWUiOiJMw7NwZXoiLCJ1c2VybmFtZSI6ImFsb3BleiIsImVtYWlsIjoiYWxvcGV6QGdtYWlsLmNvbSIsInBob25lIjoiKzUwMiA2NTg5IDIxNDUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjg1MjA4NTU5LCJleHAiOjE2ODUyMTU3NTl9.vqhrhz2D1QvxdN_z7Myipx3iAwOjhyitRMlkNR8A7R0\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "amount",
+                        "value": "300"
+                    },
+                    {
+                        "name": "paymentMethod",
+                        "value": "MasterCard"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "a0245cf4-4668-45fe-8222-7e764cd1976c",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "72fe4176-a690-401d-9bee-a28c72654aa9",
+            "name": "Get Client Donations",
+            "url": "donation/get",
+            "method": "GET",
+            "sortNum": 190000,
+            "created": "2023-05-27T18:01:34.496Z",
+            "modified": "2023-05-27T18:01:55.944Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxNzRiZmI0NTNkNzIwN2YwY2U0YjQiLCJuYW1lIjoiQWJpbWFlbCIsInN1cm5hbWUiOiJMw7NwZXoiLCJ1c2VybmFtZSI6ImFsb3BleiIsImVtYWlsIjoiYWxvcGV6QGdtYWlsLmNvbSIsInBob25lIjoiKzUwMiA2NTg5IDIxNDUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjg1MjEwNTA5LCJleHAiOjE2ODUyMTc3MDl9.ckeSdH6cXhQw64vIYK7RgYR3JaqzRqfhey_4KpbAbj4\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "090dca9c-97f6-404d-8188-91c77d6b1d37",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "cfa48d50-2434-4829-ab22-b9cb3203536c",
+            "name": "Get Donations",
+            "url": "donation/getDonations",
+            "method": "GET",
+            "sortNum": 200000,
+            "created": "2023-05-27T18:51:55.266Z",
+            "modified": "2023-05-27T18:52:21.435Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxNjAxYTM0OGJjNmIyOTMxNWY3NGQiLCJuYW1lIjoiSmF2aWVyIiwic3VybmFtZSI6IkhlcnJlcmEiLCJ1c2VybmFtZSI6ImpoZXJyZXJhIiwiZW1haWwiOiJqaGVycmVyYUBnbWFpbC5jb20iLCJwaG9uZSI6IjEyMzQiLCJyb2xlIjoiT1JHQU5JWkFUSU9OIEFETUlOIiwiaWF0IjoxNjg1MjEzNTM0LCJleHAiOjE2ODUyMjA3MzR9.Nxvz8ufowWAzwghmZC4HDVslur-mtBj6gou-JpXP710\""
                 }
             ],
             "params": [],
