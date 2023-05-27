@@ -10,5 +10,6 @@ api.get('/', donationController.test);
 
 //Funciones de client
 api.post('/add/:id', [ensureAuth, isClient], donationController.add);
+api.get('/get', [ensureAuth, isClient], donationController.getByUser);
 
 module.exports = api;

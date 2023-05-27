@@ -45,3 +45,23 @@ exports.add = async(req, res)=>{
         return res.status(500).send({message: 'Error adding donation.'});
     }
 }
+
+exports.getByUser = async(req, res)=>{
+    try{
+        let user = req.user.sub;
+        let donations = await Donation.find({user: user})
+            .select('amount date paymentMethod project')
+            .populate({path: 'project', select: 'name description startDate endDate type organization', populate:{path: 'organization', select: 'name'}});
+        if(!donations){
+            return res.status(404).send({message: 'Donations not found.'});
+        }
+        let total = 0;
+        donations.forEach(donation => {
+            total = total + donation.amount;
+        });
+        return res.send({message: 'Donations found: ', donations, total});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error getting donations.'});
+    }
+}
