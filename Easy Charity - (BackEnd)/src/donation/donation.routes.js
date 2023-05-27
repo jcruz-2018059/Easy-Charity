@@ -12,4 +12,7 @@ api.get('/', donationController.test);
 api.post('/add/:id', [ensureAuth, isClient], donationController.add);
 api.get('/get', [ensureAuth, isClient], donationController.getByUser);
 
+//Funciones de organization admin
+api.get('/getDonations', [ensureAuth, isOrganizationAdmin], donationController.get);
+
 module.exports = api;

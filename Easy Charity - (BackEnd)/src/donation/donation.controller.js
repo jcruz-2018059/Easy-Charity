@@ -2,6 +2,7 @@
 
 const Donation = require('./donation.model');
 const Project = require('../project/project.model');
+const Organization = require('../charity organization/co.model');
 const { encrypt, validateData, checkPassword } = require('../../utils/validate');
 const { createToken } = require('../../services/jwt');
 
@@ -43,6 +44,30 @@ exports.add = async(req, res)=>{
     }catch(err){
         console.error(err);
         return res.status(500).send({message: 'Error adding donation.'});
+    }
+}
+
+exports.get = async(req, res)=>{
+    try{
+        let user = req.user.sub;
+        let organization = await Organization.findOne({user: user});
+        let projects = await Project.find({organization: Object(organization._id).valueOf()});
+        let donations = []
+        await Promise.all(projects.map(async(project)=>{
+            let donation = await Donation.find({project: Object(project._id).valueOf()})
+                .populate({path: 'project', select: 'name description startDate endDate type organization', populate:{path: 'organization', select: 'name'}});
+            donations.push(donation);
+        }))
+        let total = 0;
+        donations.forEach(donation => {
+            donation.forEach(element => {
+                total = total + element.amount;
+            });
+        });
+        return res.send({message: 'Donations found: ', donations, total});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error getting donations.'});
     }
 }
 
