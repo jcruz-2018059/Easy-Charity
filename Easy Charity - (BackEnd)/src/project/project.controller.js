@@ -127,3 +127,23 @@ exports.update = async(req, res)=>{
         return res.status(500).send({message: 'Error updating project.'});
     }
 }
+
+exports.delete = async(req, res)=>{
+    try{
+        let user = req.user.sub;
+        let project = req.params.id;
+        let organizationAdmin = await Organization.findOne({user: user});
+        let ownProject = await Project.findOne({organization: Object(organizationAdmin._id).valueOf()});
+        if(!ownProject){
+            return res.status(400).send({message: 'Not authorized.'});
+        }
+        let deletedProject = await Project.findByIdAndDelete({_id: project});
+        if(!deletedProject){
+            return res.status(404).send({message: 'Project not found and not updated.'});
+        }
+        return res.send({message: 'Anuncio eliminado correctamente.', deletedProject});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error deleting project.'});
+    }
+}
