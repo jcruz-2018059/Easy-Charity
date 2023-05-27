@@ -32,7 +32,7 @@ app.use(morgan('dev'));
 //rutas de colección de charityDonation
 app.use('/co',coRoutes);
 //rutas de colección de donation
-app.use('/project', projectRoutes);
+// app.use('/project', projectRoutes);
 app.use('/user', userRoutes);
 //rutas de colección de volunteering
 

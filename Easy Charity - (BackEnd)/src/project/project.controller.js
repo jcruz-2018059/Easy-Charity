@@ -1,6 +1,6 @@
 'use strict'
 
-const Project = require('./project.model');
+const Project = require('./project.model')
 const { encrypt, validateData, checkPassword } = require('../../utils/validate');
 const { createToken } = require('../../services/jwt');
 

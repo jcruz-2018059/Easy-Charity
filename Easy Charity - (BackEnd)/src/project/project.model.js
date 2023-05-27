@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-const projectSchema = mongoose.Schema({
+const projectScheme = mongoose.Schema({
     name : {
         type: String,
         required: true
@@ -14,33 +14,31 @@ const projectSchema = mongoose.Schema({
     startDate: {
         type: Date,
         required: true,
-        default: Date()
+        default: Date
     },
     endDate: {
         type: Date,
         required: true,
-        default: Date()
+        default: Date
     },
     budget: {
         type: Number,
         required: true
     },
-    collection: {
+    takings: {
         type: Number,
         required: true
     },
     type:{
       type: String,
       required: true,
-      enum: ['charitable', 'charitable']
+      enum: ['charitable', 'volunteering']
     },
     organization: {
         type: mongoose.Schema.Types.ObjectId , 
-        ref: 'CO',
+        ref: 'Charity Organization',
         required: true
     }
-},{
-    versionKey: false
-});
+},{versionKey: false});
 
-module.exports = mongoose.model('Project', projectSchema);
+module.exports = mongoose.model('Project', projectScheme);
