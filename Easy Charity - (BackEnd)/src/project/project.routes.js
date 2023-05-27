@@ -9,6 +9,9 @@ const { ensureAuth, isAdmin, isClient, isOrganizationAdmin } = require('../../se
 api.get('/', projectController.test);
 api.get('/get/:id', projectController.getByOrganization);
 
+//Funciones de cliente
+api.get('/getByType/:type', [ensureAuth, isClient], projectController.getByType);
+
 //Funciones para organizationAdmin
 api.post('/add', [ensureAuth, isOrganizationAdmin], projectController.add);
 

@@ -65,3 +65,17 @@ exports.getByOrganization = async(req, res)=>{
         return res.status(500).send({message: 'Error getting projects.'});
     }
 }
+
+exports.getByType = async(req, res)=>{
+    try{
+        let type = req.params.type;
+        let projects = await Project.find({type: type}).populate({path: 'organization', select: 'name description email phone location'});
+        if(!projects){
+            return res.status(404).send({message: 'Projects not found.'});
+        }
+        return res.send({message: 'Projects found: ', projects});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error getting projects.'});
+    }
+}
