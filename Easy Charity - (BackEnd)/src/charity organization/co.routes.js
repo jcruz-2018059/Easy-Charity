@@ -11,7 +11,7 @@ api.get('/getCoLogut', coController.getOrganitation);
 
 //privadas
 api.post('/addCo', [ensureAuth, isAdmin], coController.addOrganitation);
-api.get('/getCo', [ensureAuth, isOrganizationAdmin], coController.getOrganitation);
+api.get('/getCo', [ensureAuth, isOrganizationAdmin], coController.getOrganitationAdmin);
 
 
 

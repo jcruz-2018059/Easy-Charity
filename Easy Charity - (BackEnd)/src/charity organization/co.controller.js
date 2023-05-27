@@ -14,6 +14,16 @@ exports.addOrganitation = async(req,res)=>{
         if(!user) return res.status(404).send({message: 'Usuario no encontrado'});
         let organitation = new CharityOrganization(data);
         await organitation.save();
+
+        let params = {
+            role: '0RGANIZATION ADMIN'
+        }
+        let roleUpdate = await User.findOneAndUpdate(
+            {_id: user},
+            params,
+            {new: true}
+        )
+        if(!roleUpdate) return res.status(404).send({message: 'Usuario no encontrado, no se actualizo el Rol'});
         return res.send({message: 'Organizacion agregada satisfactoriamente', organitation});
     }catch(err){
         console.error(err);
@@ -21,9 +31,22 @@ exports.addOrganitation = async(req,res)=>{
     }
 }
 
+//Publica
 exports.getOrganitation = async(req,res)=>{
     try{
         let organitation = await CharityOrganization.find().populate('user');
+        return res.send({organitation});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error al traer las organizaciones', error: err.message});
+    }
+}
+
+//Privado
+exports.getOrganitationAdmin = async(req,res)=>{
+    try{
+        let user = req.user.sub;
+        let organitation = await CharityOrganization.find({user}).populate('user');
         return res.send({organitation});
     }catch(err){
         console.error(err);
