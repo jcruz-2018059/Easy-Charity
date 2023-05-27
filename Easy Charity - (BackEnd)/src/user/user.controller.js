@@ -131,7 +131,7 @@ exports.update = async(req, res)=>{
         if(!updatedUser){
             return res.status(404).send({message: 'User not found and not updated.'});
         }
-        return res.send({message: 'User updated: ', updatedUser});
+        return res.send({message: '¡Usuario actualizado!', updatedUser});
     }catch(err){
         console.error(err);
         return res.status(500).send({message: 'Error updating user.'});

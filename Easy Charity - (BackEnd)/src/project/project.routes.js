@@ -8,4 +8,7 @@ const { ensureAuth, isAdmin, isClient, isOrganizationAdmin } = require('../../se
 //Funciones generales
 api.get('/', projectController.test);
 
+//Funciones para organizationAdmin
+api.post('/add', [ensureAuth, isOrganizationAdmin], projectController.add);
+
 module.exports = api;

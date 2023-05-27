@@ -25,7 +25,13 @@ const userScheme = mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        validate: {
+            validator: function(v) {
+                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v); 
+            },
+            message: "Porfavor ingrese un correo válido."
+        }
     },
     phone: {
         type: String,
