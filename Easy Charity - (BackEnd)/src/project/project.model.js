@@ -13,13 +13,11 @@ const projectScheme = mongoose.Schema({
     },
     startDate: {
         type: Date,
-        required: true,
-        default: Date
+        required: true
     },
     endDate: {
         type: Date,
-        required: true,
-        default: Date
+        required: true
     },
     budget: {
         type: Number,
