@@ -43,4 +43,4 @@ const coSchema = mongoose.Schema({
     versionKey: false
 });
 
-module.exports = mongoose.model('CO', coSchema);
+module.exports = mongoose.model('Charity Organization', coSchema);
