@@ -79,3 +79,51 @@ exports.getByType = async(req, res)=>{
         return res.status(500).send({message: 'Error getting projects.'});
     }
 }
+
+exports.update = async(req, res)=>{
+    try{
+        let user = req.user.sub;
+        let data = req.body;
+        let project = req.params.id;
+        let organizationAdmin = await Organization.findOne({user: user});
+        let ownProject = await Project.findOne({organization: Object(organizationAdmin._id).valueOf()});
+        if(!ownProject){
+            return res.status(400).send({message: 'Not authorized.'});
+        }
+        if(Object.entries(data).length === 0 || data.organization || data.takings){
+            return res.status(400).send({message: 'Data cannot be updated.'});
+        }
+        if(data.startDate && !data.endDate){
+            if(new Date(data.startDate).getTime() < new Date(Date.now()).getTime()){
+                return res.status(400).send({message: 'La fecha de inicio no puede ser antes que hoy.'});
+            }
+        }
+        if(data.endDate && !data.startDate){
+            if(new Date(data.endDate).getTime() <= new Date(Date.now()).getTime()){
+                return res.status(400).send({message: 'La fecha de finalización no puede ser antes que hoy.'});
+            }
+        }
+        if(data.startDate && data.endDate){
+            if(data.startDate > data.endDate){
+                return res.status(400).send({message: 'La fecha de inicio no puede ser después de la de finalización.'});
+            }
+        }
+        if(data.budget){
+            if(data.budget <= 0){
+                return res.status(400).send({message: 'Debes colocar un presupuesto válido.'});
+            }
+        }
+        let updatedProject = await Project.findOneAndUpdate(
+            {_id: project},
+            data,
+            {new: true}
+        ).populate({path: 'organization', select: 'name description email phone location'});
+        if(!updatedProject){
+            return res.status(404).send({message: 'Project not found and not updated.'});
+        }
+        return res.send({message: '¡Anuncio actualizado correctamente!', updatedProject});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error updating project.'});
+    }
+}

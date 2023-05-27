@@ -14,5 +14,6 @@ api.get('/getByType/:type', [ensureAuth, isClient], projectController.getByType)
 
 //Funciones para organizationAdmin
 api.post('/add', [ensureAuth, isOrganizationAdmin], projectController.add);
+api.put('/update/:id', [ensureAuth, isOrganizationAdmin], projectController.update);
 
 module.exports = api;
