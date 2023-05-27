@@ -16,7 +16,7 @@ exports.addOrganitation = async(req,res)=>{
         await organitation.save();
 
         let params = {
-            role: '0RGANIZATION ADMIN'
+            role: 'ORGANIZATION ADMIN'
         }
         let roleUpdate = await User.findOneAndUpdate(
             {_id: user},
@@ -51,5 +51,17 @@ exports.getOrganitationAdmin = async(req,res)=>{
     }catch(err){
         console.error(err);
         return res.status(500).send({message: 'Error al traer las organizaciones', error: err.message});
+    }
+}
+
+exports.deleteOrganization = async(req,res)=>{
+    try{
+        let organizationID = req.params.id;
+        let deleteOrganization = await CharityOrganization.findOneAndRemove({_id: organizationID});
+        if(!deleteOrganization) return res.status(404).send({message: 'Organizacion no encontrada, no se pudo eliminar'});
+        return res.send({message: 'Organizacion eliminada', deleteOrganization});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error al tratar de Eliminar la Organizacion'});
     }
 }

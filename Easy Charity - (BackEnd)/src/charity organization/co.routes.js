@@ -12,6 +12,7 @@ api.get('/getCoLogut', coController.getOrganitation);
 //privadas
 api.post('/addCo', [ensureAuth, isAdmin], coController.addOrganitation);
 api.get('/getCo', [ensureAuth, isOrganizationAdmin], coController.getOrganitationAdmin);
+api.delete('/deleteCo', [ensureAuth, isAdmin], coController.deleteOrganization);
 
 
 
