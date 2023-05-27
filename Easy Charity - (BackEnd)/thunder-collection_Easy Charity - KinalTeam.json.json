@@ -1,91 +1,105 @@
 {
     "client": "Thunder Client",
     "collectionName": "Easy Charity - KinalTeam.json",
-    "dateExported": "2023-05-26T16:58:12.745Z",
+    "dateExported": "2023-05-27T04:24:39.302Z",
     "version": "1.1",
     "folders": [
         {
-            "_id": "0ac84c59-5ff3-4aa5-aa56-428aac3ed611",
+            "_id": "ba64fee7-c7c1-4662-9270-84877fad0d40",
             "name": "Bill",
             "containerId": "",
-            "created": "2023-05-26T14:52:32.366Z",
+            "created": "2023-05-27T01:34:00.677Z",
             "sortNum": 10000
         },
         {
-            "_id": "6589f42e-1ab5-4d88-b28f-6eae7465302c",
+            "_id": "264026b0-85e4-440b-9bcc-85575a5dc79f",
             "name": "Charity Donation",
             "containerId": "",
-            "created": "2023-05-26T14:52:32.367Z",
+            "created": "2023-05-27T01:34:00.679Z",
             "sortNum": 20000
         },
         {
-            "_id": "d07ed6e8-7a10-46ca-abc9-b5002ac283f6",
+            "_id": "90ccb4e4-f849-43d4-a633-581a9e57533f",
             "name": "Donation",
             "containerId": "",
-            "created": "2023-05-26T14:52:32.368Z",
+            "created": "2023-05-27T01:34:00.680Z",
             "sortNum": 30000
         },
         {
-            "_id": "e5fb15e7-da1a-4a7c-81f1-97f4666e0081",
+            "_id": "64939bfc-2553-40de-ba1e-eb682ce3367c",
             "name": "Project",
             "containerId": "",
-            "created": "2023-05-26T14:52:32.369Z",
+            "created": "2023-05-27T01:34:00.681Z",
             "sortNum": 40000
         },
         {
-            "_id": "5f6714aa-2ebc-48d3-9244-a1f87980e669",
+            "_id": "7b12d612-562e-4eec-9133-7415962a1378",
             "name": "User",
             "containerId": "",
-            "created": "2023-05-26T14:52:32.370Z",
+            "created": "2023-05-27T01:34:00.682Z",
             "sortNum": 50000
         },
         {
-            "_id": "f65006cd-c2f8-4fee-8a49-3d8383ad98f9",
+            "_id": "2ad0be5d-6b59-43bf-8b7f-e6ffb97188af",
             "name": "Volunteering",
             "containerId": "",
-            "created": "2023-05-26T14:52:32.371Z",
+            "created": "2023-05-27T01:34:00.683Z",
             "sortNum": 60000
+        },
+        {
+            "_id": "f0fd8cb7-cfbe-4dae-b0c8-048390a62d75",
+            "name": "General",
+            "containerId": "7b12d612-562e-4eec-9133-7415962a1378",
+            "created": "2023-05-27T01:37:50.326Z",
+            "sortNum": 70000
+        },
+        {
+            "_id": "7377bb85-175d-44ec-b596-c6527d8d6f09",
+            "name": "Admin",
+            "containerId": "7b12d612-562e-4eec-9133-7415962a1378",
+            "created": "2023-05-27T01:40:41.089Z",
+            "sortNum": 80000
+        },
+        {
+            "_id": "6f66f877-d489-4ff2-aa0b-ce0a82b9c41e",
+            "name": "Organization Admin",
+            "containerId": "64939bfc-2553-40de-ba1e-eb682ce3367c",
+            "created": "2023-05-27T01:45:11.205Z",
+            "sortNum": 100000
+        },
+        {
+            "_id": "0abc288d-d6a0-4c46-be68-8c2244e7027f",
+            "name": "Client",
+            "containerId": "64939bfc-2553-40de-ba1e-eb682ce3367c",
+            "created": "2023-05-27T03:09:14.591Z",
+            "sortNum": 110000
         }
     ],
     "requests": [
         {
-            "_id": "55434196-e5e2-46c0-9672-a317d1dd6915",
-            "colId": "4909c9d9-97db-4407-92e6-388da92a0889",
-            "containerId": "5f6714aa-2ebc-48d3-9244-a1f87980e669",
-            "name": "Test",
-            "url": "user",
-            "method": "GET",
-            "sortNum": 10000,
-            "created": "2023-05-26T14:52:32.366Z",
-            "modified": "2023-05-26T14:52:32.366Z",
-            "headers": [],
-            "params": [],
-            "tests": []
-        },
-        {
-            "_id": "858989e2-d4c8-49ac-80e3-9d0109ba83ee",
-            "colId": "4909c9d9-97db-4407-92e6-388da92a0889",
-            "containerId": "6589f42e-1ab5-4d88-b28f-6eae7465302c",
+            "_id": "3a0b915f-f34b-48ea-b54f-28a648900a77",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "264026b0-85e4-440b-9bcc-85575a5dc79f",
             "name": "test",
             "url": "co/",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2023-05-26T14:53:11.558Z",
-            "modified": "2023-05-26T15:06:04.127Z",
+            "created": "2023-05-27T01:34:00.680Z",
+            "modified": "2023-05-27T01:34:00.680Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "97b98123-23bd-4237-8e31-6eed3bb85bf6",
-            "colId": "4909c9d9-97db-4407-92e6-388da92a0889",
-            "containerId": "5f6714aa-2ebc-48d3-9244-a1f87980e669",
-            "name": "login",
+            "_id": "387ca93e-0746-49ad-b771-854f301dd90a",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "7b12d612-562e-4eec-9133-7415962a1378",
+            "name": "Login",
             "url": "user/login",
             "method": "POST",
             "sortNum": 30000,
-            "created": "2023-05-26T16:26:55.350Z",
-            "modified": "2023-05-26T16:28:09.136Z",
+            "created": "2023-05-27T01:34:00.681Z",
+            "modified": "2023-05-27T04:03:27.374Z",
             "headers": [],
             "params": [],
             "body": {
@@ -94,30 +108,30 @@
                 "form": [
                     {
                         "name": "username",
-                        "value": "admin"
+                        "value": "jherrera"
                     },
                     {
                         "name": "password",
-                        "value": "admin"
+                        "value": "1234"
                     }
                 ]
             },
             "tests": []
         },
         {
-            "_id": "ba38863f-1d6e-4c29-8500-d07242edc35f",
-            "colId": "4909c9d9-97db-4407-92e6-388da92a0889",
-            "containerId": "6589f42e-1ab5-4d88-b28f-6eae7465302c",
+            "_id": "18efa4ff-2b19-4ca5-95d8-b4079f6ec035",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "264026b0-85e4-440b-9bcc-85575a5dc79f",
             "name": "addOrganitation",
             "url": "co/addCo",
             "method": "POST",
             "sortNum": 40000,
-            "created": "2023-05-26T16:28:35.139Z",
-            "modified": "2023-05-26T16:37:52.577Z",
+            "created": "2023-05-27T01:34:00.682Z",
+            "modified": "2023-05-27T01:43:05.161Z",
             "headers": [
                 {
                     "name": "Authorization",
-                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcwZGQ2Yzc2NTdkNzdmZDgyOWE3Y2QiLCJuYW1lIjoiR2VuZXJhbCIsInN1cm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZWFzeS5jaGFyaXR5Lmd0IiwicGhvbmUiOiIrNTAyIDU4OTcgMjE0NSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY4NTExODQ4OSwiZXhwIjoxNjg1MTI1Njg5fQ.Nt1AoUhFAY5L_dmbHfVkeWhN3IIE75ZiJTHomiaqTZQ\""
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxM2Q5ZmZlMWM1M2ZhNjI4MGUyYjgiLCJuYW1lIjoiR2VuZXJhbCIsInN1cm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZWFzeS5jaGFyaXR5Lmd0IiwicGhvbmUiOiIrNTAyIDU4OTcgMjE0NSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY4NTE1MTY1NiwiZXhwIjoxNjg1MTU4ODU2fQ.aT3oklIwDU-DV1407Ug1oz4tT2nl4-loJBcV0SjAXO0\""
                 }
             ],
             "params": [],
@@ -127,19 +141,19 @@
                 "form": [
                     {
                         "name": "name",
-                        "value": "Mamitas"
+                        "value": "Teletón"
                     },
                     {
                         "name": "description",
-                        "value": "Empresa con fines de ayudar a las mamás"
+                        "value": "Empresa con fines de ayudar a los niños"
                     },
                     {
                         "name": "email",
-                        "value": "mamitas@gmail.com"
+                        "value": "teleton@gmail.com"
                     },
                     {
                         "name": "phone",
-                        "value": "12345678"
+                        "value": "+502 5487 2413"
                     },
                     {
                         "name": "location",
@@ -147,10 +161,291 @@
                     },
                     {
                         "name": "user",
-                        "value": "6470dd6c7657d77fd829a7cd"
+                        "value": "6471601a348bc6b29315f74d"
                     }
                 ]
             },
+            "tests": []
+        },
+        {
+            "_id": "2fd3256e-7b31-4da7-9f33-d2e1ef990af8",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "7b12d612-562e-4eec-9133-7415962a1378",
+            "name": "Register",
+            "url": "user/register",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-05-27T01:34:35.132Z",
+            "modified": "2023-05-27T03:10:55.505Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Abimael"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "López"
+                    },
+                    {
+                        "name": "username",
+                        "value": "alopez"
+                    },
+                    {
+                        "name": "password",
+                        "value": "1234"
+                    },
+                    {
+                        "name": "email",
+                        "value": "alopez@gmail.com"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "+502 6589 2145"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "c5124708-6212-4629-b168-5c59f9036916",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "f0fd8cb7-cfbe-4dae-b0c8-048390a62d75",
+            "name": "Update User",
+            "url": "user/update",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2023-05-27T01:37:59.805Z",
+            "modified": "2023-05-27T01:39:14.243Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxNWVjYjc2ZWE0Y2FlODExZmNkMzUiLCJuYW1lIjoiSmF2aWVyIiwic3VybmFtZSI6IkhlcnJlcmEiLCJ1c2VybmFtZSI6ImpoZXJyZXJhIiwiZW1haWwiOiJqaGVycmVyYUBnbWFpbC5jb20iLCJwaG9uZSI6IjEyMzQiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjg1MTUxNTA1LCJleHAiOjE2ODUxNTg3MDV9.2-2DxFGt0zs9j2c6khDqCdfGnSonw2jmtNyg5_NoMl4\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Abimael"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "López"
+                    },
+                    {
+                        "name": "username",
+                        "value": "alopez"
+                    },
+                    {
+                        "name": "email",
+                        "value": "alopez@gmail.com"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "+502 6548 1542"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "5f63bf32-86e9-43ef-b31f-0150ff899ad1",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "f0fd8cb7-cfbe-4dae-b0c8-048390a62d75",
+            "name": "Delete User",
+            "url": "user/delete",
+            "method": "DELETE",
+            "sortNum": 70000,
+            "created": "2023-05-27T01:40:10.309Z",
+            "modified": "2023-05-27T01:40:22.204Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxNWVjYjc2ZWE0Y2FlODExZmNkMzUiLCJuYW1lIjoiSmF2aWVyIiwic3VybmFtZSI6IkhlcnJlcmEiLCJ1c2VybmFtZSI6ImpoZXJyZXJhIiwiZW1haWwiOiJqaGVycmVyYUBnbWFpbC5jb20iLCJwaG9uZSI6IjEyMzQiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjg1MTUxNTA1LCJleHAiOjE2ODUxNTg3MDV9.2-2DxFGt0zs9j2c6khDqCdfGnSonw2jmtNyg5_NoMl4\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "11eb1f2c-82b4-45b4-9cc9-ea171c026b6e",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "7377bb85-175d-44ec-b596-c6527d8d6f09",
+            "name": "Get Users",
+            "url": "user/get",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-05-27T01:40:46.853Z",
+            "modified": "2023-05-27T01:41:05.376Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxM2Q5ZmZlMWM1M2ZhNjI4MGUyYjgiLCJuYW1lIjoiR2VuZXJhbCIsInN1cm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZWFzeS5jaGFyaXR5Lmd0IiwicGhvbmUiOiIrNTAyIDU4OTcgMjE0NSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY4NTE1MTY1NiwiZXhwIjoxNjg1MTU4ODU2fQ.aT3oklIwDU-DV1407Ug1oz4tT2nl4-loJBcV0SjAXO0\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3be43957-0b78-4f73-9cf7-638ce5803be4",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "6f66f877-d489-4ff2-aa0b-ce0a82b9c41e",
+            "name": "Add Project",
+            "url": "project/add",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2023-05-27T01:45:21.428Z",
+            "modified": "2023-05-27T01:55:48.995Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxNjAxYTM0OGJjNmIyOTMxNWY3NGQiLCJuYW1lIjoiSmF2aWVyIiwic3VybmFtZSI6IkhlcnJlcmEiLCJ1c2VybmFtZSI6ImpoZXJyZXJhIiwiZW1haWwiOiJqaGVycmVyYUBnbWFpbC5jb20iLCJwaG9uZSI6IjEyMzQiLCJyb2xlIjoiT1JHQU5JWkFUSU9OIEFETUlOIiwiaWF0IjoxNjg1MTUyMTY2LCJleHAiOjE2ODUxNTkzNjZ9.A7cgmWPpQnMKI7KRI0ntt41Hx1USWj1mmmEze3slR0I\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Cena familiar"
+                    },
+                    {
+                        "name": "description",
+                        "value": "Cena familiar para niños"
+                    },
+                    {
+                        "name": "startDate",
+                        "value": "2023/05/28"
+                    },
+                    {
+                        "name": "endDate",
+                        "value": "2023/05/29"
+                    },
+                    {
+                        "name": "budget",
+                        "value": "700"
+                    },
+                    {
+                        "name": "type",
+                        "value": "charitable"
+                    },
+                    {
+                        "name": "organization",
+                        "value": "64716029348bc6b29315f750"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "47c56b60-fb36-4a42-821d-289e87dd4492",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "64939bfc-2553-40de-ba1e-eb682ce3367c",
+            "name": "Get Projects By Organization",
+            "url": "project/get/64716029348bc6b29315f750",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2023-05-27T02:04:56.907Z",
+            "modified": "2023-05-27T02:05:28.004Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a1a384bc-a866-4e7b-8340-bb98e673f91a",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "0abc288d-d6a0-4c46-be68-8c2244e7027f",
+            "name": "Get Projects by Type",
+            "url": "project/getByType/charitable",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2023-05-27T03:09:27.598Z",
+            "modified": "2023-05-27T03:11:17.195Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxNzRiZmI0NTNkNzIwN2YwY2U0YjQiLCJuYW1lIjoiQWJpbWFlbCIsInN1cm5hbWUiOiJMw7NwZXoiLCJ1c2VybmFtZSI6ImFsb3BleiIsImVtYWlsIjoiYWxvcGV6QGdtYWlsLmNvbSIsInBob25lIjoiKzUwMiA2NTg5IDIxNDUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjg1MTU3MDY0LCJleHAiOjE2ODUxNjQyNjR9.fDJElMI5g9wMwxCq_pZjmDi2JV8-9ZSc7MzNEjkG20E\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a670b051-321e-420a-a3ea-463ae5e8baa8",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "6f66f877-d489-4ff2-aa0b-ce0a82b9c41e",
+            "name": "Update Project",
+            "url": "project/update/647163248007f8c01dcc6282",
+            "method": "PUT",
+            "sortNum": 140000,
+            "created": "2023-05-27T04:03:10.277Z",
+            "modified": "2023-05-27T04:15:21.279Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxNjAxYTM0OGJjNmIyOTMxNWY3NGQiLCJuYW1lIjoiSmF2aWVyIiwic3VybmFtZSI6IkhlcnJlcmEiLCJ1c2VybmFtZSI6ImpoZXJyZXJhIiwiZW1haWwiOiJqaGVycmVyYUBnbWFpbC5jb20iLCJwaG9uZSI6IjEyMzQiLCJyb2xlIjoiT1JHQU5JWkFUSU9OIEFETUlOIiwiaWF0IjoxNjg1MTYwMjA3LCJleHAiOjE2ODUxNjc0MDd9.fgMJUPIT_P8C8qDLqmhGcbs66aSUvVU68IWYWYEAJt0\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Visita a asilo"
+                    },
+                    {
+                        "name": "description",
+                        "value": "Acompañar a gente de la tercera edad"
+                    },
+                    {
+                        "name": "startDate",
+                        "value": "2023/05/27"
+                    },
+                    {
+                        "name": "endDate",
+                        "value": "2023/05/28"
+                    },
+                    {
+                        "name": "budget",
+                        "value": "1000"
+                    },
+                    {
+                        "name": "type",
+                        "value": "volunteering"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "8087082a-981d-41fe-9404-195a0d185350",
+            "colId": "a104955f-0a01-4804-95fb-c5a7e14c9a9b",
+            "containerId": "6f66f877-d489-4ff2-aa0b-ce0a82b9c41e",
+            "name": "Delete Project",
+            "url": "project/delete/647163248007f8c01dcc6282",
+            "method": "DELETE",
+            "sortNum": 150000,
+            "created": "2023-05-27T04:23:14.651Z",
+            "modified": "2023-05-27T04:23:46.216Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxNjAxYTM0OGJjNmIyOTMxNWY3NGQiLCJuYW1lIjoiSmF2aWVyIiwic3VybmFtZSI6IkhlcnJlcmEiLCJ1c2VybmFtZSI6ImpoZXJyZXJhIiwiZW1haWwiOiJqaGVycmVyYUBnbWFpbC5jb20iLCJwaG9uZSI6IjEyMzQiLCJyb2xlIjoiT1JHQU5JWkFUSU9OIEFETUlOIiwiaWF0IjoxNjg1MTYwMjA3LCJleHAiOjE2ODUxNjc0MDd9.fgMJUPIT_P8C8qDLqmhGcbs66aSUvVU68IWYWYEAJt0\""
+                }
+            ],
+            "params": [],
             "tests": []
         }
     ],
