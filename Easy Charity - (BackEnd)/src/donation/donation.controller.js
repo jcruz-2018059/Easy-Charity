@@ -34,7 +34,7 @@ exports.add = async(req, res)=>{
         data.project = project;
         await Project.findByIdAndUpdate(
             {_id: project},
-            {takings: (existProject.takings + data.amount)},
+            {takings: (existProject.takings + Number(data.amount))},
             {new: true}
         )
         let donation = new Donation(data);
