@@ -3,62 +3,71 @@ import { Link } from "react-router-dom";
 import './Register.css'
 
 export const RegisterPage = () => {
-  return (
-    <>
-        <section className="">
-                <div className="container py-5 ">
-                    <div className="row d-flex justify-content-center align-items-center h-100">
-                    <div className="col">
-                        <div className="card card-registration my-4">
-                        <div className="row g-0">
-                            <div className="col-xl-6 d-none d-xl-block ">
-                            <img id="kinal" src={kinal}
-                                alt="Sample photo" className="img-fluid"/>
-                            </div>
-                            <div className="col-xl-6">
-                            <div className="card-body p-md-5 text-black">
-                                <h3 className="mb-5 text-uppercase">Registrarse</h3>
+    return (
+        <>
+            <style>
+                @import
+                url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+            </style>
+            <section className="h-100 gradient-form pt-5">
+                <div className="container-fluid py-5 h-100 rounded-0 d-flex justify-content-center align-items-center">
+                    <div className="col-xl-3">
+                        <div className="card rounded-3 text-black">
+                            <div className="card-body p-md-5 mx-md-4">
+                                <div className="text-center">
+                                    <h4 className="mt-1 mb-5 pb-1 pt-5" id='iniciar'>Registrate</h4>
+                                </div>
 
-                                <div className="row">
-                                <div className="col-md-6 mb-4">
-                                    <div className="form-outline">
-                                    <input placeholder="Nombre" type="text" id="form3Example1m" className="form-control form-control-lg" />
-                                    <label className="form-label" htmlFor="form3Example1m">Nombres</label>
+                                <form>
+                                    <p>Agregue sus datos</p>
+
+                                    <div className="form-outline mb-4">
+                                        <label className="form-label" htmlFor="form2Example11">Nombre</label>
+                                        <input type="text" id="form2Example11" className="form-control" placeholder="Nombre" />
                                     </div>
-                                </div>
-                                <div className="col-md-6 mb-4">
-                                    <div className="form-outline">
-                                    <input placeholder="Apellidos" type="text" id="form3Example1n" className="form-control form-control-lg" />
-                                    <label className="form-label" htmlFor="form3Example1n">Apellidos</label>
+
+                                    <div className="form-outline mb-4">
+                                        <label className="form-label" htmlFor="form2Example22">Apellido</label>
+                                        <input placeholder="Apellido" type="text" id="form2Example22" className="form-control" />
                                     </div>
-                                </div>
-                                </div>
 
-                                <div className="form-outline mb-4">
-                                <input placeholder="Correo" type="text" id="form3Example9" className="form-control form-control-lg" />
-                                <label className="form-label" htmlFor="form3Example9">Correo</label>
-                                </div>
+                                    <div className="row">
+                                        <div className="col-6">
+                                            <div className="form-outline mb-4">
+                                                <label className="form-label" htmlFor="form2Example22">Nombre de Usuario</label>
+                                                <input placeholder="Usuario" type="text" id="form2Example22" className="form-control" />
+                                            </div>
+                                        </div>
 
-                                <div className="form-outline mb-4">
-                                <input placeholder="Contraseña" type="password" id="form3Example8" className="form-control form-control-lg" />
-                                <label className="form-label" htmlFor="form3Example8">Contraseña</label>
-                                </div>
+                                        <div className="col-6">
+                                            <div className="form-outline mb-4">
+                                                <label className="form-label" htmlFor="form2Example22">Contraseña</label>
+                                                <input placeholder="Contraseña" type="password" id="form2Example22" className="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                <div className="text-center pt-3">
-                                <button type="button" className="btn btn-light btn-lg">Cancelar</button>
-                                <Link to='/'>
-                                <button type="button" className="btn btn-danger btn-lg ms-2">Registrarse</button>
-                                </Link>
-                                </div>
+                                    <div className="form-outline mb-4">
+                                        <label className="form-label" htmlFor="form2Example22">Correo Electronico</label>
+                                        <input placeholder="Correo" type="email" id="form2Example22" className="form-control" />
+                                    </div>
 
-                            </div>
+                                    <div className="text-center pt-1 mb-5 row">
+                                        <button className="btn btn-danger col rounded-0" type="button">Registrarse</button>
+                                    </div>
+
+                                    <div className="d-flex align-items-center justify-content-center pb-4">
+                                        <p className="mb-0 me-2">¿Ya tienes una cuenta?</p>
+                                        <Link to=''>
+                                            <button type="button" className="btn btn-outline-danger rounded-0">Iniciar Sesión</button>
+                                        </Link>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
-         </section>
+            </section>
         </>
-  )
+    )
 }
