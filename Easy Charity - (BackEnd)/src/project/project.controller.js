@@ -50,3 +50,18 @@ exports.add = async(req, res)=>{
         return res.status(500).send({message: 'Error adding project.'});
     }
 }
+
+exports.getByOrganization = async(req, res)=>{
+    try{
+        let organization = req.params.id;
+        let existOrganization = Organization.findOne({_id: organization});
+        if(!existOrganization){
+            return res.status(404).send({message: 'Organization not found.'});
+        }
+        let projects = await Project.find({organization: organization}).populate({path: 'organization', select: 'name description email phone location'});
+        return res.send({message: 'Projects found: ', projects});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error getting projects.'});
+    }
+}
