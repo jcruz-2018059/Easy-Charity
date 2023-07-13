@@ -1,0 +1,20 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+export const OrganizationCard = () => {
+    return (
+        <>
+            <div className="card m-2 row g-0 rounded-0" style={{ maxWidth: '18rem', maxHeight: '40rem' }}>
+                <img className="card-img-top" src="/src/assets/Org.svg" alt="Imagen" />
+                <div className="card-body p-3">
+                    <h5 className="card-title text-font">Nombre Organización</h5>
+                    <p className="card-text text-font" style={{ fontSize: '12px' }}>Descripción Organización</p>
+                </div>
+                <div className="d-grid">
+                    <button type="button" className="btn btn-danger mx-3 my-2 rounded-0">Eliminar</button>
+                    <button type="button" className="btn btn-primary mx-3 mb-3 rounded-0">Ver más</button>
+                </div>
+            </div>
+        </>
+    )
+}

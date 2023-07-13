@@ -7,7 +7,7 @@ export const ViewUserPage = () => {
     return (
         <>
             <div className='container' style={{ marginTop: '6rem' }}>
-                <div className="card card-custom bg-light-success border-0 h-md-100 mb-5 mb-lg-10" style={{ background: `url(/src/assets/welcome.png) no-repeat center center / cover`, backgroundColor: '#B82727' }}>
+                <div className="card card-custom bg-light-success border-0 h-md-100 mb-5 mb-lg-10" style={{ background: `url(/src/assets/users.png) no-repeat center center / cover`, backgroundColor: '#B82727' }}>
                     <div className="card-body d-flex justify-content-center flex-wrap ps-xl-15 pe-0">
                         <div className="flex-grow-1 mt-2 me-9 me-md-0 p-5 Titletext">
                             <div>
@@ -19,11 +19,13 @@ export const ViewUserPage = () => {
                 </div>
 
                 <div className="container">
-                    <div className='mb-3 d-flex justify-content-between'>
+                    <div className='mb-4 d-flex justify-content-between'>
+                        <h4 className='text-font'>Usuarios</h4>
                         <Link to='add'>
-                            <button className='btn btn-primary text-light'>Agregar Usuario</button>
+                            <button className='btn btn-primary rounded-0 text-light'>Agregar Usuario</button>
                         </Link>
                     </div>
+                    <hr />
                     <table className="table">
                         <thead className="text-light" style={{ backgroundColor: '#00043a' }}>
                             <tr>

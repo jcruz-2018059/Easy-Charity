@@ -18,6 +18,7 @@ import { AccountPage } from './pages/AccountPage/AccountPage';
 import { ViewAcountPage } from './pages/AccountPage/ViewAcountPage';
 import { AddUserPage } from './pages/UserPages/AddUserPage';
 import { UpdateUserPage } from './pages/UserPages/UpdateUserPage';
+import { AddOrganizationPage } from './pages/OrganizationPage/AddOrganizationPage';
 
 
 
@@ -109,6 +110,10 @@ export const Index = () => {
                                         {
                                             path: '',
                                             element: <ViewOrganizationPage></ViewOrganizationPage>
+                                        },
+                                        {
+                                            path: 'add',
+                                            element: <AddOrganizationPage></AddOrganizationPage>
                                         }
                                     ]
                                 },
