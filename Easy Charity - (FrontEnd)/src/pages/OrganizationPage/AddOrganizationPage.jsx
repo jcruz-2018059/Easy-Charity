@@ -9,7 +9,6 @@ export const AddOrganizationPage = () => {
                         <div className="col-xl-6 col-lg-7 col-md-9">
                             <div className="card border border-white">
                                 <div className="text-center mb-3 pt-5">
-                                    <div className="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3"><i className="bi bi-envelope"></i></div>
                                     <h1 className=" card-title ">Agregar Organización</h1>
                                 </div>
                                 <div className="card-body p-4 p-md-5" style={{ marginTop: -60 }}>

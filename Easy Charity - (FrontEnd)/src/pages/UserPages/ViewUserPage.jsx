@@ -27,15 +27,15 @@ export const ViewUserPage = () => {
                     </div>
                     <hr />
                     <table className="table">
-                        <thead className="text-light" style={{ backgroundColor: '#00043a' }}>
+                        <thead style={{ backgroundColor: '#00043a' }}>
                             <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Apellido</th>
-                                <th scope="col">Nombre Usuario</th>
-                                <th scope="col">Correo</th>
-                                <th scope="col">No. Teléfono</th>
-                                <th scope="col">Rol</th>
-                                <th scope="col">Acciones</th>
+                                <th className="text-light" scope="col">Nombre</th>
+                                <th className="text-light" scope="col">Apellido</th>
+                                <th className="text-light" scope="col">Nombre Usuario</th>
+                                <th className="text-light" scope="col">Correo</th>
+                                <th className="text-light" scope="col">No. Teléfono</th>
+                                <th className="text-light" scope="col">Rol</th>
+                                <th className="text-light" scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>

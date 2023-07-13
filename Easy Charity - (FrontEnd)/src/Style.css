@@ -1,8 +1,16 @@
-.Titletext{
+.Titletext {
     font-family: 'Poppins', sans-serif;
     color: white;
 }
 
-.text-font{
+.text-font {
     font-family: 'Poppins', sans-serif;
+}
+
+.custom-icon {
+    color: #B82727;
+}
+
+.custom-icon.active-icon {
+    color: white;
 }
