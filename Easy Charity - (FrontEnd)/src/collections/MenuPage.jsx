@@ -30,28 +30,28 @@ export const MenuPage = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to='users' className={`nav-link link-body-emphasis ${activeItem === 'Usuarios' ? 'active' : ''}`} onClick={() => handleClick('Usuarios')}>
+                                <Link to='users' className={`nav-link link-body-emphasis ${activeItem === 'Usuarios' ? 'active' : ''}`} onClick={() => handleClick('Usuarios')} style={{ backgroundColor: activeItem === 'Usuarios' ? '#B82727' : 'inherit' }}>
                                     <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#speedometer2"></use></svg>
                                     <span className="nav-link-text">Usuarios</span>
                                 </Link>
                             </li>
                             <li>
-                                <a href="#" className={`nav-link link-body-emphasis ${activeItem === 'orders' ? 'active' : ''}`} onClick={() => handleClick('orders')}>
+                                <Link to='organization' className={`nav-link link-body-emphasis ${activeItem === 'Organizaciones' ? 'active' : ''}`} onClick={() => handleClick('Organizaciones')} style={{ backgroundColor: activeItem === 'Organizaciones' ? '#B82727' : 'inherit' }}>
                                     <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#table"></use></svg>
-                                    <span className="nav-link-text">Orders</span>
-                                </a>
+                                    <span className="nav-link-text">Organizaciones</span>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#" className={`nav-link link-body-emphasis ${activeItem === 'products' ? 'active' : ''}`} onClick={() => handleClick('products')}>
+                                <Link to='proyects' className={`nav-link link-body-emphasis ${activeItem === 'Proyectos' ? 'active' : ''}`} onClick={() => handleClick('Proyectos')} style={{ backgroundColor: activeItem === 'Proyectos' ? '#B82727' : 'inherit' }}>
                                     <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#grid"></use></svg>
-                                    <span className="nav-link-text">Products</span>
-                                </a>
+                                    <span className="nav-link-text">Proyectos</span>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#" className={`nav-link link-body-emphasis ${activeItem === 'customers' ? 'active' : ''}`} onClick={() => handleClick('customers')}>
+                                <Link to='account' className={`nav-link link-body-emphasis ${activeItem === 'Cuenta' ? 'active' : ''}`} onClick={() => handleClick('Cuenta')}style={{ backgroundColor: activeItem === 'Cuenta' ? '#B82727' : 'inherit' }}>
                                     <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#people-circle"></use></svg>
-                                    <span className="nav-link-text">Customers</span>
-                                </a>
+                                    <span className="nav-link-text">Mi cuenta</span>
+                                </Link>
                             </li>
                         </ul>
                         <hr />

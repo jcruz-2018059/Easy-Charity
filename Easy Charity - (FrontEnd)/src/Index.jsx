@@ -10,6 +10,14 @@ import { Menu } from './pages/MenuPage/Menu';
 import { WelcomePage } from './pages/WelcomePage/WelcomePage';
 import { UserPage } from './pages/UserPages/UserPage';
 import { ViewUserPage } from './pages/UserPages/ViewUserPage';
+import { OrganizationPage } from './pages/OrganizationPage/OrganizationPage';
+import { ViewOrganizationPage } from './pages/OrganizationPage/ViewOrganizationPage';
+import { ProyectPage } from './pages/ProyectPage/ProyectPage';
+import { ViewProyectPage } from './pages/ProyectPage/ViewProyectPage';
+import { AccountPage } from './pages/AccountPage/AccountPage';
+import { ViewAcountPage } from './pages/AccountPage/ViewAcountPage';
+import { AddUserPage } from './pages/UserPages/AddUserPage';
+import { UpdateUserPage } from './pages/UserPages/UpdateUserPage';
 
 
 
@@ -72,10 +80,50 @@ export const Index = () => {
                                         {
                                             path: '',
                                             element: <ViewUserPage></ViewUserPage>
+                                        },
+                                        {
+                                            path: 'add',
+                                            element: <AddUserPage></AddUserPage>
+                                        },
+                                        {
+                                            path: 'update/:id',
+                                            element: <UpdateUserPage></UpdateUserPage>
                                         }
                                         
                                     ]
-                                }
+                                },
+                                {
+                                    path: 'account',
+                                    element: <AccountPage></AccountPage> ,
+                                    children: [
+                                        {
+                                            path: '',
+                                            element: <ViewAcountPage></ViewAcountPage>
+                                        }
+                                    ]
+                                },
+                                {
+                                    path:'organization',
+                                    element: <OrganizationPage></OrganizationPage>,
+                                    children: [
+                                        {
+                                            path: '',
+                                            element: <ViewOrganizationPage></ViewOrganizationPage>
+                                        }
+                                    ]
+                                },
+                                {
+                                    path:'proyects',
+                                    element: <ProyectPage></ProyectPage>,
+                                    children: [
+                                        {
+                                            path: '',
+                                            element: <ViewProyectPage></ViewProyectPage>
+                                        }
+                                    ]
+                                },
+
+                                
                                 
                                 
                             ]

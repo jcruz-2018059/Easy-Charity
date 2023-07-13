@@ -13,7 +13,7 @@ export const WelcomePage = () => {
                     <div className="card-body d-flex justify-content-center flex-wrap ps-xl-15 pe-0">
                         <div className="flex-grow-1 mt-2 me-9 me-md-0 p-5">
                             <div className="position-relative text-gray-800 fs-1 z-index-2 fw-bold mb-1 Titletext">
-                                ¡Hola Javier!
+                                ¡Hola Javier!😃
                             </div>
                             <span className="text-gray-600 fs-6 mb-6 d-block Titletext">
                                 Bienvenido a Easy Charity
@@ -30,6 +30,8 @@ export const WelcomePage = () => {
                     </div>
                 </div>
                 <div>
+                    <h4 className='text-font'>Comienza a Administrar</h4>
+                    <hr />
                     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                         <div className="col">
                             <div className="card shadow-sm">
