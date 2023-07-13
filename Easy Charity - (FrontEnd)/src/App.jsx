@@ -3,6 +3,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 import React from "react"
 import { Outlet } from 'react-router-dom'
 import { Nabvar } from './components/Navbar.jsx'
+import './Style.css'
 
 function App() {
 
