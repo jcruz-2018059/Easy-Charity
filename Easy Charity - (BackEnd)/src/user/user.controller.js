@@ -63,7 +63,7 @@ exports.login = async(req, res)=>{
 
 exports.get = async(req, res)=>{
     try{
-        let users = await User.find().select('name surname username email phone');
+        let users = await User.find().select('name surname username email phone role');
         return res.send({message: 'Users found: ', users});
     }catch(err){
         console.error(err);
