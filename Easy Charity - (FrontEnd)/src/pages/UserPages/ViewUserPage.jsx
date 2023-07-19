@@ -43,12 +43,12 @@ export const ViewUserPage = () => {
                     <div className='mb-4 d-flex justify-content-between'>
                         <h4 className='text-font'>Usuarios</h4>
                         <Link to='add'>
-                            <button className='btn btn-primary rounded-0 text-light'>Agregar Usuario</button>
+                            <button className='btn btn-primary text-light'>Agregar Usuario</button>
                         </Link>
                     </div>
                     <hr />
                     <table className="table">
-                        <thead style={{ backgroundColor: '#00043a' }}>
+                        <thead style={{ backgroundColor: '#00043a'}}>
                             <tr>
                                 <th className="text-light" scope="col">Nombre</th>
                                 <th className="text-light" scope="col">Apellido</th>

@@ -51,6 +51,16 @@ exports.add = async(req, res)=>{
     }
 }
 
+exports.get = async(req, res)=>{
+    try{
+        let projects = await Project.find({}).populate({path: 'organization', select: 'name description email phone location'});
+        return res.send({message: 'Projects found: ', projects});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error getting projects.'});
+    }
+}
+
 exports.getByOrganization = async(req, res)=>{
     try{
         let organization = req.params.id;
