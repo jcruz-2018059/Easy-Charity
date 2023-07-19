@@ -18,6 +18,7 @@ const donationRoutes = require('../src/donation/donation.routes');
 const projectRoutes = require('../src/project/project.routes');
 const userRoutes = require('../src/user/user.routes')
 const coRoutes = require('../src/charity organization/co.routes');
+const volunteeringRoutes = require('../src/volunteering/volunteering.routes');
 //rutas de volunteering
 
 //Configurar el servidor de express
@@ -35,6 +36,7 @@ app.use('/donation', donationRoutes);
 app.use('/project', projectRoutes);
 app.use('/user', userRoutes);
 //rutas de colección de volunteering
+app.use('/volunteering', volunteeringRoutes);
 
 //Función para levantar el puerto
 exports.initServer = ()=>{

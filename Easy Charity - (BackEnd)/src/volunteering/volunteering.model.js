@@ -25,5 +25,19 @@ const volunteeringSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    user:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'User',
+        required: true
+    },
+    proyect:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'Project',
+        required: true
+    }
+},{
+    versionKey: false
+});
 
-})
+
+module.exports = mongoose.model('Volunteering', volunteeringSchema);
