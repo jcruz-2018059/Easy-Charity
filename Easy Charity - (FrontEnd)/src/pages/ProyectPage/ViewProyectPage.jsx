@@ -1,8 +1,22 @@
-import React from 'react'
-import { OrganizationCard } from '../../components/Cards/OrganizationCard'
 import { ProyectCard } from '../../components/Cards/ProyectCard'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 export const ViewProyectPage = () => {
+    const [projects, setProjects] = useState([{}])
+    const getProjects = async () => {
+        try {
+            const { data } = await axios('http://localhost:2651/project/get');
+            if (data){
+              setProjects(data.projects);
+            }
+        } catch (err) {
+            console.log(err);
+            throw new Error('Error getting Users');
+        }
+    }
+
+    useEffect(() => getProjects, []);
   return (
     <>
       <div className='container' style={{ marginTop: '6rem' }}>
@@ -20,7 +34,25 @@ export const ViewProyectPage = () => {
         <hr />
         <div>
         </div>
-        <ProyectCard></ProyectCard>
+        {
+          projects.length === 0 ? (
+            <>
+              <div className='container justify-content-center align-items-center' style={{borderColor: 'red', height: 300, display: 'flex'}}>
+                <p className='fw-bold'  style={{color: '#a6a6a6'}} >Aún no hay proyectos disponibles.</p>
+              </div>
+            </>
+          ) : 
+          projects.map(({name, description, organization}, index) =>{
+            const organizationName = organization ? organization.name : 'Sin organización';
+            return(
+              <ProyectCard key={index}
+                name={name}
+                description={description}
+                organization={organizationName}
+              ></ProyectCard>
+            )
+        })
+      }
       </div>
     </>
   )

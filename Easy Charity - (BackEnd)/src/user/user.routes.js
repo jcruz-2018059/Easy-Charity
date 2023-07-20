@@ -9,6 +9,7 @@ const { ensureAuth, isAdmin, isClient, isOrganizationAdmin } = require('../../se
 api.get('/', userController.test);
 api.post('/login', userController.login);
 api.post('/register', userController.register);
+api.get('/account', ensureAuth, userController.account);
 
 //Funciones de usuario
 api.put('/update', ensureAuth, userController.update);

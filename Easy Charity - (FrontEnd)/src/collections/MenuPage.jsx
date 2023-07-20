@@ -1,6 +1,4 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
-import { Nabvar } from '../components/Navbar'
 import { Outlet } from 'react-router-dom'
 import { useState } from 'react'
 
@@ -25,7 +23,7 @@ export const MenuPage = () => {
                         <ul className="nav nav-pills flex-column mb-auto">
                             <li className="nav-item">
                                 <Link to='' className={`nav-link ${activeItem === 'Inicio' ? 'active' : ''}`} onClick={() => handleClick('Inicio')} style={{ backgroundColor: activeItem === 'Inicio' ? '#B82727' : 'inherit' }}>
-                                    <i className={`bi bi-house custom-icon me-3 ${activeItem === 'Inicio' ? 'active-icon' : ''}`} width="16" height="16"><use xlinkHref="#Inicio"></use></i>
+                                    <i className={`bi bi-house custom-icon me-3 ${activeItem === 'Inicio' ? 'active-icon' : ''}`} width="16" height="16"></i>
                                     <span className="nav-link-text">Inicio</span>
                                 </Link>
                             </li>
@@ -41,13 +39,13 @@ export const MenuPage = () => {
                             }
                             <li>
                                 <Link to='organization' className={`nav-link link-body-emphasis ${activeItem === 'Organizaciones' ? 'active' : ''}`} onClick={() => handleClick('Organizaciones')} style={{ backgroundColor: activeItem === 'Organizaciones' ? '#B82727' : 'inherit' }}>
-                                    <i className={`bi bi-house-heart-fill custom-icon me-3 ${activeItem === 'Organizaciones' ? 'active-icon' : ''}`} width="16" height="16"><use xlinkHref="#table"></use></i>
+                                    <i className={`bi bi-house-heart-fill custom-icon me-3 ${activeItem === 'Organizaciones' ? 'active-icon' : ''}`} width="16" height="16"></i>
                                     <span className="nav-link-text">Organizaciones</span>
                                 </Link>
                             </li>
                             <li>
                                 <Link to='proyects' className={`nav-link link-body-emphasis ${activeItem === 'Proyectos' ? 'active' : ''}`} onClick={() => handleClick('Proyectos')} style={{ backgroundColor: activeItem === 'Proyectos' ? '#B82727' : 'inherit' }}>
-                                    <i className={`bi bi-box2-heart-fill custom-icon me-3 ${activeItem === 'Proyectos' ? 'active-icon' : ''}`} width="16" height="16"><use xlinkHref="#grid"></use></i>
+                                    <i className={`bi bi-box2-heart-fill custom-icon me-3 ${activeItem === 'Proyectos' ? 'active-icon' : ''}`} width="16" height="16"></i>
                                     <span className="nav-link-text">Proyectos</span>
                                 </Link>
                             </li>
@@ -93,7 +91,7 @@ export const MenuPage = () => {
                             }
                             <li>
                                 <Link to='account' className={`nav-link link-body-emphasis ${activeItem === 'Cuenta' ? 'active' : ''}`} onClick={() => handleClick('Cuenta')} style={{ backgroundColor: activeItem === 'Cuenta' ? '#B82727' : 'inherit' }}>
-                                    <i className={`bi bi-person-circle custom-icon me-3 ${activeItem === 'Cuenta' ? 'active-icon' : ''}`} width="16" height="16"><use xlinkHref="#people-circle"></use></i>
+                                    <i className={`bi bi-person-circle custom-icon me-3 ${activeItem === 'Cuenta' ? 'active-icon' : ''}`} width="16" height="16"></i>
                                     <span className="nav-link-text">Mi cuenta</span>
                                 </Link>
                             </li>
