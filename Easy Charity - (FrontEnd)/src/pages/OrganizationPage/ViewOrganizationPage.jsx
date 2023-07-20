@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { OrganizationCard } from '../../components/Cards/OrganizationCard'
 
 export const ViewOrganizationPage = () => {
+  const role = localStorage.getItem('role')
   return (
 
     <>
@@ -19,7 +20,11 @@ export const ViewOrganizationPage = () => {
         </div>
         <div className='d-flex justify-content-between'>
           <h4 className='text-font'>Organizaciones</h4>
-          <Link to='add' className='btn btn-primary rounded-0'>Agregar Organización</Link>
+          {
+            role == 'ADMIN'?(
+            <Link to='add' className='btn btn-primary rounded-0'>Agregar Organización</Link>  
+            ): <></>
+          }
         </div>
         <hr />
         <div>

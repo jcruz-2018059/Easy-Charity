@@ -1,6 +1,8 @@
 import React from 'react'
+import { OrganizationCard } from '../../components/Cards/OrganizationCard'
 
 export const WelcomePage = () => {
+    const role = localStorage.getItem('role')
     return (
 
         <>
@@ -30,43 +32,61 @@ export const WelcomePage = () => {
                     </div>
                 </div>
                 <div>
-                    <h4 className='text-font'>Comienza a Administrar</h4>
+                    {
+                        role === 'ADMIN' || role === 'ORGANIZATION ADMIN' ? (
+                            <h4 className='text-font'>Comienza a Administrar</h4>
+                        ) : null
+                    }
+                    {
+                        role == 'CLIENT' ? (
+                            <h4 className='text-font'>Explora</h4>
+                        ) : <></>
+                    }
                     <hr />
-                    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        <div className="col">
-                            <div className="card shadow-sm">
-                                <img className="bd-placeholder-img card-img-top" src="/src/assets/1.svg" alt="Imagen" width="100%" height="225" />
-                                <div className="card-body">
-                                    <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div className="d-grid gap-2">
-                                            <button className='btn btn-primary'>Gestionar Usuarios</button>
+                    {
+                        role === 'ADMIN' || role === 'ORGANIZATION ADMIN' ? (
+                            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                                <div className="col">
+                                    <div className="card shadow-sm">
+                                        <img className="bd-placeholder-img card-img-top" src="/src/assets/1.svg" alt="Imagen" width="100%" height="225" />
+                                        <div className="card-body">
+                                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <div className="d-grid gap-2">
+                                                <button className='btn btn-primary'>Gestionar Usuarios</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="card shadow-sm">
+                                        <img className="bd-placeholder-img card-img-top" src="/src/assets/2.svg" alt="Imagen" width="100%" height="225" />
+                                        <div className="card-body">
+                                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <div className="d-grid gap-2">
+                                                <button className='btn btn-primary'>Gestionar Organizaciones</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="card shadow-sm">
+                                        <img className="bd-placeholder-img card-img-top" src="/src/assets/3.svg" alt="Imagen" width="100%" height="225" />
+                                        <div className="card-body">
+                                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <div className="d-grid gap-2">
+                                                <button className='btn btn-primary'>Ver Proyectos</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col">
-                            <div className="card shadow-sm">
-                                <img className="bd-placeholder-img card-img-top" src="/src/assets/2.svg" alt="Imagen" width="100%" height="225" />
-                                <div className="card-body">
-                                    <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div className="d-grid gap-2">
-                                            <button className='btn btn-primary'>Gestionar Organizaciones</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="card shadow-sm">
-                                <img className="bd-placeholder-img card-img-top" src="/src/assets/3.svg" alt="Imagen" width="100%" height="225" />
-                                <div className="card-body">
-                                    <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div className="d-grid gap-2">
-                                            <button className='btn btn-primary'>Ver Proyectos</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        ) : null
+                    }
+                    {
+                        role != 'ADMIN' ? (
+                            <OrganizationCard></OrganizationCard>
+                        ) : null
+                    }
                 </div>
             </div>
         </>

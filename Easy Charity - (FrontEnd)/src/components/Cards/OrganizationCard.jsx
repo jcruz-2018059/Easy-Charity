@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const OrganizationCard = () => {
+    const role = localStorage.getItem('role')
     return (
         <>
             <div className="card m-2 row g-0 rounded-0" style={{ maxWidth: '18rem', maxHeight: '40rem' }}>
@@ -11,7 +12,16 @@ export const OrganizationCard = () => {
                     <p className="card-text text-font" style={{ fontSize: '12px' }}>Descripción Organización</p>
                 </div>
                 <div className="d-grid">
-                    <button type="button" className="btn btn-danger mx-3 my-2 rounded-0">Eliminar</button>
+                    {
+                        role === 'ADMIN' ? (
+                            <button type="button" className="btn btn-danger mx-3 my-2 rounded-0">Eliminar</button>
+                        ) : null
+                    }
+                    {
+                        role != 'ADMIN' ? (
+                            <button type="button" className="btn btn-danger mx-3 my-2 rounded-0">Ver Proyectos</button>
+                        ) : null
+                    }
                     <button type="button" className="btn btn-primary mx-3 mb-3 rounded-0">Ver más</button>
                 </div>
             </div>
