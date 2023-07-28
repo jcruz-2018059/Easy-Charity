@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Easy Charity - KinalTeam.json",
-    "dateExported": "2023-07-26T09:45:26.886Z",
+    "dateExported": "2023-07-28T06:28:21.919Z",
     "version": "1.1",
     "folders": [
         {
@@ -658,12 +658,75 @@
             "colId": "6275b446-8ea2-4f2b-b8d2-136fefeb37b6",
             "containerId": "78ececfe-262c-4f88-83b3-a9b735a05a6c",
             "name": "cancelVolunteering",
-            "url": "",
-            "method": "GET",
+            "url": "volunteering/cancelVol/",
+            "method": "PUT",
             "sortNum": 230000,
             "created": "2023-07-26T09:44:18.579Z",
-            "modified": "2023-07-26T09:44:18.579Z",
-            "headers": []
+            "modified": "2023-07-28T06:20:26.486Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "20eabb4f-e2fe-46ba-b880-cf8a206a1962",
+            "colId": "6275b446-8ea2-4f2b-b8d2-136fefeb37b6",
+            "containerId": "78ececfe-262c-4f88-83b3-a9b735a05a6c",
+            "name": "deleteVolunteering",
+            "url": "volunteering/deleteVol/",
+            "method": "DELETE",
+            "sortNum": 240000,
+            "created": "2023-07-28T06:21:05.071Z",
+            "modified": "2023-07-28T06:21:41.102Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "13129aa9-92a1-4e22-b428-70fb6d6429d8",
+            "colId": "6275b446-8ea2-4f2b-b8d2-136fefeb37b6",
+            "containerId": "78ececfe-262c-4f88-83b3-a9b735a05a6c",
+            "name": "updateVolunteering",
+            "url": "volunteering/updateVol/",
+            "method": "PUT",
+            "sortNum": 260000,
+            "created": "2023-07-28T06:21:54.486Z",
+            "modified": "2023-07-28T06:25:56.011Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": ""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "age",
+                        "value": "44"
+                    },
+                    {
+                        "name": "skills",
+                        "value": "Tener Cosas"
+                    },
+                    {
+                        "name": "description",
+                        "value": "Nada"
+                    }
+                ]
+            },
+            "tests": []
         }
     ],
     "settings": {
