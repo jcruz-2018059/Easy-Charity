@@ -136,7 +136,7 @@ export const HomePage = () => {
                 </div>
 
               </div>
-              <div class="col">
+              <div className="col">
                 <div className="card" >
                   <img src="\src\assets\Card-Image.png" className="card-img-top" alt="..." />
                   <div className="card-body">

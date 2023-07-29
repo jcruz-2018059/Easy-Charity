@@ -1,15 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
-export const OrganizationCard = () => {
+export const OrganizationCard = ({name, description}) => {
     const role = localStorage.getItem('role')
     return (
         <>
             <div className="card m-2 row g-0 rounded-0" style={{ maxWidth: '18rem', maxHeight: '40rem' }}>
                 <img className="card-img-top" src="/src/assets/Org.svg" alt="Imagen" />
                 <div className="card-body p-3">
-                    <h5 className="card-title text-font">Nombre Organización</h5>
-                    <p className="card-text text-font" style={{ fontSize: '12px' }}>Descripción Organización</p>
+                    <h5 className="card-title text-font">{name}</h5>
+                    <p className="card-text text-font" style={{ fontSize: '12px' }}> {description} </p>
                 </div>
                 <div className="d-grid">
                     {

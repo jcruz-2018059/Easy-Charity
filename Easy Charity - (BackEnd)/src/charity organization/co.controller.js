@@ -34,8 +34,8 @@ exports.addOrganitation = async(req,res)=>{
 //Publica
 exports.getOrganitation = async(req,res)=>{
     try{
-        let organitation = await CharityOrganization.find().populate('user');
-        return res.send({organitation});
+        let organizations = await CharityOrganization.find().populate('user');
+        return res.send({organizations});
     }catch(err){
         console.error(err);
         return res.status(500).send({message: 'Error al traer las organizaciones', error: err.message});
