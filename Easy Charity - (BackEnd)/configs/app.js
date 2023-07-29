@@ -18,6 +18,8 @@ const donationRoutes = require('../src/donation/donation.routes');
 const projectRoutes = require('../src/project/project.routes');
 const userRoutes = require('../src/user/user.routes')
 const coRoutes = require('../src/charity organization/co.routes');
+const volunteeringRoutes = require('../src/volunteering/volunteering.routes');
+const billRoutes = require('../src/bill/bill.routes');
 //rutas de volunteering
 
 //Configurar el servidor de express
@@ -29,12 +31,14 @@ app.use(morgan('dev'));
 
 //Rutas de cada colección 
 //rutas de colección de bill
+app.use('/bil',billRoutes);
 //rutas de colección de charityDonation
 app.use('/co',coRoutes);
 app.use('/donation', donationRoutes);
 app.use('/project', projectRoutes);
 app.use('/user', userRoutes);
 //rutas de colección de volunteering
+app.use('/volunteering', volunteeringRoutes);
 
 //Función para levantar el puerto
 exports.initServer = ()=>{
