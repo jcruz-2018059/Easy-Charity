@@ -55,7 +55,7 @@ export const DetailOrganization = () => {
                 <h1 className="pb-2 pb-xxl-3">{organization.name}</h1>
                 <p className="pb-2 mb-4 mb-xxl-5">{organization.description}</p>
                 <div className="d-xxl-flex align-items-center">
-                  <a href="#" className="btn btn-primary shadow-primary btn-lg rounded-2">Editar</a>
+                  <Link to={'/start/organization/update/:id'} className="btn btn-primary shadow-primary btn-lg rounded-2">Editar</Link>
                   <a href="#" className="btn btn-danger shadow-primary btn-lg rounded-2" style={{ marginLeft: '20px' }}>Eliminar</a>
                 </div>
               </div>

@@ -23,6 +23,7 @@ import { ViewOrganizationProyectsPage } from './pages/ProyectPage/ViewOrganizati
 import { DetailProyectPage } from './pages/ProyectPage/DetailProyectPage';
 import { DetailOrganization } from './pages/OrganizationPage/DetailOrganization';
 import { AddProyectPage } from './pages/ProyectPage/AddProyectPage';
+import { UpdateOrganization } from './pages/OrganizationPage/UpdateOrganization';
 
 
 
@@ -123,6 +124,10 @@ export const Index = () => {
                                             path: 'detail',
                                             
                                             element:<DetailOrganization></DetailOrganization>
+                                        },
+                                        {
+                                            path: 'update/:id',
+                                            element: <UpdateOrganization></UpdateOrganization>
                                         }
                                     ]
                                 },
