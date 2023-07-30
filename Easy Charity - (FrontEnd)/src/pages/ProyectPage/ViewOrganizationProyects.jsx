@@ -1,22 +1,33 @@
 import { ProyectCard } from '../../components/Cards/ProyectCard'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
-export const ViewProyectPage = () => {
+export const ViewOrganizationProyectsPage = () => {
+    const { id } = useParams();
     const [projects, setProjects] = useState([{}])
+    const [organization, setOrganization] = useState('');
     const getProjects = async () => {
         try {
-            const { data } = await axios('http://localhost:2651/project/get');
+            const { data } = await axios(`http://localhost:2651/project/get/${id}`);
             if (data){
               setProjects(data.projects);
+              setOrganization(data.organizationName.name);
             }
         } catch (err) {
             console.log(err);
-            throw new Error('Error getting Users');
+            throw new Error('Error getting proyects.');
         }
     }
 
     useEffect(() => getProjects, []);
+
+    const getOrganizationName = () => {
+        if (projects.length > 0) {
+          return organization || '';
+        }
+        return organization || '';
+    };
   return (
     <>
       <div className='container' style={{ marginTop: '6rem' }}>
@@ -24,22 +35,17 @@ export const ViewProyectPage = () => {
           <div className="card-body d-flex justify-content-center flex-wrap ps-xl-15 pe-0">
             <div className="flex-grow-1 mt-2 me-9 me-md-0 p-5 Titletext">
               <div>
-                <h1 className='d-flex align-items-center justify-content-center'>Ver proyectos</h1>
-                <p className='d-flex align-items-center justify-content-center'>Explora los proyectos de caridad</p>
+                <h1 className='d-flex align-items-center justify-content-center'>Proyectos de {getOrganizationName()} </h1>
               </div>
             </div>
           </div>
-        </div>
-        <h4 className='text-font'>Proyectos</h4>
-        <hr />
-        <div>
         </div>
         <div className='row g-0'>
         {
           projects.length === 0 ? (
             <>
               <div className='container justify-content-center align-items-center' style={{borderColor: 'red', height: 300, display: 'flex'}}>
-                <p className='fw-bold'  style={{color: '#a6a6a6'}} >Aún no hay proyectos disponibles.</p>
+                <p className='fw-bold'  style={{color: '#a6a6a6'}} > {getOrganizationName()} aún no tiene proyectos activos. </p>
               </div>
             </>
           ) : 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { OrganizationCard } from '../../components/Cards/OrganizationCard'
 
 export const WelcomePage = () => {
@@ -50,9 +51,11 @@ export const WelcomePage = () => {
                                     <div className="card shadow-sm">
                                         <img className="bd-placeholder-img card-img-top" src="/src/assets/1.svg" alt="Imagen" width="100%" height="225" />
                                         <div className="card-body">
-                                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <p className="card-text">Añade nuevos usuarios, edita sus parámetros si lo consideras necesario y elimina a los que también consideres necesario.</p>
                                             <div className="d-grid gap-2">
-                                                <button className='btn btn-primary'>Gestionar Usuarios</button>
+                                                <Link to='users' className='btn btn-primary'>
+                                                    <button className='btn btn-primary'>Gestionar Usuarios</button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
@@ -61,9 +64,11 @@ export const WelcomePage = () => {
                                     <div className="card shadow-sm">
                                         <img className="bd-placeholder-img card-img-top" src="/src/assets/2.svg" alt="Imagen" width="100%" height="225" />
                                         <div className="card-body">
-                                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <p className="card-text">Ve y añade nuevas organizaciones al sistema, entérate de los proyectos que tiene cada una y editalas si lo consideras necesario.</p>
                                             <div className="d-grid gap-2">
-                                                <button className='btn btn-primary'>Gestionar Organizaciones</button>
+                                                <Link to='organization' className='btn btn-primary'>
+                                                    <button className='btn btn-primary'>Gestionar Organizaciones</button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
@@ -72,9 +77,11 @@ export const WelcomePage = () => {
                                     <div className="card shadow-sm">
                                         <img className="bd-placeholder-img card-img-top" src="/src/assets/3.svg" alt="Imagen" width="100%" height="225" />
                                         <div className="card-body">
-                                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <p className="card-text">Entérate de los proyectos disponibles de cada organización caritativa y postúlate a ser voluntario en uno de ellos.</p>
                                             <div className="d-grid gap-2">
-                                                <button className='btn btn-primary'>Ver Proyectos</button>
+                                                <Link to='proyects' className='btn btn-primary'>
+                                                    <button className='btn btn-primary'>Ver Proyectos</button>
+                                                </Link>  
                                             </div>
                                         </div>
                                     </div>

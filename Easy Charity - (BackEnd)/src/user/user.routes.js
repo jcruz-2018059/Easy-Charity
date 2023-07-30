@@ -17,5 +17,9 @@ api.delete('/delete', ensureAuth, userController.delete);
 
 //Funciones de admin
 api.get('/get', [ensureAuth, isAdmin], userController.get);
+api.delete('/delete/:id', [ensureAuth, isAdmin], userController.remove);
+api.put('/update/:id', [ensureAuth, isAdmin], userController.edit);
+api.get('/get/:id', [ensureAuth, isAdmin], userController.getUser);
+api.get('/getUsers', [ensureAuth, isAdmin], userController.getUsers);
 
 module.exports = api;

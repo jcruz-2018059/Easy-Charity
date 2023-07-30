@@ -71,6 +71,27 @@ exports.get = async(req, res)=>{
     }
 }
 
+exports.getUsers = async(req, res)=>{
+    try{
+        let users = await User.find({role: 'CLIENT'}).select('name surname');
+        return res.send({message: 'Users found: ', users});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error getting users.'});
+    }
+}
+
+exports.getUser = async(req, res)=>{
+    try{
+        let userId = req.params.id;
+        let user = await User.findOne({_id: userId}).select('name surname username email phone');
+        return res.send({message: 'User found: ', user});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error getting user.'});
+    }
+}
+
 exports.account = async(req, res)=>{
     try{
         let userId = req.user.sub;
@@ -149,6 +170,43 @@ exports.update = async(req, res)=>{
     }
 }
 
+exports.edit = async(req, res)=>{
+    try{
+        let data = req.body;
+        let user = req.params.id;
+        let existUser = await User.findOne({_id: user});
+        if(!existUser){
+            return res.status(404).send({message: 'User not found.'});
+        }
+        if(existUser.username === 'admin'){
+            return res.status(400).send({message: 'Not authorized.'})
+        }
+        if(Object.entries(data).length === 0 || data.role || data.password){
+            return res.status(400).send({message: 'Alguna información no puede ser actualizada.'});
+        }
+        if(data.username){
+            let existUsername = await User.findOne({username: data.username});
+            if(existUsername){
+                if(existUsername._id != user){
+                    return res.status(400).send({message: 'El username ya está en uso.'});
+                }
+            }
+        }
+        let updatedUser = await User.findByIdAndUpdate(
+            {_id: user},
+            data,
+            {new: true}
+        ).select('name surname username email phone');
+        if(!updatedUser){
+            return res.status(404).send({message: 'User not found and not updated.'});
+        }
+        return res.send({message: '¡Usuario actualizado!', updatedUser});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error updating user.'});
+    }
+}
+
 exports.delete = async(req, res)=>{
     try{
         let user = req.user.sub;
@@ -157,6 +215,24 @@ exports.delete = async(req, res)=>{
             return res.status(401).send({message: 'Not authorized.'});
         }
         let deletedUser = await User.findOneAndDelete({_id: user});
+        if(!deletedUser){
+            return res.status(404).send({message:'User not found and not deleted.'});
+        }
+        return res.send({message: 'Cuenta eliminada satisfactoriamente.', deletedUser});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error deleting user.'});
+    }
+}
+
+exports.remove = async(req, res)=>{
+    try{
+        let user = await User.findOne({_id: req.user.sub});
+        let userId = req.params.id;
+        if(Object(user._id).valueOf() === userId){
+            return res.status(401).send({message: 'Not authorized.'});
+        }
+        let deletedUser = await User.findOneAndDelete({_id: userId});
         if(!deletedUser){
             return res.status(404).send({message:'User not found and not deleted.'});
         }

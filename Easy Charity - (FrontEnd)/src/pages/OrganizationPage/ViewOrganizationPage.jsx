@@ -1,9 +1,24 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { OrganizationCard } from '../../components/Cards/OrganizationCard'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 export const ViewOrganizationPage = () => {
   const role = localStorage.getItem('role')
+  const [organizations, setOrganizations] = useState([{}])
+    const getOrganizations = async () => {
+        try {
+            const { data } = await axios('http://localhost:2651/co/getCoLogut');
+            if (data){
+              setOrganizations(data.organizations);
+            }
+        } catch (err) {
+            console.log(err);
+            throw new Error('Error getting Organizations');
+        }
+    }
+
+    useEffect(() => getOrganizations, []);
   return (
 
     <>
@@ -27,9 +42,28 @@ export const ViewOrganizationPage = () => {
           }
         </div>
         <hr />
-        <div>
-        </div>
-        <OrganizationCard></OrganizationCard>
+        <div className='row g-0'>
+          {
+            organizations.length === 0 ? (
+              <>
+              <div className='container justify-content-center align-items-center' style={{borderColor: 'red', height: 300, display: 'flex'}}>
+                <p className='fw-bold'  style={{color: '#a6a6a6'}} >No hay organizaciones por el momento.</p>
+              </div>
+              </>
+            ) : (
+              organizations.map(({name, description, _id}, i) =>{
+                return(
+                  <OrganizationCard
+                    name={name}
+                    description={description}
+                    id={_id}
+                    key={i}
+                  ></OrganizationCard>
+                )
+              })
+            )
+          }
+          </div>
       </div>
     </>
 

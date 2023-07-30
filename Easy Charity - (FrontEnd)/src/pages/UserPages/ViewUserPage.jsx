@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Users } from '../../collections/Users'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-
+import Swal from 'sweetalert2';
 
 export const ViewUserPage = () => {
     const token = localStorage.getItem('token');
@@ -17,12 +17,41 @@ export const ViewUserPage = () => {
             const { data } = await axios('http://localhost:2651/user/get', config);
             if (data)
                 setUsers(data.users);
-            console.log(data);
         } catch (err) {
             console.log(err);
             throw new Error('Error getting Users');
         }
     }
+
+    const deleteUser = async ({id, name, surname}) => {
+        try {
+          Swal.fire({
+            title: `¿Estás seguro de eliminar a ${name + ' ' + surname}?`,
+            icon: 'warning',
+            showConfirmButton: false,
+            showDenyButton: true,
+            showCancelButton: true,
+            denyButtonText: `Sí, eliminar`,
+          }).then(async (result) => {
+            if (result.isDenied) {
+              const { data } = await axios.delete(`http://localhost:2651/user/delete/${id}`, config);
+              Swal.fire({
+                title: data.message || 'Usuario eliminado.',
+                icon: 'info',
+                timer: 4000
+              })
+              getUsers()
+            }
+          })
+        } catch (err) {
+          console.error(err);
+          Swal.fire({
+            title: err.response.data.message || `Error eliminando al usuario :(`,
+            icon: 'error',
+            timer: 4000
+          })
+        }
+      }
 
     useEffect(() => getUsers, []);
     return (
@@ -56,12 +85,13 @@ export const ViewUserPage = () => {
                                 <th className="text-light" scope="col">Correo</th>
                                 <th className="text-light" scope="col">No. Teléfono</th>
                                 <th className="text-light" scope="col">Rol</th>
-                                {/* <th className="text-light" scope="col">Acciones</th> */}
+                                <th className="text-light" scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                user.map(({name, surname, username, email, phone, role}, index) =>{
+                                user.map(({name, surname, username, email, phone, role, _id}, index) =>{
+                                    const id = _id;
                                     return(
                                         <tr className="text-dark" key={index}>
                                             <Users
@@ -72,9 +102,9 @@ export const ViewUserPage = () => {
                                                 phone={phone}
                                                 role={role}
                                             ></Users>
-                                            {/* {
+                                            {
                                                 role !=  'ADMIN' ? (
-                                                    <Link onClick={() => deleteUser(_id)}>
+                                                    <Link onClick={() => deleteUser({id, name, surname})}>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash3-fill" viewBox="0 0 16 16">
                                                             <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
                                                         </svg>
@@ -90,7 +120,7 @@ export const ViewUserPage = () => {
                                                         </svg>
                                                     </Link>
                                                 ) : <></>
-                                            } */}
+                                            }
                                         </tr>
                                     )
                                 })

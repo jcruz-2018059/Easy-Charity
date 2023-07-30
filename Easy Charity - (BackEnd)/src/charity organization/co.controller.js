@@ -23,8 +23,8 @@ exports.addOrganitation = async(req,res)=>{
             params,
             {new: true}
         )
-        if(!roleUpdate) return res.status(404).send({message: 'Usuario no encontrado, no se actualizo el Rol'});
-        return res.send({message: 'Organizacion agregada satisfactoriamente', organitation});
+        if(!roleUpdate) return res.status(404).send({message: 'Usuario no encontrado, no se actualizó el rol.'});
+        return res.send({message: 'Organización agregada satisfactoriamente.', organitation});
     }catch(err){
         console.error(err);
         return res.status(500).send({message: 'Error al agregar una organizacion', error: err.message});
@@ -34,8 +34,8 @@ exports.addOrganitation = async(req,res)=>{
 //Publica
 exports.getOrganitation = async(req,res)=>{
     try{
-        let organitation = await CharityOrganization.find().populate('user');
-        return res.send({organitation});
+        let organizations = await CharityOrganization.find().populate('user');
+        return res.send({organizations});
     }catch(err){
         console.error(err);
         return res.status(500).send({message: 'Error al traer las organizaciones', error: err.message});
