@@ -34,6 +34,7 @@ export const ViewProyectPage = () => {
         <hr />
         <div>
         </div>
+        <div className='row g-0'>
         {
           projects.length === 0 ? (
             <>
@@ -53,6 +54,7 @@ export const ViewProyectPage = () => {
             )
         })
       }
+      </div>
       </div>
     </>
   )
