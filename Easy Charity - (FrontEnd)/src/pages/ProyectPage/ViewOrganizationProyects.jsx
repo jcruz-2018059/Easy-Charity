@@ -1,33 +1,50 @@
 import { ProyectCard } from '../../components/Cards/ProyectCard'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 export const ViewOrganizationProyectsPage = () => {
-    const { id } = useParams();
-    const [projects, setProjects] = useState([{}])
-    const [organization, setOrganization] = useState('');
-    const getProjects = async () => {
-        try {
-            const { data } = await axios(`http://localhost:2651/project/get/${id}`);
-            if (data){
-              setProjects(data.projects);
-              setOrganization(data.organizationName.name);
-            }
-        } catch (err) {
-            console.log(err);
-            throw new Error('Error getting proyects.');
-        }
+  const role = localStorage.getItem('role')
+  const token = localStorage.getItem('token');
+  const { id } = useParams();
+  const [projects, setProjects] = useState([])
+  const [organization, setOrganization] = useState('');
+  const config = {
+    headers: {
+      Authorization: `${token}`
     }
+  }
 
-    useEffect(() => getProjects, []);
-
-    const getOrganizationName = () => {
-        if (projects.length > 0) {
-          return organization || '';
+  const getProjects = async () => {
+    try {
+      if (id && id !== ':id') {
+        const { data } = await axios(`http://localhost:2651/project/get/${id}`);
+        if (data) {
+          setProjects(data.projects);
+          setOrganization(data.organizationName.name);
         }
-        return organization || '';
-    };
+      } else {
+        const { data } = await axios('http://localhost:2651/project/getByLoggedUser', config);
+        if (data) {
+          console.log(data.projects)
+          setProjects(data.projects);
+          setOrganization(data.organizationName);
+        }
+      }
+    } catch (err) {
+      console.log(err);
+      throw new Error('Error getting proyects.');
+    }
+  }
+
+  useEffect(() => getProjects, [id]);
+
+  const getOrganizationName = () => {
+    if (projects.length > 0) {
+      return organization || '';
+    }
+    return organization || '';
+  };
   return (
     <>
       <div className='container' style={{ marginTop: '6rem' }}>
@@ -40,27 +57,36 @@ export const ViewOrganizationProyectsPage = () => {
             </div>
           </div>
         </div>
+        <div className='d-flex justify-content-between'>
+          <h4 className='text-font'>Proyectos</h4>
+          {
+            role == 'ORGANIZATION ADMIN'?(
+            <Link to={`/start/proyects/add`} className='btn btn-primary rounded-0'>Agregar Proyectos</Link>  
+            ): <></>
+          }
+        </div>
+        <hr />
         <div className='row g-0'>
-        {
-          projects.length === 0 ? (
-            <>
-              <div className='container justify-content-center align-items-center' style={{borderColor: 'red', height: 300, display: 'flex'}}>
-                <p className='fw-bold'  style={{color: '#a6a6a6'}} > {getOrganizationName()} aún no tiene proyectos activos. </p>
-              </div>
-            </>
-          ) : 
-          projects.map(({name, description, organization}, index) =>{
-            const organizationName = organization ? organization.name : 'Sin organización';
-            return(
-              <ProyectCard key={index}
-                name={name}
-                description={description}
-                organization={organizationName}
-              ></ProyectCard>
-            )
-        })
-      }
-      </div>
+          {
+            projects.length === 0 ? (
+              <>
+                <div className='container justify-content-center align-items-center' style={{ borderColor: 'red', height: 300, display: 'flex' }}>
+                  <p className='fw-bold' style={{ color: '#a6a6a6' }} > {getOrganizationName()} aún no tiene proyectos activos. </p>
+                </div>
+              </>
+            ) :
+              projects.map(({ name, description, organization }, index) => {
+                const organizationName = organization ? organization.name : 'Sin organización';
+                return (
+                  <ProyectCard key={index}
+                    name={name}
+                    description={description}
+                    organization={organizationName}
+                  ></ProyectCard>
+                )
+              })
+          }
+        </div>
       </div>
     </>
   )

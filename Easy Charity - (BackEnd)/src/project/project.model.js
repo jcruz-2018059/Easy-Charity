@@ -25,12 +25,13 @@ const projectScheme = mongoose.Schema({
     },
     takings: {
         type: Number,
-        required: true
+        required: true,
+        default: 0
     },
     type:{
       type: String,
       required: true,
-      enum: ['charitable', 'volunteering']
+      enum: ['caridad', 'voluntariado', 'recaudación' ]
     },
     organization: {
         type: mongoose.Schema.Types.ObjectId , 

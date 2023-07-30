@@ -12,6 +12,8 @@ exports.test = (req, res)=>{
 exports.add = async(req, res)=>{
     try{
         let data = req.body;
+        let userId = req.user.sub;
+        let organization = await Organization.findOne({user: userId});
         let params = {
             name: data.name,
             description: data.description,
@@ -19,8 +21,9 @@ exports.add = async(req, res)=>{
             endDate: data.endDate,
             budget: data.budget,
             type: data.type,
-            organization: data.organization
+            organization: organization._id
         }
+        console
         let validate = validateData(params);
         if (validate) {
             return res.status(400).send({ validate });
@@ -38,11 +41,11 @@ exports.add = async(req, res)=>{
             return res.status(400).send({message: 'Debes colocar un presupuesto válido.'});
         }
         data.takings = 0;
-        let organization = await Organization.findOne({_id: data.organization});
-        if(!organization){
+        let organizations = await Organization.findOne({_id: organization._id});
+        if(!organizations){
             return res.status(404).send({message: 'Organization not found.'});
         }
-        let project = new Project(data);
+        let project = new Project(params);
         await project.save();
         return res.send({message: '¡Anuncio creado satisfactoriamente!', project});
     }catch(err){
@@ -156,5 +159,24 @@ exports.delete = async(req, res)=>{
     }catch(err){
         console.error(err);
         return res.status(500).send({message: 'Error deleting project.'});
+    }
+}
+
+exports.getByLoggedUser = async(req, res)=>{
+    try{
+        let userId = req.user.sub;
+        let organization = await Organization.findOne({user: userId});
+        let organizationName = organization.name;
+        if(!organization){
+            return res.status(400).send({message: 'Not found'});
+        }
+        let projects = await Project.find({organization: organization._id}).populate({path: 'organization', select: 'name description email phone location'});
+        if(!projects){
+            return res.status(400).send({message: 'Proyects Not found'});
+        }
+        return res.send({message: 'Proyects found', projects, organizationName})
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error deleting proyect'})
     }
 }

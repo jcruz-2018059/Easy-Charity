@@ -12,11 +12,6 @@ export const OrganizationCard = ({name, description, id}) => {
                 </div>
                 <div className="d-grid">
                     {
-                        role === 'ORGANIZATION ADMIN' ? (
-                            <button type="button" className="btn btn-danger mx-3 my-2 rounded-0">Eliminar</button>
-                        ) : null
-                    }
-                    {
                         role === 'ADMIN' ? (
                             <Link to={`../proyects/${id}`} className="btn btn-success mx-3 my-2 rounded-0">
                                 <button type="button" className="btn btn-success">Ver Proyectos</button>

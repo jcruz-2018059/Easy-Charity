@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const ProyectCard = ({name, description, organization}) => {
     return (
@@ -12,7 +13,7 @@ export const ProyectCard = ({name, description, organization}) => {
                     
                 </div>
                 <div className="d-grid">
-                    <button type="button" className="btn btn-primary mx-3 mb-3 rounded-0">Ver más</button>
+                    <Link to={'/start/proyects/detailproyect'} type="button" className="btn btn-primary mx-3 mb-3 rounded-0">Ver más</Link>
                 </div>
             </div>
         </>
