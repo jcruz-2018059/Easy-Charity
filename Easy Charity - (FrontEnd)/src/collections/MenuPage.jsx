@@ -52,7 +52,7 @@ export const MenuPage = () => {
                             {
                                 role == 'ORGANIZATION ADMIN' ? (
                                     <li>
-                                        <Link to='account' className={`nav-link link-body-emphasis ${activeItem === 'Mi organización' ? 'active' : ''}`} onClick={() => handleClick('Mi organización')} style={{ backgroundColor: activeItem === 'Mi organización' ? '#B82727' : 'inherit' }}>
+                                        <Link to='organization/detail' className={`nav-link link-body-emphasis ${activeItem === 'Mi organización' ? 'active' : ''}`} onClick={() => handleClick('Mi organización')} style={{ backgroundColor: activeItem === 'Mi organización' ? '#B82727' : 'inherit' }}>
                                             <i className={`bi bi-house-heart-fill custom-icon me-3 ${activeItem === 'Mi organización' ? 'active-icon' : ''}`} width="16" height="16"><use xlinkHref="#people-circle"></use></i>
                                             <span className="nav-link-text">Mi organización</span>
                                         </Link>
@@ -62,7 +62,7 @@ export const MenuPage = () => {
                             {
                                 role == 'ORGANIZATION ADMIN' ? (
                                     <li>
-                                        <Link to='account' className={`nav-link link-body-emphasis ${activeItem === 'Mis proyectos' ? 'active' : ''}`} onClick={() => handleClick('Mis proyectos')} style={{ backgroundColor: activeItem === 'Mis proyectos' ? '#B82727' : 'inherit' }}>
+                                        <Link to='proyects/:id' className={`nav-link link-body-emphasis ${activeItem === 'Mis proyectos' ? 'active' : ''}`} onClick={() => handleClick('Mis proyectos')} style={{ backgroundColor: activeItem === 'Mis proyectos' ? '#B82727' : 'inherit' }}>
                                             <i className={`bi bi-box2-heart-fill custom-icon me-3 ${activeItem === 'Mis proyectos' ? 'active-icon' : ''}`} width="16" height="16"><use xlinkHref="#people-circle"></use></i>
                                             <span className="nav-link-text">Mis Proyectos</span>
                                         </Link>

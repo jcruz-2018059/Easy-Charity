@@ -17,5 +17,6 @@ api.get('/getByType/:type', [ensureAuth, isClient], projectController.getByType)
 api.post('/add', [ensureAuth, isOrganizationAdmin], projectController.add);
 api.put('/update/:id', [ensureAuth, isOrganizationAdmin], projectController.update);
 api.delete('/delete/:id', [ensureAuth, isOrganizationAdmin], projectController.delete);
+api.get('/getByLoggedUser', ensureAuth, projectController.getByLoggedUser)
 
 module.exports = api;

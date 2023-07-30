@@ -5,7 +5,7 @@ import axios from 'axios'
 
 export const ViewOrganizationPage = () => {
   const role = localStorage.getItem('role')
-  const [organizations, setOrganizations] = useState([{}])
+  const [organizations, setOrganizations] = useState([])
     const getOrganizations = async () => {
         try {
             const { data } = await axios('http://localhost:2651/co/getCoLogut');

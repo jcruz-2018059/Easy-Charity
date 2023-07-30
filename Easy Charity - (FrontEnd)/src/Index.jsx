@@ -20,6 +20,10 @@ import { AddUserPage } from './pages/UserPages/AddUserPage';
 import { UpdateUserPage } from './pages/UserPages/UpdateUserPage';
 import { AddOrganizationPage } from './pages/OrganizationPage/AddOrganizationPage';
 import { ViewOrganizationProyectsPage } from './pages/ProyectPage/ViewOrganizationProyects';
+import { DetailProyectPage } from './pages/ProyectPage/DetailProyectPage';
+import { DetailOrganization } from './pages/OrganizationPage/DetailOrganization';
+import { AddProyectPage } from './pages/ProyectPage/AddProyectPage';
+import { UpdateOrganization } from './pages/OrganizationPage/UpdateOrganization';
 
 
 
@@ -115,6 +119,15 @@ export const Index = () => {
                                         {
                                             path: 'add',
                                             element: <AddOrganizationPage></AddOrganizationPage>
+                                        },
+                                        {
+                                            path: 'detail',
+                                            
+                                            element:<DetailOrganization></DetailOrganization>
+                                        },
+                                        {
+                                            path: 'update/:id',
+                                            element: <UpdateOrganization></UpdateOrganization>
                                         }
                                     ]
                                 },
@@ -129,6 +142,14 @@ export const Index = () => {
                                         {
                                             path: ':id',
                                             element: <ViewOrganizationProyectsPage></ViewOrganizationProyectsPage>
+                                        },
+                                        {
+                                            path: 'detailproyect',
+                                            element: <DetailProyectPage></DetailProyectPage>
+                                        },
+                                        {
+                                            path: 'add',
+                                            element:<AddProyectPage></AddProyectPage>
                                         }
                                     ]
                                 },

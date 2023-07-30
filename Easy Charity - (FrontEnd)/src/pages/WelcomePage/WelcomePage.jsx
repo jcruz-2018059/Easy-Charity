@@ -89,11 +89,6 @@ export const WelcomePage = () => {
                             </div>
                         ) : null
                     }
-                    {
-                        role != 'ADMIN' ? (
-                            <OrganizationCard></OrganizationCard>
-                        ) : null
-                    }
                 </div>
             </div>
         </>
