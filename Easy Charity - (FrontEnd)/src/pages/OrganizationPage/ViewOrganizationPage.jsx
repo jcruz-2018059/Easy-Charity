@@ -42,8 +42,7 @@ export const ViewOrganizationPage = () => {
           }
         </div>
         <hr />
-        <div>
-        </div>
+        <div className='row g-0'>
           {
             organizations.length === 0 ? (
               <>
@@ -63,6 +62,7 @@ export const ViewOrganizationPage = () => {
               })
             )
           }
+          </div>
       </div>
     </>
 

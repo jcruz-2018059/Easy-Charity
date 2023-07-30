@@ -71,6 +71,16 @@ exports.get = async(req, res)=>{
     }
 }
 
+exports.getUsers = async(req, res)=>{
+    try{
+        let users = await User.find({role: 'CLIENT'}).select('name surname');
+        return res.send({message: 'Users found: ', users});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error getting users.'});
+    }
+}
+
 exports.getUser = async(req, res)=>{
     try{
         let userId = req.params.id;
