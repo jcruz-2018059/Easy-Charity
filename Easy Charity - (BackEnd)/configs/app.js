@@ -31,7 +31,7 @@ app.use(morgan('dev'));
 
 //Rutas de cada colección 
 //rutas de colección de bill
-app.use('/bil',billRoutes);
+app.use('/bill',billRoutes);
 //rutas de colección de charityDonation
 app.use('/co',coRoutes);
 app.use('/donation', donationRoutes);
