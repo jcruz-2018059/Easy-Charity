@@ -51,11 +51,12 @@ export const ViewOrganizationPage = () => {
               </div>
               </>
             ) : (
-              organizations.map(({name, description}, i) =>{
+              organizations.map(({name, description, _id}, i) =>{
                 return(
                   <OrganizationCard
                     name={name}
                     description={description}
+                    id={_id}
                     key={i}
                   ></OrganizationCard>
                 )

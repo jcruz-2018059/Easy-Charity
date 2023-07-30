@@ -1,4 +1,6 @@
-export const OrganizationCard = ({name, description}) => {
+import { Link } from "react-router-dom"
+
+export const OrganizationCard = ({name, description, id}) => {
     const role = localStorage.getItem('role')
     return (
         <>
@@ -10,13 +12,15 @@ export const OrganizationCard = ({name, description}) => {
                 </div>
                 <div className="d-grid">
                     {
-                        role === 'ADMIN' ? (
+                        role === 'ORGANIZATION ADMIN' ? (
                             <button type="button" className="btn btn-danger mx-3 my-2 rounded-0">Eliminar</button>
                         ) : null
                     }
                     {
-                        role != 'ADMIN' ? (
-                            <button type="button" className="btn btn-danger mx-3 my-2 rounded-0">Ver Proyectos</button>
+                        role === 'ADMIN' ? (
+                            <Link to={`../proyects/${id}`} className="btn btn-success mx-3 my-2 rounded-0">
+                                <button type="button" className="btn btn-success">Ver Proyectos</button>
+                            </Link>
                         ) : null
                     }
                     <button type="button" className="btn btn-primary mx-3 mb-3 rounded-0">Ver más</button>
