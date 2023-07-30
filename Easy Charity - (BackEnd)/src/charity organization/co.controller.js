@@ -46,8 +46,8 @@ exports.getOrganitation = async(req,res)=>{
 exports.getOrganitationAdmin = async(req,res)=>{
     try{
         let user = req.user.sub;
-        let organitation = await CharityOrganization.find({user}).populate('user');
-        return res.send({organitation});
+        let organization = await CharityOrganization.findOne({user}).populate('user');
+        return res.send({message: 'found', organization});
     }catch(err){
         console.error(err);
         return res.status(500).send({message: 'Error al traer las organizaciones', error: err.message});
