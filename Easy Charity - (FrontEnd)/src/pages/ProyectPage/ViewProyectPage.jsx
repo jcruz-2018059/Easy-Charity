@@ -3,20 +3,20 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export const ViewProyectPage = () => {
-    const [projects, setProjects] = useState([{}])
-    const getProjects = async () => {
-        try {
-            const { data } = await axios('http://localhost:2651/project/get');
-            if (data){
-              setProjects(data.projects);
-            }
-        } catch (err) {
-            console.log(err);
-            throw new Error('Error getting Users');
-        }
+  const [projects, setProjects] = useState([{}])
+  const getProjects = async () => {
+    try {
+      const { data } = await axios('http://localhost:2651/project/get');
+      if (data) {
+        setProjects(data.projects);
+      }
+    } catch (err) {
+      console.log(err);
+      throw new Error('Error getting Users');
     }
+  }
 
-    useEffect(() => getProjects, []);
+  useEffect(() => getProjects, []);
   return (
     <>
       <div className='container' style={{ marginTop: '6rem' }}>
@@ -35,26 +35,27 @@ export const ViewProyectPage = () => {
         <div>
         </div>
         <div className='row g-0'>
-        {
-          projects.length === 0 ? (
-            <>
-              <div className='container justify-content-center align-items-center' style={{borderColor: 'red', height: 300, display: 'flex'}}>
-                <p className='fw-bold'  style={{color: '#a6a6a6'}} >Aún no hay proyectos disponibles.</p>
-              </div>
-            </>
-          ) : 
-          projects.map(({name, description, organization}, index) =>{
-            const organizationName = organization ? organization.name : 'Sin organización';
-            return(
-              <ProyectCard key={index}
-                name={name}
-                description={description}
-                organization={organizationName}
-              ></ProyectCard>
-            )
-        })
-      }
-      </div>
+          {
+            projects.length === 0 ? (
+              <>
+                <div className='container justify-content-center align-items-center' style={{ borderColor: 'red', height: 300, display: 'flex' }}>
+                  <p className='fw-bold' style={{ color: '#a6a6a6' }} >Aún no hay proyectos disponibles.</p>
+                </div>
+              </>
+            ) :
+              projects.map(({ _id, name, description, organization }, index) => {
+                const organizationName = organization ? organization.name : 'Sin organización';
+                return (
+                  <ProyectCard key={index}
+                    id={_id}
+                    name={name}
+                    description={description}
+                    organization={organizationName}
+                  ></ProyectCard>
+                )
+              })
+          }
+        </div>
       </div>
     </>
   )

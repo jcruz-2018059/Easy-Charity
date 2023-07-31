@@ -72,7 +72,7 @@ export const MenuPage = () => {
                             {
                                 role == 'CLIENT' ? (
                                     <li>
-                                        <Link to='account' className={`nav-link link-body-emphasis ${activeItem === 'Donaciones' ? 'active' : ''}`} onClick={() => handleClick('Donaciones')} style={{ backgroundColor: activeItem === 'Donaciones' ? '#B82727' : 'inherit' }}>
+                                        <Link to='donations' className={`nav-link link-body-emphasis ${activeItem === 'Donaciones' ? 'active' : ''}`} onClick={() => handleClick('Donaciones')} style={{ backgroundColor: activeItem === 'Donaciones' ? '#B82727' : 'inherit' }}>
                                             <i className={`bi bi-bag-heart-fill custom-icon me-3 ${activeItem === 'Donaciones' ? 'active-icon' : ''}`} width="16" height="16"><use xlinkHref="#people-circle"></use></i>
                                             <span className="nav-link-text">Donaciones</span>
                                         </Link>

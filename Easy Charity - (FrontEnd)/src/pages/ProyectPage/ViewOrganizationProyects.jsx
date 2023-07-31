@@ -60,9 +60,9 @@ export const ViewOrganizationProyectsPage = () => {
         <div className='d-flex justify-content-between'>
           <h4 className='text-font'>Proyectos</h4>
           {
-            role == 'ORGANIZATION ADMIN'?(
-            <Link to={`/start/proyects/add`} className='btn btn-primary rounded-0'>Agregar Proyectos</Link>  
-            ): <></>
+            role == 'ORGANIZATION ADMIN' ? (
+              <Link to={`/start/proyects/add`} className='btn btn-primary rounded-0'>Agregar Proyectos</Link>
+            ) : <></>
           }
         </div>
         <hr />
@@ -75,10 +75,11 @@ export const ViewOrganizationProyectsPage = () => {
                 </div>
               </>
             ) :
-              projects.map(({ name, description, organization }, index) => {
+              projects.map(({ _id, name, description, organization }, index) => {
                 const organizationName = organization ? organization.name : 'Sin organización';
                 return (
                   <ProyectCard key={index}
+                    id={_id}
                     name={name}
                     description={description}
                     organization={organizationName}

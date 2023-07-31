@@ -24,6 +24,10 @@ import { DetailProyectPage } from './pages/ProyectPage/DetailProyectPage';
 import { DetailOrganization } from './pages/OrganizationPage/DetailOrganization';
 import { AddProyectPage } from './pages/ProyectPage/AddProyectPage';
 import { UpdateOrganization } from './pages/OrganizationPage/UpdateOrganization';
+import { Donations } from './pages/DonationPage/Donations';
+import { DonatePage } from './pages/DonationPage/DonatePage';
+import { Donate } from './pages/DonationPage/Donate';
+import { UpdateProyectPage } from './pages/ProyectPage/UpdateProyectPage';
 
 
 
@@ -144,15 +148,29 @@ export const Index = () => {
                                             element: <ViewOrganizationProyectsPage></ViewOrganizationProyectsPage>
                                         },
                                         {
-                                            path: 'detailproyect',
+                                            path: 'detailproyect/:id',
                                             element: <DetailProyectPage></DetailProyectPage>
                                         },
                                         {
                                             path: 'add',
                                             element:<AddProyectPage></AddProyectPage>
+                                        },
+                                        {
+                                            path: 'update/:id',
+                                            element:<UpdateProyectPage></UpdateProyectPage>
                                         }
                                     ]
                                 },
+                                {
+                                    path:'donations',
+                                    element: <DonatePage></DonatePage>,
+                                    children: [
+                                        {
+                                            path: '',
+                                            element: <Donations></Donations>
+                                        }
+                                    ]
+                                }
 
                                 
                                 

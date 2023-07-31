@@ -3,10 +3,11 @@ import React from "react"
 export const Donations =()=>{
     return(
         <>
+        <div className="container" style={{paddingTop:'6rem'}}>
         <h3 style={{textAlign: 'right'}}>Total Donado Q 670.00</h3>
         <h2 style={{textAlign: 'left'}}>Donaciones</h2>
 
-        <div style={{backgroundColor: 'red', textAlign: 'left', height: 10, width: 350, borderRadius: 50}}></div>
+        <div style={{backgroundColor: '#B82727', textAlign: 'left', height: 10, width: 350, borderRadius: 50}}></div>
         <br />
                 <table className="table">
                     <thead className="">
@@ -33,6 +34,7 @@ export const Donations =()=>{
                             </tr>
                         </tbody>
                 </table>
+                </div>
         </>
     )
 }

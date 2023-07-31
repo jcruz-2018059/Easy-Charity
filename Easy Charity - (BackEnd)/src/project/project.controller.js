@@ -180,3 +180,18 @@ exports.getByLoggedUser = async(req, res)=>{
         return res.status(500).send({message: 'Error deleting proyect'})
     }
 }
+
+exports.getProjectById = async (req, res) => {
+    try {
+      const projectId = req.params.id;
+      const project = await Project.findById(projectId)
+      const organization = await Organization.findById(project.organization)
+      if (!project) {
+        return res.status(404).send({ message: 'Proyecto no encontrado.' });
+      }
+      return res.send({ message: 'Proyecto encontrado:', project, organization });
+    } catch (err) {
+      console.error(err);
+      return res.status(500).send({ message: 'Error obteniendo el proyecto.' });
+    }
+  }

@@ -11,7 +11,7 @@ export const UpdateProyectPage = () => {
                         <div className="col-xl-6 col-lg-7 col-md-9">
                             <div className="card border border-white">
                                 <div className="text-center mb-3 pt-5">
-                                    <h1 className=" card-title text-danger">Agregar Proyecto</h1>
+                                    <h1 className=" card-title text-danger">Editar Proyecto</h1>
                                 </div>
                                 <div className="card-body p-4 p-md-5" style={{ marginTop: -60 }}>
                                     <div className="card-body">
@@ -50,7 +50,7 @@ export const UpdateProyectPage = () => {
                                             </div>
                                             <div className="col-12 pt-2 pt-sm-3">
                                                 <Link>
-                                                    <button onClick={(e) => { addProject(), e.preventDefault() }} type="submit" className="btn btn-danger w-100 w-sm-auto">Guardar</button>
+                                                    <button type="submit" className="btn btn-danger w-100 w-sm-auto">Guardar</button>
                                                 </Link>
                                             </div>
                                         </form>
