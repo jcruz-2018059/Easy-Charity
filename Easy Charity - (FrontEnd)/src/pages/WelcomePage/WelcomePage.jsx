@@ -79,7 +79,7 @@ export const WelcomePage = () => {
                                             <p className="card-text">Añade nuevos usuarios, edita sus parámetros si lo consideras necesario y elimina a los que también consideres necesario.</p>
                                             <div className="d-grid gap-2">
                                                 <Link to='users' className='btn btn-primary'>
-                                                    <button className='btn btn-primary'>Gestionar Usuarios</button>
+                                                    <button className='btn btn-primary'>Usuarios</button>
                                                 </Link>
                                             </div>
                                         </div>
@@ -92,7 +92,7 @@ export const WelcomePage = () => {
                                             <p className="card-text">Ve y añade nuevas organizaciones al sistema, entérate de los proyectos que tiene cada una y editalas si lo consideras necesario.</p>
                                             <div className="d-grid gap-2">
                                                 <Link to='organization' className='btn btn-primary'>
-                                                    <button className='btn btn-primary'>Gestionar Organizaciones</button>
+                                                    <button className='btn btn-primary'>Organizaciones</button>
                                                 </Link>
                                             </div>
                                         </div>
@@ -105,7 +105,7 @@ export const WelcomePage = () => {
                                             <p className="card-text">Entérate de los proyectos disponibles de cada organización caritativa y postúlate a ser voluntario en uno de ellos.</p>
                                             <div className="d-grid gap-2">
                                                 <Link to='proyects' className='btn btn-primary'>
-                                                    <button className='btn btn-primary'>Ver Proyectos</button>
+                                                    <button className='btn btn-primary'>Proyectos</button>
                                                 </Link>
                                             </div>
                                         </div>
