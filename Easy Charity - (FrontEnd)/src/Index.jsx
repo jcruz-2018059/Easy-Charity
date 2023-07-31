@@ -26,8 +26,10 @@ import { AddProyectPage } from './pages/ProyectPage/AddProyectPage';
 import { UpdateOrganization } from './pages/OrganizationPage/UpdateOrganization';
 import { Donations } from './pages/DonationPage/Donations';
 import { DonatePage } from './pages/DonationPage/DonatePage';
-import { Donate } from './pages/DonationPage/Donate';
 import { UpdateProyectPage } from './pages/ProyectPage/UpdateProyectPage';
+import { MethodPayment } from './pages/DonationPage/MethodPayment';
+import { VolunteringPage } from './pages/VolunteringPage/VolunteringPage';
+import { ViewVolunteringPage } from './pages/VolunteringPage/ViewVolunteringPage';
 
 
 
@@ -130,7 +132,7 @@ export const Index = () => {
                                             element:<DetailOrganization></DetailOrganization>
                                         },
                                         {
-                                            path: ':id',
+                                            path: 'detail/:id',
                                             
                                             element:<DetailOrganization></DetailOrganization>
                                         },
@@ -173,13 +175,24 @@ export const Index = () => {
                                         {
                                             path: '',
                                             element: <Donations></Donations>
+                                        },
+                                        {
+                                            path: 'paymethod/:id',
+                                            element: <MethodPayment></MethodPayment>
+                                        }
+                                        
+                                    ]
+                                },
+                                {
+                                    path:'voluntering',                         
+                                    element: <VolunteringPage></VolunteringPage>,
+                                    children:[
+                                        {
+                                            path: '',
+                                            element: <ViewVolunteringPage></ViewVolunteringPage>
                                         }
                                     ]
                                 }
-
-                                
-                                
-                                
                             ]
                         }
                     ]

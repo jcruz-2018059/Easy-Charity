@@ -55,7 +55,7 @@ export const DetailProyectPage = () => {
                                 <p className="card-text fs-sm">Gracias por tu apoyo.</p>
                                 {
                                     role === 'CLIENT' ? (
-                                        <Link className="btn btn-danger shadow-primary btn-lg"> <i className='bi bi-box2-heart-fill'> <span style={{ fontStyle: 'normal' }}> Donar </span></i></Link>
+                                        <Link to={`/start/donations/paymethod/${id}`} className="btn btn-danger shadow-primary btn-lg"> <i className='bi bi-box2-heart-fill'> <span style={{ fontStyle: 'normal' }}> Donar </span></i></Link>
                                     ) : <></>
                                 }
                             </div>

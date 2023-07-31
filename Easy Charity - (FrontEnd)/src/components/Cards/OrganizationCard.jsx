@@ -12,13 +12,13 @@ export const OrganizationCard = ({name, description, id}) => {
                 </div>
                 <div className="d-grid">
                     {
-                        role === 'ADMIN' ? (
+                        role === 'ADMIN' || 'CLIENT' ? (
                             <Link to={`../proyects/${id}`} className="btn btn-success mx-3 my-2 rounded-0">
                                 <button type="button" className="btn btn-success">Ver Proyectos</button>
                             </Link>
                         ) : null
                     }
-                    <Link to={`${id}`} className="btn btn-primary mx-3 mb-3 rounded-0">
+                    <Link to={`detail/${id}`} className="btn btn-primary mx-3 mb-3 rounded-0">
                         <button type="button" className="btn btn-primary ">Ver más</button>
                     </Link>
                 </div>

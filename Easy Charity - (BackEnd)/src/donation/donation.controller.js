@@ -75,7 +75,7 @@ exports.getByUser = async(req, res)=>{
     try{
         let user = req.user.sub;
         let donations = await Donation.find({user: user})
-            .select('amount date paymentMethod project')
+            .select('amount date description paymentMethod project')
             .populate({path: 'project', select: 'name description startDate endDate type organization', populate:{path: 'organization', select: 'name'}});
         if(!donations){
             return res.status(404).send({message: 'Donations not found.'});

@@ -72,7 +72,7 @@ export const MenuPage = () => {
                             {
                                 role == 'CLIENT' ? (
                                     <li>
-                                        <Link to='account' className={`nav-link link-body-emphasis ${activeItem === 'Donaciones' ? 'active' : ''}`} onClick={() => handleClick('Donaciones')} style={{ backgroundColor: activeItem === 'Donaciones' ? '#B82727' : 'inherit' }}>
+                                        <Link to='donations' className={`nav-link link-body-emphasis ${activeItem === 'Donaciones' ? 'active' : ''}`} onClick={() => handleClick('Donaciones')} style={{ backgroundColor: activeItem === 'Donaciones' ? '#B82727' : 'inherit' }}>
                                             <i className={`bi bi-bag-heart-fill custom-icon me-3 ${activeItem === 'Donaciones' ? 'active-icon' : ''}`} width="16" height="16"></i>
                                             <span className="nav-link-text">Donaciones</span>
                                         </Link>
@@ -82,7 +82,7 @@ export const MenuPage = () => {
                             {
                                 role == 'CLIENT' ? (
                                     <li>
-                                        <Link to='account' className={`nav-link link-body-emphasis ${activeItem === 'Voluntariado' ? 'active' : ''}`} onClick={() => handleClick('Voluntariado')} style={{ backgroundColor: activeItem === 'Voluntariado' ? '#B82727' : 'inherit' }}>
+                                        <Link to='voluntering' className={`nav-link link-body-emphasis ${activeItem === 'Voluntariado' ? 'active' : ''}`} onClick={() => handleClick('Voluntariado')} style={{ backgroundColor: activeItem === 'Voluntariado' ? '#B82727' : 'inherit' }}>
                                             <i className={`bi bi-person-heart custom-icon me-3 ${activeItem === 'Voluntariado' ? 'active-icon' : ''}`} width="16" height="16"></i>
                                             <span className="nav-link-text">Voluntariado</span>
                                         </Link>
