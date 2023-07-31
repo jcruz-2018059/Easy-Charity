@@ -16,7 +16,7 @@ export const MenuPage = () => {
                 <div className='d-flex'>
                     <div className="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style={{ width: '280px', height: '100vh' }}>
                         <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                            <svg className="bi pe-none me-2" width="40" height="32"><use xlinkHref="#bootstrap"></use></svg>
+                            <svg className="bi pe-none me-2" width="40" height="32"></svg>
                             <span className="fs-4">Sidebar</span>
                         </a>
                         <hr />
@@ -31,7 +31,7 @@ export const MenuPage = () => {
                                 role == 'ADMIN' ? (
                                     <li>
                                         <Link to='users' className={`nav-link link-body-emphasis ${activeItem === 'Usuarios' ? 'active' : ''}`} onClick={() => handleClick('Usuarios')} style={{ backgroundColor: activeItem === 'Usuarios' ? '#B82727' : 'inherit' }}>
-                                            <i className={`bi bi-people-fill custom-icon me-3 ${activeItem === 'Usuarios' ? 'active-icon' : ''}`} width="16" height="16"><use xlinkHref="#speedometer2"></use></i>
+                                            <i className={`bi bi-people-fill custom-icon me-3 ${activeItem === 'Usuarios' ? 'active-icon' : ''}`} width="16" height="16"></i>
                                             <span className="nav-link-text">Usuarios</span>
                                         </Link>
                                     </li>
@@ -53,7 +53,7 @@ export const MenuPage = () => {
                                 role == 'ORGANIZATION ADMIN' ? (
                                     <li>
                                         <Link to='organization/detail' className={`nav-link link-body-emphasis ${activeItem === 'Mi organización' ? 'active' : ''}`} onClick={() => handleClick('Mi organización')} style={{ backgroundColor: activeItem === 'Mi organización' ? '#B82727' : 'inherit' }}>
-                                            <i className={`bi bi-house-heart-fill custom-icon me-3 ${activeItem === 'Mi organización' ? 'active-icon' : ''}`} width="16" height="16"><use xlinkHref="#people-circle"></use></i>
+                                            <i className={`bi bi-house-heart-fill custom-icon me-3 ${activeItem === 'Mi organización' ? 'active-icon' : ''}`} width="16" height="16"></i>
                                             <span className="nav-link-text">Mi organización</span>
                                         </Link>
                                     </li>
@@ -63,7 +63,7 @@ export const MenuPage = () => {
                                 role == 'ORGANIZATION ADMIN' ? (
                                     <li>
                                         <Link to='proyects/:id' className={`nav-link link-body-emphasis ${activeItem === 'Mis proyectos' ? 'active' : ''}`} onClick={() => handleClick('Mis proyectos')} style={{ backgroundColor: activeItem === 'Mis proyectos' ? '#B82727' : 'inherit' }}>
-                                            <i className={`bi bi-box2-heart-fill custom-icon me-3 ${activeItem === 'Mis proyectos' ? 'active-icon' : ''}`} width="16" height="16"><use xlinkHref="#people-circle"></use></i>
+                                            <i className={`bi bi-box2-heart-fill custom-icon me-3 ${activeItem === 'Mis proyectos' ? 'active-icon' : ''}`} width="16" height="16"></i>
                                             <span className="nav-link-text">Mis Proyectos</span>
                                         </Link>
                                     </li>
@@ -72,8 +72,8 @@ export const MenuPage = () => {
                             {
                                 role == 'CLIENT' ? (
                                     <li>
-                                        <Link to='donations' className={`nav-link link-body-emphasis ${activeItem === 'Donaciones' ? 'active' : ''}`} onClick={() => handleClick('Donaciones')} style={{ backgroundColor: activeItem === 'Donaciones' ? '#B82727' : 'inherit' }}>
-                                            <i className={`bi bi-bag-heart-fill custom-icon me-3 ${activeItem === 'Donaciones' ? 'active-icon' : ''}`} width="16" height="16"><use xlinkHref="#people-circle"></use></i>
+                                        <Link to='account' className={`nav-link link-body-emphasis ${activeItem === 'Donaciones' ? 'active' : ''}`} onClick={() => handleClick('Donaciones')} style={{ backgroundColor: activeItem === 'Donaciones' ? '#B82727' : 'inherit' }}>
+                                            <i className={`bi bi-bag-heart-fill custom-icon me-3 ${activeItem === 'Donaciones' ? 'active-icon' : ''}`} width="16" height="16"></i>
                                             <span className="nav-link-text">Donaciones</span>
                                         </Link>
                                     </li>
@@ -83,7 +83,7 @@ export const MenuPage = () => {
                                 role == 'CLIENT' ? (
                                     <li>
                                         <Link to='account' className={`nav-link link-body-emphasis ${activeItem === 'Voluntariado' ? 'active' : ''}`} onClick={() => handleClick('Voluntariado')} style={{ backgroundColor: activeItem === 'Voluntariado' ? '#B82727' : 'inherit' }}>
-                                            <i className={`bi bi-person-heart custom-icon me-3 ${activeItem === 'Voluntariado' ? 'active-icon' : ''}`} width="16" height="16"><use xlinkHref="#people-circle"></use></i>
+                                            <i className={`bi bi-person-heart custom-icon me-3 ${activeItem === 'Voluntariado' ? 'active-icon' : ''}`} width="16" height="16"></i>
                                             <span className="nav-link-text">Voluntariado</span>
                                         </Link>
                                     </li>

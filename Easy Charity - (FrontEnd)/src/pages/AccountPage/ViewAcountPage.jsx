@@ -1,4 +1,3 @@
-import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Swal from 'sweetalert2';

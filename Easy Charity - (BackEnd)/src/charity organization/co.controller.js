@@ -53,6 +53,16 @@ exports.getOrganitationAdmin = async(req,res)=>{
         return res.status(500).send({message: 'Error al traer las organizaciones', error: err.message});
     }
 }
+exports.getOrganitationById = async(req,res)=>{
+    try{
+        let organitation = req.params.id;
+        let organization = await CharityOrganization.findOne({_id: organitation});
+        return res.send({message: 'found', organization});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error al traer laa organización.', error: err.message});
+    }
+}
 
 exports.deleteOrganization = async(req,res)=>{
     try{
@@ -62,6 +72,11 @@ exports.deleteOrganization = async(req,res)=>{
         if(user != organization.user) return res.send({message: 'No puedes Eliminar la organizacion de otra Administrador de Organizacion'});
         let deleteOrganization = await CharityOrganization.findOneAndRemove({_id: organization._id});
         if(!deleteOrganization) return res.status(404).send({message: 'Organizacion no encontrada, no se pudo eliminar'});
+        await User.findOneAndUpdate(
+            {_id: user},
+            {role: 'CLIENT'},
+            {new: true}
+            );
         return res.send({message: 'Organizacion eliminada', deleteOrganization});
     }catch(err){
         console.error(err);
@@ -74,19 +89,19 @@ exports.updateOrganization = async(req,res) =>{
         let data = req.body;
         let organizationID = req.params.id;
         let user = req.user.sub;
-        if(data.user) return res.send({message: 'No puedes actualizar el parametro de Usuairo'});
-
+        if(data.user) return res.send({message: 'No puedes actualizar el parametro de Usuario'});
 
         let organization = await CharityOrganization.findOne({_id: organizationID});
 
-        if(user != organization) return res.send({message: 'No puedes editar la organizacion de otro Administrador de Organizacion'});
+        if(user !== Object(organization.user).valueOf()) return res.status(400).send({message: 'No puedes editar la organizacion de otro Administrador de Organizacion'});
 
         let updateOrganization = await CharityOrganization.findOneAndUpdate(
             {_id: organization._id},
             data,
             {new: true}
-        )
+        );
         if(!updateOrganization) return res.status(404).send({message: 'Organizacion no encontrada, no se pudo actualizar la Organizacion'});
+        return res.send({message: '¡Organización actualizada correctamente!', updateOrganization});
     }catch(err){
         console.error(err);
         return res.status(500).send({message: 'Error al Actualizar la Organizacion', error: err.message});

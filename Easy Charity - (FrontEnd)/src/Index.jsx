@@ -130,6 +130,11 @@ export const Index = () => {
                                             element:<DetailOrganization></DetailOrganization>
                                         },
                                         {
+                                            path: ':id',
+                                            
+                                            element:<DetailOrganization></DetailOrganization>
+                                        },
+                                        {
                                             path: 'update/:id',
                                             element: <UpdateOrganization></UpdateOrganization>
                                         }

@@ -18,7 +18,9 @@ export const OrganizationCard = ({name, description, id}) => {
                             </Link>
                         ) : null
                     }
-                    <button type="button" className="btn btn-primary mx-3 mb-3 rounded-0">Ver más</button>
+                    <Link to={`${id}`} className="btn btn-primary mx-3 mb-3 rounded-0">
+                        <button type="button" className="btn btn-primary ">Ver más</button>
+                    </Link>
                 </div>
             </div>
         </>

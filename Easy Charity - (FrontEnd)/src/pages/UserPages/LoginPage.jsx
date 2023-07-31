@@ -1,4 +1,3 @@
-import React from 'react'
 import './Login.css'
 import Swal from 'sweetalert2';
 import { Link } from "react-router-dom";
@@ -20,7 +19,6 @@ export const LoginPage = () => {
             ...form,
             [e.target.name]: e.target.value,
         });
-        console.log(form);
     };
 
     const login = async (e) => {
@@ -28,7 +26,6 @@ export const LoginPage = () => {
             e.preventDefault();
             const { data } = await axios.post("http://localhost:2651/user/login", form);
             if (data.token) {
-                console.log(data.token)
                 setLoggedIn(true);
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("role", data.userLogged.role);
