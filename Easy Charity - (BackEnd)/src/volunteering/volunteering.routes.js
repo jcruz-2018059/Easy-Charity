@@ -13,6 +13,7 @@ api.delete('/deleteVol/:id',[ensureAuth,isClient],volunteeringController.deleteV
 api.put('/updateVol/:id',[ensureAuth, isClient],volunteeringController.updateVolunteering)
 api.get('/getByLoggedUser', ensureAuth, volunteeringController.getVolunteeringByLoggedUser)
 api.get('/getById/:id', ensureAuth, volunteeringController.getVolunterById)
+api.get('/getVoluntersByProyect/:id', ensureAuth, volunteeringController.getVoluntersByProyect)
 
 
 

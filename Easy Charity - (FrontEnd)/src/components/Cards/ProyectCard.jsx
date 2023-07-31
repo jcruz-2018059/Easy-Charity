@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+
 export const ProyectCard = ({ id, name, description, organization, permission, onCliick }) => {
   const role = localStorage.getItem('role');
   const isOrganizationAdmin = role === 'ORGANIZATION ADMIN';
@@ -19,7 +21,8 @@ export const ProyectCard = ({ id, name, description, organization, permission, o
           {isOrganizationAdmin && permission === true ? (
             <>
               <Link to={`/start/proyects/update/${id}`} type="button" className="btn btn-warning primary mx-3 mb-3 rounded-0">Editar</Link>
-              <button onClick={onCliick} type="button" className="btn btn-danger primary mx-3 mb-3 rounded-0">Eliminar</button>
+              <button onClick={onCliick} type="button" className="btn btn-danger primary mx-3 mb-3 rounded-0">Eliminar</button>   
+              <Link to={`/start/proyects/volunterbyproject/${id}`} type="button" className="btn btn-success primary mx-3 mb-3 rounded-0">Ver voluntarios</Link>  
             </>
           ) : null}
         </div>

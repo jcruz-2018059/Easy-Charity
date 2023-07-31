@@ -76,6 +76,18 @@ exports.getVolunterById = async(req,res)=>{
     }
 }
 
+exports.getVoluntersByProyect= async(req,res)=>{
+    try{
+        let id = req.params.id;
+        let volunteering = await Volunteering.find({proyect:id}).populate('user').populate('proyect')
+        let proyect =  await Proyect.findOne({_id: id})
+        return res.send({message: 'valunter found', volunteering, proyect})
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error al obtener los voluntariados'});
+    }
+}
+
 exports.cancel = async(req,res)=>{
     try{
         let volunteeringId = req.params.id;

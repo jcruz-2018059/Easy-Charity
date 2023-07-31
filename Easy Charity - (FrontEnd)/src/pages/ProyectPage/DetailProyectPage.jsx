@@ -28,6 +28,13 @@ export const DetailProyectPage = () => {
         }
     }
 
+    const formatBalance = (budget) => {
+        if (typeof budget === 'number') {
+          return budget.toLocaleString('en-US', { useGrouping: true });
+        }
+        return budget;
+      };
+
     useEffect(() => getProject, []);
     return (
         <>
@@ -38,11 +45,11 @@ export const DetailProyectPage = () => {
                     <div className="container-fluid py-5">
                         <h1 className="text-white fw-bold text-font">{project.name}</h1>
                         <p className="text-white col-md-8 fs-5">{project.description}</p>
-                        {
-                            role === 'CLIENT' ? (
-                                <Link to={`/start/voluntering/add/${id}`} className="btn btn-primary shadow-primary btn-lg"> <i className='bi bi-person-heart'> <span style={{ fontStyle: 'normal' }}>Voluntariado</span></i></Link>
-                            ) : <></>
-                        }
+                        {role === 'CLIENT' ? (
+                            <Link to={`/start/voluntering/add/${id}`} className="btn btn-primary shadow-primary btn-lg">
+                                <i className='bi bi-person-heart'> <span style={{ fontStyle: 'normal' }}>Voluntariado</span></i>
+                            </Link>
+                        ) : null}
                     </div>
                 </div>
 
@@ -51,7 +58,7 @@ export const DetailProyectPage = () => {
                         <div className="h-100 card text-white " style={{ backgroundColor: '#B82727' }}>
                             <div className="card-header">Recaudación</div>
                             <div className="card-body p-5 text-center">
-                                <h1 className="card-title text-white text-font" style={{ fontSize: '5rem' }}>Q {project.takings}.00</h1>
+                                <h1 className="card-title text-white text-font" style={{ fontSize: '5rem' }}>Q {formatBalance(project.takings)}.00</h1>
                                 <p className="card-text fs-sm">Gracias por tu apoyo.</p>
                                 {
                                     role === 'CLIENT' ? (
@@ -72,7 +79,7 @@ export const DetailProyectPage = () => {
                                     <p className='fw-bold'>Presupuesto</p>
                                     <li className="d-flex mb-3">
                                         <i className="bi bi-currency-dollar text-muted fs-xl  me-2"></i>
-                                        Q {project.budget}.00
+                                        Q {formatBalance(project.budget)}.00
                                     </li>
                                     <li className="d-flex mb-3">
                                         <i className="bi bi-telephone text-muted fs-xl  me-2"></i>

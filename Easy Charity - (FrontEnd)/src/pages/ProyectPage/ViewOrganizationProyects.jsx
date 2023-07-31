@@ -41,7 +41,7 @@ export const ViewOrganizationProyectsPage = () => {
   const deleteProject = async (id, name) => {
     try {
       Swal.fire({
-        title: `¿Estás seguro de eliminar ${name}? Cerrarás sesión luego de esta acción.`,
+        title: `¿Estás seguro de eliminar ${name}?`,
         icon: 'warning',
         showConfirmButton: false,
         showDenyButton: true,

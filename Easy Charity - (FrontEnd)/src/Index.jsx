@@ -32,6 +32,7 @@ import { VolunteringPage } from './pages/VolunteringPage/VolunteringPage';
 import { ViewVolunteringPage } from './pages/VolunteringPage/ViewVolunteringPage';
 import { AddVoluntaeringPage } from './pages/VolunteringPage/AddVoluntaeringPage';
 import { UpdateVolunteringPage } from './pages/VolunteringPage/UpdateVolunteringPage';
+import { VolunterByProyect } from './pages/VolunteringPage/VolunterByProyect';
 
 
 
@@ -167,6 +168,10 @@ export const Index = () => {
                                         {
                                             path: 'update/:id',
                                             element:<UpdateProyectPage></UpdateProyectPage>
+                                        },
+                                        {
+                                            path: 'volunterbyproject/:id',
+                                            element: <VolunterByProyect></VolunterByProyect>
                                         }
                                     ]
                                 },
