@@ -40,7 +40,7 @@ export const DetailProyectPage = () => {
                         <p className="text-white col-md-8 fs-5">{project.description}</p>
                         {
                             role === 'CLIENT' ? (
-                                <Link className="btn btn-primary shadow-primary btn-lg"> <i className='bi bi-person-heart'> <span style={{ fontStyle: 'normal' }}>Voluntariado</span></i></Link>
+                                <Link to={`/start/voluntering/add/${id}`} className="btn btn-primary shadow-primary btn-lg"> <i className='bi bi-person-heart'> <span style={{ fontStyle: 'normal' }}>Voluntariado</span></i></Link>
                             ) : <></>
                         }
                     </div>

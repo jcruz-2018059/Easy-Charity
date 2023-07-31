@@ -30,6 +30,8 @@ import { UpdateProyectPage } from './pages/ProyectPage/UpdateProyectPage';
 import { MethodPayment } from './pages/DonationPage/MethodPayment';
 import { VolunteringPage } from './pages/VolunteringPage/VolunteringPage';
 import { ViewVolunteringPage } from './pages/VolunteringPage/ViewVolunteringPage';
+import { AddVoluntaeringPage } from './pages/VolunteringPage/AddVoluntaeringPage';
+import { UpdateVolunteringPage } from './pages/VolunteringPage/UpdateVolunteringPage';
 
 
 
@@ -190,6 +192,14 @@ export const Index = () => {
                                         {
                                             path: '',
                                             element: <ViewVolunteringPage></ViewVolunteringPage>
+                                        },
+                                        {
+                                            path: 'add/:id',                 
+                                            element: <AddVoluntaeringPage></AddVoluntaeringPage>
+                                        },
+                                        {
+                                            path: 'update/:id',
+                                            element: <UpdateVolunteringPage></UpdateVolunteringPage>
                                         }
                                     ]
                                 }

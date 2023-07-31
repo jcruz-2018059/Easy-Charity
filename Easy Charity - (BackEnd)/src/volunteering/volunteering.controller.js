@@ -15,7 +15,7 @@ exports.addVolunteering  = async(req,res)=>{
         //Traer los datos
         let data = req.body;
         let user = req.user.sub;
-
+        console.log(data.proyect)
         //Validar si existe el Usuario
         let existUser = await User.findOne({_id: user});
         if(!existUser) return restart.status(404).send({message:'Usuario no encontro, no loggueado'});
@@ -30,7 +30,7 @@ exports.addVolunteering  = async(req,res)=>{
             skills: data.skills,
             state: true,
             description: data.description,
-            user: data.user,
+            user: user,
             proyect: data.proyect
         };
 
@@ -48,6 +48,28 @@ exports.getVolunteering = async(req,res)=>{
     try{
         let volunteering = await Volunteering.find().populate('user').populate('proyect')
         return res.send(volunteering)
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error al obtener los voluntariados'});
+    }
+}
+
+exports.getVolunteeringByLoggedUser = async(req,res)=>{
+    try{
+        let user = req.user.sub;
+        let volunteering = await Volunteering.find({user:user}).populate('user').populate('proyect')
+        return res.send({message: 'valunter found', volunteering})
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error al obtener los voluntariados'});
+    }
+}
+
+exports.getVolunterById = async(req,res)=>{
+    try{
+        let id = req.params.id;
+        let volunteering = await Volunteering.findOne({_id:id}).populate('user').populate('proyect')
+        return res.send({message: 'valunter found', volunteering})
     }catch(err){
         console.error(err);
         return res.status(500).send({message: 'Error al obtener los voluntariados'});

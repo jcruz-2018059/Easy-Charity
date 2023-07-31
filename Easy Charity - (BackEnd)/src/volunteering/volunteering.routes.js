@@ -11,7 +11,8 @@ api.get('/get', volunteeringController.getVolunteering);
 api.put('/cancelVol/:id', [ensureAuth, isClient], volunteeringController.cancel);
 api.delete('/deleteVol/:id',[ensureAuth,isClient],volunteeringController.deleteVolunteering );
 api.put('/updateVol/:id',[ensureAuth, isClient],volunteeringController.updateVolunteering)
-
+api.get('/getByLoggedUser', ensureAuth, volunteeringController.getVolunteeringByLoggedUser)
+api.get('/getById/:id', ensureAuth, volunteeringController.getVolunterById)
 
 
 
