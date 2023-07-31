@@ -83,6 +83,7 @@ export const ViewOrganizationProyectsPage = () => {
                     name={name}
                     description={description}
                     organization={organizationName}
+                    permission={true}
                   ></ProyectCard>
                 )
               })

@@ -51,6 +51,7 @@ export const ViewProyectPage = () => {
                     name={name}
                     description={description}
                     organization={organizationName}
+                    permission={false}
                   ></ProyectCard>
                 )
               })

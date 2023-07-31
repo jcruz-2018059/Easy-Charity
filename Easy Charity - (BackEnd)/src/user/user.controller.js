@@ -49,7 +49,8 @@ exports.login = async(req, res)=>{
             let userLogged = {
                 username: user.username,
                 name: user.name,
-                role: user.role
+                role: user.role,
+                id: user._id
             }
             return res.send({message: 'Usuario logeado satisfactoriamente.', token, userLogged});
         }

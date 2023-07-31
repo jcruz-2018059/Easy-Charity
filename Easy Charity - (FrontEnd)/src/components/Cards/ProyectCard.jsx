@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const ProyectCard = ({ id, name, description, organization }) => {
+export const ProyectCard = ({ id, name, description, organization, permission }) => {
     const role = localStorage.getItem('role');
     const isOrganizationAdmin = role === 'ORGANIZATION ADMIN';
   
@@ -16,9 +16,10 @@ export const ProyectCard = ({ id, name, description, organization }) => {
           </div>
           <div className="d-grid">
             <Link to={`/start/proyects/detailproyect/${id}`} type="button" className="btn btn-primary mx-3 mb-3 rounded-0">Ver más</Link>
-            {isOrganizationAdmin && (
+            {isOrganizationAdmin && permission === true ? (
               <Link to={`/start/proyects/update/${id}`} type="button" className="btn btn-warning primary mx-3 mb-3 rounded-0">Editar</Link>
-            )}
+            ) : <></>
+          }
           </div>
         </div>
       </>
