@@ -10,6 +10,7 @@ api.get('/', userController.test);
 api.post('/login', userController.login);
 api.post('/register', userController.register);
 api.get('/account', ensureAuth, userController.account);
+api.post('/registerAdmin', ensureAuth, userController.registerAdmin)
 
 //Funciones de usuario
 api.put('/update', ensureAuth, userController.update);
@@ -21,5 +22,6 @@ api.delete('/delete/:id', [ensureAuth, isAdmin], userController.remove);
 api.put('/update/:id', [ensureAuth, isAdmin], userController.edit);
 api.get('/get/:id', [ensureAuth, isAdmin], userController.getUser);
 api.get('/getUsers', [ensureAuth, isAdmin], userController.getUsers);
+api.get('/getAdmin', ensureAuth, userController.getAdminUsersExceptGeneral)
 
 module.exports = api;

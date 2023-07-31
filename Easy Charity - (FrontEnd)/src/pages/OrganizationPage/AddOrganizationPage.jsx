@@ -14,7 +14,7 @@ export const AddOrganizationPage = () => {
     const [clients, setClients] = useState([{}]);
     const getClients = async ()=>{
         try {
-            const { data } = await axios(`http://localhost:2651/user/getUsers`, config);
+            const { data } = await axios(`http://localhost:2651/user/getAdmin`, config);
             if(data){
                 setClients(data.users);
             }
@@ -82,7 +82,7 @@ export const AddOrganizationPage = () => {
                                                 <select className="form-select form-select-lg" id="user" required >
                                                     {
                                                         clients.length === 0 ? (
-                                                            <option value="">No hay clientes disponibles.</option>
+                                                            <option value="">No hay Administradores disponibles.</option>
                                                         ) : (
                                                             clients.map(({name, surname, _id}, i)=>{
                                                                 return(

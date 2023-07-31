@@ -82,6 +82,16 @@ exports.getUsers = async(req, res)=>{
     }
 }
 
+exports.getAdminUsersExceptGeneral = async (req, res) => {
+    try {
+      const users = await User.find({ role: 'ADMIN', name: { $ne: 'General' } }).select('name surname');
+      return res.send({ message: 'Admin users found:', users });
+    } catch (err) {
+      console.error(err);
+      return res.status(500).send({ message: 'Error getting admin users.' });
+    }
+  };
+
 exports.getUser = async(req, res)=>{
     try{
         let userId = req.params.id;
@@ -134,6 +144,40 @@ exports.register = async(req, res)=>{
     }
 }
 
+exports.registerAdmin = async (req, res) => {
+    try {
+      let data = req.body;
+      let params = {
+        name: data.name,
+        surname: data.surname,
+        username: data.username,
+        password: data.password,
+        email: data.email,
+        phone: data.phone
+      };
+  
+      let validate = validateData(params);
+      if (validate) {
+        return res.status(400).send({ validate });
+      }
+  
+      data.role = 'ADMIN'; // Set the role to 'ADMIN' for administrators
+      let existUsername = await User.findOne({ username: data.username });
+      if (existUsername) {
+        return res.status(400).send({ message: 'El username ya está en uso.' });
+      }
+  
+      data.password = await encrypt(data.password);
+      let user = new User(data);
+      await user.save();
+  
+      return res.send({ message: '¡Registro satisfactorio! ', user });
+    } catch (err) {
+      console.error(err);
+      return res.status(500).send({ message: 'Error registering admin.' });
+    }
+  };
+  
 exports.update = async(req, res)=>{
     try{
         let data = req.body;

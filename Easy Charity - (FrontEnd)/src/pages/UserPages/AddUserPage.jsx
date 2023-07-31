@@ -20,7 +20,7 @@ export const AddUserPage = () => {
             email: document.getElementById('email').value,
             phone: document.getElementById('phone').value
           }
-          await axios.post('http://localhost:2651/user/register', user, config);
+          await axios.post('http://localhost:2651/user/registerAdmin', user, config);
           Swal.fire({
             title: '¡Usuario Agregado!',
             icon: 'success',
