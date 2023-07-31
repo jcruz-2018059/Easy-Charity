@@ -113,65 +113,6 @@ export const HomePage = () => {
         </div>
       </section>
       <section>
-        <div className="text-center">
-          <h1 className="pt-5" id="text-Benficas">Organizaciones benéficas</h1>
-        </div>
-        <div className="album py-5 bg-body-tertiary">
-          <div className="container">
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-              <div className="col">
-
-                <div className="card" >
-                  <img src="\src\assets\Card-Image.png" className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <a href="#" className="btn btn-primary">
-                      Go somewhere
-                    </a>
-                  </div>
-                </div>
-
-              </div>
-              <div className="col">
-                <div className="card" >
-                  <img src="\src\assets\Card-Image.png" className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <a href="#" className="btn btn-primary">
-                      Go somewhere
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                <div className="card" >
-                  <img src="\src\assets\Card-Image.png" className="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <a href="#" className="btn btn-primary">
-                      Go somewhere
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
         <div
           className="px-4 py-5  text-center"
           style={{ paddingTop: "6.5rem", backgroundColor: "#F4F4F4" }}

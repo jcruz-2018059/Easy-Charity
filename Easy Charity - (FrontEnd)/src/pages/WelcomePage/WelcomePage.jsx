@@ -1,9 +1,34 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { OrganizationCard } from '../../components/Cards/OrganizationCard'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import Swal from 'sweetalert2';
 
 export const WelcomePage = () => {
-    const role = localStorage.getItem('role')
+    const token = localStorage.getItem('token');
+    const role = localStorage.getItem('role');
+    const [user, setUser] = useState({});
+    const config = {
+        headers: {
+            Authorization: `${token}`
+        }
+    };
+
+    const getUser = async () => {
+        try {
+            const { data } = await axios.get('http://localhost:2651/user/account', config);
+            if (data) {
+                setUser(data.user);
+            }
+        } catch (err) {
+            console.log(err);
+            throw new Error('Error getting User');
+        }
+    };
+
+    useEffect(() => { getUser(); }, []);
+
     return (
 
         <>
@@ -16,7 +41,7 @@ export const WelcomePage = () => {
                     <div className="card-body d-flex justify-content-center flex-wrap ps-xl-15 pe-0">
                         <div className="flex-grow-1 mt-2 me-9 me-md-0 p-5">
                             <div className="position-relative text-gray-800 fs-1 z-index-2 fw-bold mb-1 Titletext">
-                                ¡Hola Javier!😃
+                                ¡Hola {user.name}!😃
                             </div>
                             <span className="text-gray-600 fs-6 mb-6 d-block Titletext">
                                 Bienvenido a Easy Charity
@@ -81,7 +106,7 @@ export const WelcomePage = () => {
                                             <div className="d-grid gap-2">
                                                 <Link to='proyects' className='btn btn-primary'>
                                                     <button className='btn btn-primary'>Ver Proyectos</button>
-                                                </Link>  
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
