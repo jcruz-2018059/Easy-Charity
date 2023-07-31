@@ -1,9 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export const VolunteringCard = ({ id, name, surname, dpi, description, age, proyect, startDate, endDate, state }) => {
+export const VolunteringCard = ({ id, name, surname, dpi, description, age, proyect, startDate, endDate, state, cancelVolunter }) => {
   const badgeColor = state ? 'success' : 'danger';
   const badgeText = state ? 'Activo' : 'Cancelado';
+
+  const handleCancelClick = () => {
+    cancelVolunter();
+  };
 
   return (
     <>
@@ -20,10 +24,18 @@ export const VolunteringCard = ({ id, name, surname, dpi, description, age, proy
           <p className="card-text text-font" style={{ fontSize: '14px' }}> <span className='fw-bold'>Edad</span> {age}</p>
           <p className="card-text text-font" style={{ fontSize: '14px' }}> <span className='fw-bold '>Estado</span> <span className={`badge text-bg-${badgeColor}`}>{badgeText}</span></p>
         </div>
-        <div className="d-grid">
-          <Link to={`update/${id}`} type="button" className="btn btn-outline-danger mx-3 mb-3 rounded-0">Editar</Link>
-          <Link type="button" className="btn btn-danger primary mx-3 mb-3 rounded-0">Cancelar</Link>
-        </div>
+        {state ? (
+          <div className="d-grid">
+            <Link to={`update/${id}`} type="button" className="btn btn-outline-danger mx-3 mb-3 rounded-0">Editar</Link>
+            <button
+              type="button"
+              onClick={handleCancelClick}
+              className="btn btn-danger primary mx-3 mb-3 rounded-0"
+            >
+              Cancelar
+            </button>
+          </div>
+        ) : null}
       </div>
     </>
   );

@@ -2,6 +2,7 @@ import React from 'react'
 import { VolunteringCard } from '../../components/Cards/VolunteringCard'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 
 export const ViewVolunteringPage = () => {
@@ -22,6 +23,32 @@ export const ViewVolunteringPage = () => {
     } catch (err) {
       console.log(err);
       throw new Error('Error getting Users');
+    }
+  }
+
+  const cancelVolunter = async (id) => {
+    try {
+      Swal.fire({
+        title: `¿Estás seguro de cancelar?.`,
+        icon: 'warning',
+        showConfirmButton: false,
+        showDenyButton: true,
+        showCancelButton: true,
+        denyButtonText: `Sí, cancelar`,
+      }).then(async (result) => {
+        if (result.isDenied) {
+          const { data } = await axios.put(`http://localhost:2651/volunteering/cancelVol/${id}`, null, config);
+          Swal.fire({
+            title: data.message || 'Voluntariado cancelado.',
+            icon: 'info',
+            timer: 4000
+          })
+          getVolunter()
+        }
+      })
+    } catch (err) {
+      console.log(err);
+      throw new Error('Error cancelando voluntariado');
     }
   }
 
@@ -64,6 +91,7 @@ export const ViewVolunteringPage = () => {
                     endDate={endDate}
                     state={state}
                     age={age}
+                    cancelVolunter={() => cancelVolunter(_id)}
                   ></VolunteringCard>
                 )
               })

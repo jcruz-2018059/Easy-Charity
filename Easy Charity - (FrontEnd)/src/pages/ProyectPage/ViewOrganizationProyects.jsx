@@ -2,6 +2,7 @@ import { ProyectCard } from '../../components/Cards/ProyectCard'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, useParams } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 export const ViewOrganizationProyectsPage = () => {
   const role = localStorage.getItem('role')
@@ -36,6 +37,40 @@ export const ViewOrganizationProyectsPage = () => {
       throw new Error('Error getting proyects.');
     }
   }
+
+  const deleteProject = async (id, name) => {
+    try {
+      Swal.fire({
+        title: `¿Estás seguro de eliminar ${name}? Cerrarás sesión luego de esta acción.`,
+        icon: 'warning',
+        showConfirmButton: false,
+        showDenyButton: true,
+        showCancelButton: true,
+        denyButtonText: `Sí, eliminar`,
+      }).then(async (result) => {
+        if (result.isDenied) {
+          const response = await axios.delete(`http://localhost:2651/project/delete/${id}`, config);
+          if (response.status === 200) {
+            // Project successfully deleted, handle any other necessary actions
+            Swal.fire({
+              title: response.data.message || 'Proyecto eliminado.',
+              icon: 'info',
+              timer: 4000,
+            });
+            getProjects()
+            // Perform any other actions you want after successful deletion.
+          }
+        }
+      });
+    } catch (err) {
+      console.error(err);
+      Swal.fire({
+        title: err.response.data.message || `Error eliminando el proyecto :(`,
+        icon: 'error',
+        timer: 4000,
+      });
+    }
+  };
 
   useEffect(() => getProjects, [id]);
 
@@ -84,6 +119,7 @@ export const ViewOrganizationProyectsPage = () => {
                     description={description}
                     organization={organizationName}
                     permission={true}
+                    onCliick={() => deleteProject(_id, name)}
                   ></ProyectCard>
                 )
               })

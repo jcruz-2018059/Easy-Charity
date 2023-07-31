@@ -87,7 +87,7 @@ export const LoginPage = () => {
                         </form>
                     </div>
                     <div className="col-md-6">
-                        <img src="/src/assets/login.png" alt="Imagen de inicio de sesión" className="img-fluid" />
+                        <img src="/src/assets/osito.jpg" alt="Imagen de inicio de sesión" className="img-fluid" />
                     </div>
                 </div>
             </div>
