@@ -16,7 +16,7 @@ const billSchema = mongoose.Schema({
     date:{
         type: Date,
         required: true,
-        default: Date()
+        default: Math.floor(Date.now() / 1000)
     },
     donation: {
         type: mongoose.Schema.Types.ObjectId,

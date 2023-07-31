@@ -25,7 +25,7 @@ exports.buy = async(req,res)=>{
         let params = {
             name: user.name,
             surname: user.surname,
-            date: Math.floor(Date.now() / 1000),
+            date: new Date(Date.now()).getTime(),
             donation: donation,
             total: donation.amount 
         };
@@ -40,12 +40,27 @@ exports.buy = async(req,res)=>{
     }
 }
 
-
-exports.getBill = async(req,res)=>{
+exports.getLogged = async(req,res) =>{
     try{
+        let user = req.user.sub;
 
+        let billsLogged = await Bill.find({_id: user}).populate('donation');
+
+        return res.send({billsLogged});
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error al Traer kas facturas del usuario Loggeado'});
+    }
+}
+
+exports.getBills = async(req,res)=>{
+    try{
+        let bills = await Bill.find().populate('donation');
+        return res.send({bills})
     }catch(err){
         console.error(err);
         return res.status(500).send({message: 'Error al traer las facturas'})
     }
 }
+
+
