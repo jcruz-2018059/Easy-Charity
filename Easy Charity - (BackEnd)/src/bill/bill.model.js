@@ -16,16 +16,11 @@ const billSchema = mongoose.Schema({
     date:{
         type: Date,
         required: true,
-        default: Date.now()
+        default: Math.floor(Date.now() / 1000)
     },
-    proyect: {
+    donation: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Proyect',
-        required: true
-    },
-    charityOrganization:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Charity Organization',
+        ref: 'Donation',
         required: true
     },
     total:{

@@ -46,6 +46,7 @@ exports.addVolunteering  = async(req,res)=>{
 
 exports.getVolunteering = async(req,res)=>{
     try{
+        //Buscar los volunatiados
         let volunteering = await Volunteering.find().populate('user').populate('proyect')
         return res.send(volunteering)
     }catch(err){
@@ -90,16 +91,17 @@ exports.getVoluntersByProyect= async(req,res)=>{
 
 exports.cancel = async(req,res)=>{
     try{
+        //Se trae el ID de voluntariado 
         let volunteeringId = req.params.id;
         let volunteering = await Volunteering.findOne({_id: volunteeringId});
 
         //validar que exista el voluntariado
         if(!volunteering) return res.status(404).send({message: 'Voluntario no encontrado'});
 
+        //Se Actualiza el estado del voluntariado
         let params = {
             state : false
         }
-
         let updateVolunteering = await Volunteering.findOneAndUpdate(
             {_id: volunteering},
             params,
@@ -114,16 +116,21 @@ exports.cancel = async(req,res)=>{
     }
 }
 
-
+//Eliminar el voluntariado
 exports.deleteVolunteering = async(req,res)=>{
     try{
+        //Se trae el ID de voluntariado
         let volunteeringID = req.params.id;
 
+        //Verificar si existe el Voluntariado
         let volunteering = await Volunteering.findOne({_id: volunteeringID});
         if(!volunteering) return res.status(404).send({message: 'Voluntariado no encontrado'});
 
+        //Validar que primero tenga que cancelar su voluntariado
         if(volunteering.state == true) return res.send({message: 'Debes primero cancelar el voluntariado'});
 
+
+        //Eliminar el Voliuntariado
         let deleteVolunteering = await Volunteering.findOneAndRemove({_id: volunteering});
         if(!deleteVolunteering) return res.send({message:'Voluntariado no encontrado '});
 
@@ -134,16 +141,18 @@ exports.deleteVolunteering = async(req,res)=>{
     }
 }
 
-
+//Actualizar el Voluntariado
 exports.updateVolunteering = async(req,res)=>{
     try{
+        //Se consiguen los datos
         let data = req.body;
         let volunteeringId = req.params.id;
 
+        //Validar que exista el Proyecto
         let proyect = await Proyect.findOne({_id: data.proyect});
-
         if(!proyect) return res.status(404).send({message: 'Proyecto no Encontrado'});
-        
+
+        //Colocar los parametro de Actualizar
         let params = {
             age: data.age,
             skills: data.skills,
@@ -151,6 +160,7 @@ exports.updateVolunteering = async(req,res)=>{
             proyect: proyect
         }
 
+        //Actualizar el Voluntariado
         let updateVolunteering = await Volunteering.findOneAndUpdate(
             {_id: volunteeringId},
             params,
@@ -158,7 +168,6 @@ exports.updateVolunteering = async(req,res)=>{
         )
 
         if(!updateVolunteering) return res.status(404).send({message: 'Voluntariado no encontrado, no se pudo actualizar'});
-
         return res.send({message: 'Voluntariado Actualizado', updateVolunteering});
 
     }catch(err){

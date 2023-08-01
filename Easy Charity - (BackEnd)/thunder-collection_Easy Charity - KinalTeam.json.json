@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Easy Charity - KinalTeam.json",
-    "dateExported": "2023-07-28T06:28:21.919Z",
+    "dateExported": "2023-07-31T00:42:41.517Z",
     "version": "1.1",
     "folders": [
         {
@@ -195,7 +195,7 @@
             "method": "POST",
             "sortNum": 30000,
             "created": "2023-07-25T21:11:48.865Z",
-            "modified": "2023-07-26T01:17:49.274Z",
+            "modified": "2023-07-31T00:24:35.485Z",
             "headers": [],
             "params": [],
             "body": {
@@ -204,11 +204,11 @@
                 "form": [
                     {
                         "name": "username",
-                        "value": "jcalderon"
+                        "value": "admin"
                     },
                     {
                         "name": "password",
-                        "value": "1234"
+                        "value": "admin"
                     }
                 ]
             },
@@ -524,15 +524,15 @@
             "colId": "6275b446-8ea2-4f2b-b8d2-136fefeb37b6",
             "containerId": "d46114f2-6f46-4b35-bbd2-9baa01e536de",
             "name": "Add Donation",
-            "url": "donation/add/64723f4c84305626c6ab304c",
+            "url": "donation/add/64c066f384747a24da1dab47",
             "method": "POST",
             "sortNum": 170000,
             "created": "2023-07-25T21:11:48.876Z",
-            "modified": "2023-07-25T21:11:48.876Z",
+            "modified": "2023-07-30T06:27:13.021Z",
             "headers": [
                 {
                     "name": "Authorization",
-                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDcxNzRiZmI0NTNkNzIwN2YwY2U0YjQiLCJuYW1lIjoiQWJpbWFlbCIsInN1cm5hbWUiOiJMw7NwZXoiLCJ1c2VybmFtZSI6ImFsb3BleiIsImVtYWlsIjoiYWxvcGV6QGdtYWlsLmNvbSIsInBob25lIjoiKzUwMiA2NTg5IDIxNDUiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjg1MjA4NTU5LCJleHAiOjE2ODUyMTU3NTl9.vqhrhz2D1QvxdN_z7Myipx3iAwOjhyitRMlkNR8A7R0\""
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMwM2RhZTMyMjhlZDExNDBjYzZiMDIiLCJuYW1lIjoiSmVmZmVyc29uIiwic3VybmFtZSI6IkNhbGRlcm9uIiwidXNlcm5hbWUiOiJqY2FsZGVyb24iLCJlbWFpbCI6ImpjYWxkZXJvbkBnbWFpbC5jb20iLCJwaG9uZSI6Iis1MDIgMTIzNDU2NzgiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjkwNjk4MzkyLCJleHAiOjE2OTA3MDU1OTJ9.e25UaTu8Q6krgqwQmtXqgui_blxTRnGqoJz9-E0iPCE\""
                 }
             ],
             "params": [],
@@ -542,7 +542,7 @@
                 "form": [
                     {
                         "name": "amount",
-                        "value": "300"
+                        "value": "500"
                     },
                     {
                         "name": "paymentMethod",
@@ -726,6 +726,87 @@
                     }
                 ]
             },
+            "tests": []
+        },
+        {
+            "_id": "ed30e443-2418-42e2-8a78-b330de859e09",
+            "colId": "6275b446-8ea2-4f2b-b8d2-136fefeb37b6",
+            "containerId": "3b56b83e-8b38-4883-8896-a5cc506e4928",
+            "name": "test",
+            "url": "bill/",
+            "method": "GET",
+            "sortNum": 270000,
+            "created": "2023-07-30T00:02:02.264Z",
+            "modified": "2023-07-30T00:03:14.645Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7312d39e-8daf-4cdc-b313-57e718505180",
+            "colId": "6275b446-8ea2-4f2b-b8d2-136fefeb37b6",
+            "containerId": "3b56b83e-8b38-4883-8896-a5cc506e4928",
+            "name": "buy",
+            "url": "bill/buy",
+            "method": "POST",
+            "sortNum": 280000,
+            "created": "2023-07-30T05:13:15.538Z",
+            "modified": "2023-07-30T23:27:02.123Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMwM2RhZTMyMjhlZDExNDBjYzZiMDIiLCJuYW1lIjoiSmVmZmVyc29uIiwic3VybmFtZSI6IkNhbGRlcm9uIiwidXNlcm5hbWUiOiJqY2FsZGVyb24iLCJlbWFpbCI6ImpjYWxkZXJvbkBnbWFpbC5jb20iLCJwaG9uZSI6Iis1MDIgMTIzNDU2NzgiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjkwNzU5NTM3LCJleHAiOjE2OTA3NjY3Mzd9.pUaQ6P2bxnBtdgMn5rvBZ27CBrwrvpQvU_Pgmz4IwqA\""
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "donation",
+                        "value": "64c602c0cdd6927be62afa19"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "956dcd97-dc49-4501-ab5c-a68450002607",
+            "colId": "6275b446-8ea2-4f2b-b8d2-136fefeb37b6",
+            "containerId": "3b56b83e-8b38-4883-8896-a5cc506e4928",
+            "name": "getBills",
+            "url": "bill/getBills",
+            "method": "GET",
+            "sortNum": 290000,
+            "created": "2023-07-30T23:07:18.798Z",
+            "modified": "2023-07-30T23:26:21.713Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMwM2RhZTMyMjhlZDExNDBjYzZiMDIiLCJuYW1lIjoiSmVmZmVyc29uIiwic3VybmFtZSI6IkNhbGRlcm9uIiwidXNlcm5hbWUiOiJqY2FsZGVyb24iLCJlbWFpbCI6ImpjYWxkZXJvbkBnbWFpbC5jb20iLCJwaG9uZSI6Iis1MDIgMTIzNDU2NzgiLCJyb2xlIjoiQ0xJRU5UIiwiaWF0IjoxNjkwNzU5NTM3LCJleHAiOjE2OTA3NjY3Mzd9.pUaQ6P2bxnBtdgMn5rvBZ27CBrwrvpQvU_Pgmz4IwqA\""
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "ce37c430-b496-477a-baa1-ff28b6549987",
+            "colId": "6275b446-8ea2-4f2b-b8d2-136fefeb37b6",
+            "containerId": "3b56b83e-8b38-4883-8896-a5cc506e4928",
+            "name": "getBillLogged",
+            "url": "bill/getBillsLogged",
+            "method": "GET",
+            "sortNum": 300000,
+            "created": "2023-07-31T00:08:59.233Z",
+            "modified": "2023-07-31T00:25:56.188Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGMwNDZjZGU3M2UwNDcwYTA1MjZlZTkiLCJuYW1lIjoiR2VuZXJhbCIsInN1cm5hbWUiOiJBZG1pbmlzdHJhdG9yIiwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZWFzeS5jaGFyaXR5Lmd0IiwicGhvbmUiOiIrNTAyIDU4OTcgMjE0NSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY5MDc2MzA3NSwiZXhwIjoxNjkwNzcwMjc1fQ.8KI26xTwEqx-Gu1OayyddKH_BKmnYZZyEtCislcqJCU\""
+                }
+            ],
+            "params": [],
             "tests": []
         }
     ],
