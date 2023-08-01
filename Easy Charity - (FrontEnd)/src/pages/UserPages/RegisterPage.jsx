@@ -17,6 +17,7 @@ export const RegisterPage = () => {
                 password: document.getElementById('password').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
+                birthdate: new Date(document.getElementById('birthdate').value).toISOString(),
             }
             const { data } = await axios.post('http://localhost:2651/user/register', user)
             Swal.fire({
@@ -86,6 +87,11 @@ export const RegisterPage = () => {
                                     <div className="form-outline mb-4">
                                         <label className="form-label" htmlFor="form2Example22">Teléfono</label>
                                         <input placeholder="Correo" type="email" id="phone" className="form-control" />
+                                    </div>
+
+                                    <div className="form-outline mb-4">
+                                        <label className="form-label" htmlFor="form2Example22">Fecha de Nacimiento</label>
+                                        <input placeholder="Correo" type="date" id="birthdate" className="form-control" />
                                     </div>
 
                                     <div className="text-center pt-1 mb-5 row">

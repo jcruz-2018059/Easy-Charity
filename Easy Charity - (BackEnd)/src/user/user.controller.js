@@ -181,7 +181,7 @@ exports.getUser = async (req, res) => {
         const userId = req.params.id;
 
         // Obtener el usuario por su ID y seleccionar solo algunos campos
-        let user = await User.findOne({ _id: userId }).select('name surname username email phone');
+        let user = await User.findOne({ _id: userId }).select('name surname username email phone birthdate');
         return res.send({ message: 'User found: ', user });
     } catch (err) {
         console.error(err);
@@ -195,7 +195,7 @@ exports.account = async (req, res) => {
         let userId = req.user.sub;
 
         // Obtener la información de la cuenta del usuario logeado y seleccionar solo algunos campos
-        let user = await User.findOne({ _id: userId }).select('name surname username email phone role');
+        let user = await User.findOne({ _id: userId }).select('name surname username email phone role birthdate ');
         return res.send({ message: 'User found: ', user });
     } catch (err) {
         console.error(err);
@@ -213,7 +213,8 @@ exports.register = async (req, res) => {
             username: data.username,
             password: data.password,
             email: data.email,
-            phone: data.phone
+            phone: data.phone,
+            birthdate: data.birthdate,
         }
 
         // Validar los datos del nuevo usuario
@@ -254,7 +255,8 @@ exports.registerAdmin = async (req, res) => {
             username: data.username,
             password: data.password,
             email: data.email,
-            phone: data.phone
+            phone: data.phone,
+            birthdate: data.birthdate,
         };
 
         // Validar los datos del nuevo administrador

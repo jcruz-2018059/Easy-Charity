@@ -33,7 +33,8 @@ export const UpdateUserPage = () => {
                 surname: document.getElementById('surname').value,
                 username: document.getElementById('username').value,
                 phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value
+                email: document.getElementById('email').value,
+                birthdate: new Date(document.getElementById('birthdate').value).toISOString(),
             }
             const { data } = await axios.put(`http://localhost:2651/user/update/${id}`,user ,config);
             Swal.fire({
@@ -51,6 +52,13 @@ export const UpdateUserPage = () => {
             });
         }
     }
+
+    const getFormattedDate = (dateString) => {
+        if (dateString) {
+        return new Date(dateString).toISOString().split('T')[0];
+        }
+        return '';
+    };
     
     useEffect(() => getUser, []);
     return (
@@ -85,6 +93,10 @@ export const UpdateUserPage = () => {
                                             <div className="col-12">
                                                 <label htmlFor="time" className="form-label fs-base">Email</label>
                                                 <input defaultValue={user.email} type="email" className="form-control form-control-lg" id="email" required />
+                                            </div>
+                                            <div className="col-12">
+                                                <label htmlFor="time" className="form-label fs-base">Fecha de nacimiento</label>
+                                                <input defaultValue={getFormattedDate(user.birthdate)} type="date" className="form-control form-control-lg" id="birthdate" required />
                                             </div>
                                             <div className="col-sm-6 pt-2 pt-sm-3">
                                                 <Link to='/start/users'>

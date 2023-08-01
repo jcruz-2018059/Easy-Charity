@@ -50,6 +50,7 @@ export const ViewAcountPage = () => {
         username: document.getElementById('username').value,
         phone: document.getElementById('phone').value,
         email: document.getElementById('email').value,
+        birthdate: new Date(document.getElementById('birthdate').value).toISOString(),
       }
       const { data } = await axios.put('http://localhost:2651/user/update', user, config)
       Swal.fire({
@@ -98,6 +99,13 @@ export const ViewAcountPage = () => {
     }
   }
 
+  const getFormattedDate = (dateString) => {
+    if (dateString) {
+    return new Date(dateString).toISOString().split('T')[0];
+    }
+    return '';
+};
+
   useEffect(() => { getUser(); }, []);
   return (
 
@@ -135,7 +143,11 @@ export const ViewAcountPage = () => {
                   <label htmlFor="phone" className="form-label fs-base">Nombre de usuario<small className="text-muted"></small></label>
                   <input type="text" id="username" className="form-control form-control-lg" defaultValue={user.username} />
                 </div>
-                <div className="col-sm-6 mb-4" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>Rol: <h4 style={{ color: '#b82727', fontSize: 25, marginLeft: 10 }}>{rol}</h4></div>
+                <div className="col-sm-6 mb-4">
+                  <label htmlFor="phone" className="form-label fs-base">Fecha de nacimiento<small className="text-muted"></small></label>
+                  <input defaultValue={getFormattedDate(user.birthdate)} type="date" id="birthdate" className="form-control form-control-lg"  />
+                </div>
+                <div className="col-sm-12 mb-4" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>Rol: <h4 style={{ color: '#b82727', fontSize: 25, marginLeft: 10 }}>{rol}</h4></div>
               </div>
               {
                 role !== 'ADMIN' ? (

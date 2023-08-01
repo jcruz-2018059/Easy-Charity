@@ -33,6 +33,9 @@ const userScheme = mongoose.Schema({
             message: "Porfavor ingrese un correo válido."
         }
     },
+    birthdate:{
+        type: Date,
+    },
     phone: {
         type: String,
         required: true

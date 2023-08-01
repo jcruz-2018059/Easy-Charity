@@ -18,7 +18,8 @@ export const AddUserPage = () => {
             username: document.getElementById('username').value,
             password: document.getElementById('password').value,
             email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value
+            phone: document.getElementById('phone').value,
+            birthdate: new Date(document.getElementById('birthdate').value).toISOString(),
           }
           await axios.post('http://localhost:2651/user/registerAdmin', user, config);
           Swal.fire({
@@ -68,6 +69,10 @@ export const AddUserPage = () => {
                                             <div className="col-12">
                                                 <label htmlFor="time" className="form-label fs-base">Email</label>
                                                 <input type="email" className="form-control form-control-lg" id="email" required />
+                                            </div>
+                                            <div className="col-12">
+                                                <label htmlFor="time" className="form-label fs-base">Fecha de nacimiento</label>
+                                                <input type="date" className="form-control form-control-lg" id="birthdate" required />
                                             </div>
                                             <div className="col-12">
                                                 <label htmlFor="time" className="form-label fs-base">Contraseña</label>
