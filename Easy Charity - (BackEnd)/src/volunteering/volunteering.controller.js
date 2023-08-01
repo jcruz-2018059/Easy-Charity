@@ -62,27 +62,48 @@ exports.getVolunteering = async(req,res)=>{
     }
 }
 
-exports.getVolunteeringByLoggedUser = async(req,res)=>{
-    try{
+exports.getVolunteeringByLoggedUser = async (req, res) => {
+    try {
+        // Obtener el ID del usuario que ha iniciado sesión desde el objeto de solicitud (req.user.sub)
         let user = req.user.sub;
-        let volunteering = await Volunteering.find({user:user}).populate('user').populate('proyect')
-        return res.send({message: 'valunter found', volunteering})
-    }catch(err){
-        console.error(err);
-        return res.status(500).send({message: 'Error al obtener los voluntariados'});
-    }
-}
 
-exports.getVolunterById = async(req,res)=>{
-    try{
-        let id = req.params.id;
-        let volunteering = await Volunteering.findOne({_id:id}).populate('user').populate('proyect')
-        return res.send({message: 'valunter found', volunteering})
-    }catch(err){
+        // Buscar los voluntariados asociados al usuario logueado en la base de datos
+        let volunteering = await Volunteering.find({ user: user }).populate('user').populate('proyect');
+
+        // Si no se encuentran voluntariados asociados al usuario logueado, la variable "volunteering" será un array vacío
+        if (volunteering.length === 0) {
+            return res.send({ message: 'No se encontraron voluntariados asociados a este usuario.', volunteering: [] });
+        }
+
+        // Si se encuentran voluntariados asociados al usuario logueado, se envían sus detalles en la respuesta
+        return res.send({ message: 'Voluntarios encontrados', volunteering });
+    } catch (err) {
+        // Si ocurre un error durante la búsqueda de los voluntariados, se captura y se envía una respuesta de error
         console.error(err);
-        return res.status(500).send({message: 'Error al obtener los voluntariados'});
+        return res.status(500).send({ message: 'Error al obtener los voluntariados', error: err.message });
     }
-}
+};
+
+exports.getVolunterById = async (req, res) => {
+    try {
+        // Obtener el ID del voluntariado desde los parámetros de la solicitud
+        let id = req.params.id;
+
+        // Buscar el voluntariado en la base de datos utilizando el ID proporcionado
+        let volunteering = await Volunteering.findOne({ _id: id }).populate('user').populate('proyect');
+
+        // Si no se encuentra ningún voluntariado con el ID proporcionado, la variable "volunteering" será null
+        if (!volunteering) {
+            return res.status(404).send({ message: 'Voluntariado no encontrado.' });
+        }
+
+        // Si se encuentra el voluntariado, se envían sus detalles en la respuesta
+        return res.send({ message: 'Voluntariado encontrado', volunteering });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send({ message: 'Error al obtener el voluntariado.', error: err.message });
+    }
+};
 
 exports.getVoluntersByProyect= async(req,res)=>{
     try{

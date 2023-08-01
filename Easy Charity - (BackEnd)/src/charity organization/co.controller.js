@@ -102,16 +102,27 @@ exports.getOrganitationAdmin = async(req,res)=>{
         return res.status(500).send({message: 'Error al traer las organizaciones', error: err.message});
     }
 }
-exports.getOrganitationById = async(req,res)=>{
-    try{
-        let organitation = req.params.id;
-        let organization = await CharityOrganization.findOne({_id: organitation});
-        return res.send({message: 'found', organization});
-    }catch(err){
+exports.getOrganitationById = async (req, res) => {
+    try {
+        // Obtener el ID de la organización desde los parámetros de la solicitud
+        let organizationId = req.params.id;
+
+        // Buscar la organización en la base de datos utilizando el ID proporcionado
+        let organization = await CharityOrganization.findOne({ _id: organizationId });
+
+        // Si no se encuentra ninguna organización con el ID proporcionado, la variable "organization" será null
+        if (!organization) {
+            return res.status(404).send({ message: 'Organización no encontrada.' });
+        }
+
+        // Si se encuentra la organización, se envían sus detalles en la respuesta
+        return res.send({ message: 'Organización encontrada', organization });
+    } catch (err) {
+        // Si ocurre un error durante la búsqueda de la organización, se captura y se envía una respuesta de error
         console.error(err);
-        return res.status(500).send({message: 'Error al traer laa organización.', error: err.message});
+        return res.status(500).send({ message: 'Error al traer la organización.', error: err.message });
     }
-}
+};
 
 //Eliminar la Organizacion
 exports.deleteOrganization = async (req, res) => {
