@@ -33,6 +33,7 @@ import { ViewVolunteringPage } from './pages/VolunteringPage/ViewVolunteringPage
 import { AddVoluntaeringPage } from './pages/VolunteringPage/AddVoluntaeringPage';
 import { UpdateVolunteringPage } from './pages/VolunteringPage/UpdateVolunteringPage';
 import { VolunterByProyect } from './pages/VolunteringPage/VolunterByProyect';
+import { BillPage } from './pages/DonationPage/BillPage';
 
 
 
@@ -186,6 +187,11 @@ export const Index = () => {
                                         {
                                             path: 'paymethod/:id',
                                             element: <MethodPayment></MethodPayment>
+                                        },
+                                        {
+                                            path: 'bill/:id',
+                                            element: <BillPage></BillPage>
+
                                         }
                                         
                                     ]

@@ -44,16 +44,18 @@ export const Donations = () => {
                             <th style={{ color: 'red' }} scope="col">Descripción</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Método de Pago</th>
+                            <th scope="col">Factura</th>
                             <th style={{ color: 'red' }} scope="col">Cantidad</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            donations.map(({_id, project: { name: nameProject} = {}, description, amount, date, paymentMethod}, index) => {
+                            donations.map(({ _id, project: { name: nameProject } = {}, description, amount, date, paymentMethod }, index) => {
                                 const id = _id;
                                 return (
                                     <tr className="text-dark" key={index}>
                                         <Donation
+                                            id={id}
                                             name={nameProject}
                                             description={description}
                                             amount={amount}

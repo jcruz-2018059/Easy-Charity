@@ -3,6 +3,7 @@
 const Bill = require('./bill.model');
 const User = require('../user/user.model');
 const Donation = require('../donation/donation.model');
+const Project = require('../project/project.model');
 
 /*TEST*/ 
 exports.test = (req,res)=>{
@@ -72,5 +73,17 @@ exports.getBills = async(req,res)=>{
     }
 }
 
+//Traer facturas por donación
+exports.getBillsByDonation = async(req,res)=>{
+    try{
+        let donationId = req.params.id
+        let bills = await Bill.findOne({donation:donationId}).populate('donation');
+        let donation = await Donation.findOne({_id: bills.donation})
+        return res.send({message: 'Bill Found', bills,donation })
+    }catch(err){
+        console.error(err);
+        return res.status(500).send({message: 'Error al traer las facturas'})
+    }
+}
 
 

@@ -21,8 +21,7 @@ export const HomePage = () => {
                   Conectando Corazones
                 </h1>
                 <p className="lead fw-normal mb-5" id="hero-text">
-                  Launch your mobile app landing page faster with this free,
-                  open source theme from Start Bootstrap!
+                Aquellos que son más felices, son los que hacen más por los demás
                 </p>
                 <div className="d-flex flex-column flex-lg-row align-items-center">
                   <Link
