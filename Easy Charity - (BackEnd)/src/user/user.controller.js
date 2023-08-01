@@ -1,6 +1,7 @@
 'use strict'
 
 const User = require('./user.model');
+const Volunteer = require('../volunteering/volunteering.model')
 const { encrypt, validateData, checkPassword } = require('../../utils/validate');
 const { createToken } = require('../../services/jwt');
 
@@ -28,6 +29,61 @@ exports.default = async()=>{
         await createDefaultAdmin.save();
         return console.log('Default administrator created.');
     }catch(err){
+        console.error(err);
+    }
+}
+
+exports.defaultOrAdmin = async()=>{
+    try{
+        let defAdmin = {
+            name: 'Default',
+            surname: 'Default',
+            username: 'default',
+            password: 'none',
+            email: 'Oradmin@easy.charity.gt',
+            phone: '+502 0000 0000',
+            role: 'ORGANIZATION ADMIN'
+        }
+        let existAdministrator = await User.findOne({username: 'default'});
+        if(existAdministrator){
+            return console.log('Default OrAdmin is already created.');
+        }
+        defAdmin.password = await encrypt(defAdmin.password);
+        let createDefaultAdmin = new User(defAdmin);
+        await createDefaultAdmin.save();
+        return console.log('Default OrAdmin created.');
+    }catch(err){
+        console.error(err);
+    }
+}
+
+exports.defaultClient = async () => {
+    try {
+        let defClient = {
+            name: 'Default',
+            surname: 'Client',
+            username: 'defaultclient',
+            password: 'none',
+            email: 'defaultclient@easy.charity.gt',
+            phone: '+502 0000 0000',
+            role: 'CLIENT'
+        }
+
+        // Verificar si el cliente por defecto ya existe
+        let existClient = await User.findOne({ username: 'defaultclient' });
+        if (existClient) {
+            return console.log('Default client is already created.');
+        }
+
+        // Encriptar la contraseña (si tienes una función "encrypt" que funciona correctamente)
+        defClient.password = await encrypt(defClient.password);
+
+        // Crear el cliente por defecto
+        let createDefaultClient = new User(defClient);
+        await createDefaultClient.save();
+
+        return console.log('Default client created.');
+    } catch (err) {
         console.error(err);
     }
 }
@@ -62,13 +118,16 @@ exports.login = async(req, res)=>{
     }
 }
 
-exports.get = async(req, res)=>{
-    try{
-        let users = await User.find().select('name surname username email phone role');
-        return res.send({message: 'Users found: ', users});
-    }catch(err){
+exports.get = async (req, res) => {
+    try {
+        // Buscar todos los usuarios excepto aquellos cuyo nombre de usuario sea "default" o "defaultclient"
+        let users = await User.find({ username: { $nin: ['default', 'defaultclient'] } })
+            .select('name surname username email phone role');
+
+        return res.send({ message: 'Users found: ', users });
+    } catch (err) {
         console.error(err);
-        return res.status(500).send({message: 'Error getting users.'});
+        return res.status(500).send({ message: 'Error getting users.' });
     }
 }
 
@@ -252,21 +311,36 @@ exports.edit = async(req, res)=>{
     }
 }
 
-exports.delete = async(req, res)=>{
-    try{
+exports.delete = async (req, res) => {
+    try {
         let user = req.user.sub;
         let username = req.user.username;
-        if(username === 'admin' || user.role === 'ORGANIZATION ADMIN'){
-            return res.status(401).send({message: 'Not authorized.'});
+        if (username === 'admin' || req.user.role === 'ORGANIZATION ADMIN') {
+            return res.status(401).send({ message: 'Not authorized.' });
         }
-        let deletedUser = await User.findOneAndDelete({_id: user});
-        if(!deletedUser){
-            return res.status(404).send({message:'User not found and not deleted.'});
+
+        // Obtener el cliente por defecto
+        let defaultClient = await User.findOne({ username: 'defaultclient' });
+        if (!defaultClient) {
+            defaultClient = await User.findOne({ username: 'defaultclient' });
         }
-        return res.send({message: 'Cuenta eliminada satisfactoriamente.', deletedUser});
-    }catch(err){
+
+        // Obtener todos los voluntariados asociados al usuario que se va a eliminar
+        let volunteerIDs = (await Volunteer.find({ user: user })).map(volunteer => volunteer._id);
+
+        // Actualizar la referencia del usuario por defecto en todos los voluntariados
+        await Volunteer.updateMany({ _id: { $in: volunteerIDs } }, { $set: { user: defaultClient._id } });
+
+        // Eliminar el usuario
+        let deletedUser = await User.findByIdAndDelete(user);
+        if (!deletedUser) {
+            return res.status(404).send({ message: 'User not found and not deleted.' });
+        }
+
+        return res.send({ message: 'Cuenta eliminada satisfactoriamente.', deletedUser });
+    } catch (err) {
         console.error(err);
-        return res.status(500).send({message: 'Error deleting user.'});
+        return res.status(500).send({ message: 'Error deleting user.' });
     }
 }
 

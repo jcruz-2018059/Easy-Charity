@@ -2,6 +2,7 @@
 
 const CharityOrganization = require('./co.model');
 const User = require('../user/user.model');
+const Project = require('../project/project.model')
 
 /*TEST*/ 
 exports.test = (req,res)=>{
@@ -39,14 +40,45 @@ exports.addOrganitation = async(req,res)=>{
     }
 }
 
-//Publica para mostrar todas las organizaciones
-exports.getOrganitation = async(req,res)=>{
-    try{
-        let organizations = await CharityOrganization.find().populate('user');
-        return res.send({organizations});
-    }catch(err){
+exports.createDefaultOrganization = async () => {
+    try {
+        let user = await User.findOne({username: 'default'})
+        let defOrganization = {
+            name: 'Default Charity',
+            description: 'default',
+            email: 'defaul@easycharity.com',
+            phone: '0000 0000',
+            location: 'none',
+            user: user._id
+            // Otros parámetros que desees establecer por defecto para la organización
+        };
+
+        let existOrganization = await CharityOrganization.findOne({ name: 'Default Charity' });
+        if (existOrganization) {
+            return console.log('Default organization is already created.');
+        }
+
+        let createDefaultOrganization = new CharityOrganization(defOrganization);
+        await createDefaultOrganization.save();
+        return console.log('Default organization created.');
+    } catch (err) {
         console.error(err);
-        return res.status(500).send({message: 'Error al traer las organizaciones', error: err.message});
+    }
+}
+
+//Publica para mostrar todas las organizaciones
+exports.getOrganitation = async (req, res) => {
+    try {
+        // Obtener la organización por defecto
+        let defaultOrganization = await CharityOrganization.findOne({ name: 'Default Charity' });
+
+        // Buscar todas las organizaciones excepto la organización por defecto
+        let organizations = await CharityOrganization.find({ _id: { $ne: defaultOrganization._id } }).populate('user');
+
+        return res.send({ organizations });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send({ message: 'Error al traer las organizaciones', error: err.message });
     }
 }
 
@@ -74,30 +106,41 @@ exports.getOrganitationById = async(req,res)=>{
 }
 
 //Eliminar la Organizacion
-exports.deleteOrganization = async(req,res)=>{
-    try{
-        //Trae el token
+exports.deleteOrganization = async (req, res) => {
+    try {
+        // Trae el token
         let user = req.user.sub;
 
-        //Traemos el Id de la Organizacion
+        // Traemos el Id de la Organizacion
         let organizationID = req.params.id;
-        let organization = await CharityOrganization.findOne({_id: organizationID});
+        let organization = await CharityOrganization.findOne({ _id: organizationID });
 
-        //Se valida que no pueda eliminar la organizaciond de otro Administrador
-        if(user != organization.user) return res.send({message: 'No puedes Eliminar la organizacion de otra Administrador de Organizacion'});
-        let deleteOrganization = await CharityOrganization.findOneAndRemove({_id: organization._id});
+        // Se valida que no pueda eliminar la organizacion de otro Administrador
+        if (user != organization.user) return res.send({ message: 'No puedes Eliminar la organizacion de otro Administrador de Organizacion' });
 
-        //Elimina la organizacion
-        if(!deleteOrganization) return res.status(404).send({message: 'Organizacion no encontrada, no se pudo eliminar'});
+        // Obtener la organización por defecto
+        let defaultOrganization = await CharityOrganization.findOne({ name: 'Default Charity' });
+        if (!defaultOrganization) {
+            defaultOrganization = await CharityOrganization.findOne({ name: 'Default Charity' });
+        }
+
+        // Actualizar todos los proyectos asociados a la organización que se va a eliminar
+        await Project.updateMany({ organization: organizationID }, { $set: { organization: defaultOrganization._id } });
+
+        // Elimina la organizacion
+        let deleteOrganization = await CharityOrganization.findOneAndRemove({ _id: organization._id });
+        if (!deleteOrganization) return res.status(404).send({ message: 'Organizacion no encontrada, no se pudo eliminar' });
+
         await User.findOneAndUpdate(
-            {_id: user},
-            {role: 'ADMIN'},
-            {new: true}
-            );
-        return res.send({message: 'Organizacion eliminada', deleteOrganization});
-    }catch(err){
+            { _id: user },
+            { role: 'ADMIN' },
+            { new: true }
+        );
+
+        return res.send({ message: 'Organizacion eliminada y proyectos asociados actualizados', deleteOrganization });
+    } catch (err) {
         console.error(err);
-        return res.status(500).send({message: 'Error al tratar de Eliminar la Organizacion', error: err.message});
+        return res.status(500).send({ message: 'Error al tratar de Eliminar la Organizacion', error: err.message });
     }
 }
 

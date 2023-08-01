@@ -2,6 +2,9 @@
 
 const Project = require('./project.model');
 const Organization = require('../charity organization/co.model');
+const CharityOrganization = require('../charity organization/co.model');
+const Donation = require('../donation/donation.model');
+const Volunteer = require('../volunteering/volunteering.model');
 const { encrypt, validateData, checkPassword } = require('../../utils/validate');
 const { createToken } = require('../../services/jwt');
 
@@ -54,13 +57,57 @@ exports.add = async(req, res)=>{
     }
 }
 
-exports.get = async(req, res)=>{
-    try{
-        let projects = await Project.find({}).populate({path: 'organization', select: 'name description email phone location'});
-        return res.send({message: 'Projects found: ', projects});
-    }catch(err){
+exports.addDefaultProject = async () => {
+    try {
+        // Verificar si el proyecto por defecto ya existe
+        let defaultProject = await Project.findOne({ name: 'Default Project' });
+        if (defaultProject) {
+            return console.log('Default project already created.');
+        }
+
+        // Obtener la organización por defecto
+        let defaultOrganization = await CharityOrganization.findOne({ name: 'Default Charity' });
+        if (!defaultOrganization) {
+            defaultOrganization = await CharityOrganization.findOne({ name: 'Default Charity' });
+        }
+
+        // Datos del proyecto por defecto
+        let projectData = {
+            name: 'Default Project',
+            description: 'This is the default project for the default organization.',
+            startDate: new Date(),
+            endDate: new Date(),
+            budget: 0,
+            type: 'caridad',
+            organization: defaultOrganization._id
+        };
+
+        // Crear el proyecto por defecto
+        let project = new Project(projectData);
+        await project.save();
+
+        return console.log('Default project created.');
+    } catch (err) {
         console.error(err);
-        return res.status(500).send({message: 'Error getting projects.'});
+        return 'Error creating default project.';
+    }
+}
+
+exports.get = async (req, res) => {
+    try {
+        // Obtener la organización por defecto
+        let defaultOrganization = await CharityOrganization.findOne({ name: 'Default Charity' });
+
+        // Buscar todos los proyectos que NO tengan como organización la organización por defecto
+        let projects = await Project.find({ organization: { $ne: defaultOrganization._id } }).populate({
+            path: 'organization',
+            select: 'name description email phone location'
+        });
+
+        return res.send({ message: 'Projects found: ', projects });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send({ message: 'Error getting projects.' });
     }
 }
 
@@ -142,23 +189,41 @@ exports.update = async(req, res)=>{
     }
 }
 
-exports.delete = async(req, res)=>{
-    try{
+exports.delete = async (req, res) => {
+    try {
         let user = req.user.sub;
-        let project = req.params.id;
-        let organizationAdmin = await Organization.findOne({user: user});
-        let ownProject = await Project.findOne({organization: Object(organizationAdmin._id).valueOf()});
-        if(!ownProject){
-            return res.status(400).send({message: 'Not authorized.'});
+        let projectID = req.params.id;
+        let organizationAdmin = await Organization.findOne({ user: user });
+        let ownProject = await Project.findOne({ organization: Object(organizationAdmin._id).valueOf() });
+        if (!ownProject) {
+            return res.status(400).send({ message: 'Not authorized.' });
         }
-        let deletedProject = await Project.findByIdAndDelete({_id: project});
-        if(!deletedProject){
-            return res.status(404).send({message: 'Project not found and not updated.'});
+
+        // Obtener el proyecto por defecto
+        let defaultProject = await Project.findOne({ name: 'Default Project' });
+        if (!defaultProject) {
+            defaultProject = await addDefaultProject();
         }
-        return res.send({message: 'Anuncio eliminado correctamente.', deletedProject});
-    }catch(err){
+
+        // Actualizar el estado de los voluntariados asociados al proyecto que se va a eliminar
+        await Volunteer.updateMany({ proyect: projectID }, { $set: { state: false } });
+
+        // Actualizar todas las donaciones asociadas al proyecto que se va a eliminar
+        await Donation.updateMany({ project: projectID }, { $set: { project: defaultProject._id } });
+
+        // Actualizar todos los voluntariados asociados al proyecto que se va a eliminar
+        await Volunteer.updateMany({ proyect: projectID }, { $set: { proyect: defaultProject._id } });
+
+        // Eliminar el proyecto original
+        let deletedProject = await Project.findByIdAndDelete(projectID);
+        if (!deletedProject) {
+            return res.status(404).send({ message: 'Project not found and not updated.' });
+        }
+
+        return res.send({ message: 'Anuncio eliminado correctamente.', deletedProject });
+    } catch (err) {
         console.error(err);
-        return res.status(500).send({message: 'Error deleting project.'});
+        return res.status(500).send({ message: 'Error deleting project.' });
     }
 }
 
