@@ -6,6 +6,7 @@ const Organization = require('../charity organization/co.model');
 const CharityOrganization = require('../charity organization/co.model');
 const Donation = require('../donation/donation.model');
 const Volunteer = require('../volunteering/volunteering.model');
+const { createDefaultOrganization } = require('../charity organization/co.controller');
 const { encrypt, validateData, checkPassword } = require('../../utils/validate');
 const { createToken } = require('../../services/jwt');
 
@@ -87,6 +88,7 @@ exports.addDefaultProject = async () => {
         // Obtener la organización por defecto
         let defaultOrganization = await CharityOrganization.findOne({ name: 'Default Charity' });
         if (!defaultOrganization) {
+            await createDefaultOrganization();
             defaultOrganization = await CharityOrganization.findOne({ name: 'Default Charity' });
         }
 

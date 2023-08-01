@@ -3,6 +3,7 @@
 const CharityOrganization = require('./co.model');
 const User = require('../user/user.model');
 const Project = require('../project/project.model')
+const { defaultOrAdmin } = require('../user/user.controller');
 
 /*TEST*/ 
 exports.test = (req,res)=>{
@@ -42,14 +43,21 @@ exports.addOrganitation = async(req,res)=>{
 
 exports.createDefaultOrganization = async () => {
     try {
-        let user = await User.findOne({username: 'default'})
+        // Validar si existe el usuario "default"
+        let user = await User.findOne({ username: 'default' });
+        if (!user) {
+            // Si el usuario "default" no existe, crearlo primero utilizando la función createDefaultUser
+            await defaultOrAdmin();  
+        }
+        const userdefault = await User.findOne({ username: 'default' });
+        // Crear la organización por defecto
         let defOrganization = {
             name: 'Default Charity',
             description: 'default',
-            email: 'defaul@easycharity.com',
+            email: 'default@easycharity.com',
             phone: '0000 0000',
             location: 'none',
-            user: user._id
+            user: userdefault._id
             // Otros parámetros que desees establecer por defecto para la organización
         };
 

@@ -10,23 +10,30 @@ exports.test = (req,res)=>{
 }
 
 
-exports.addVolunteering  = async(req,res)=>{
-    try{
-        //Traer los datos
+exports.addVolunteering = async (req, res) => {
+    try {
+        // Traer los datos
         let data = req.body;
         let user = req.user.sub;
-        console.log(data.proyect)
-        //Validar si existe el Usuario
-        let existUser = await User.findOne({_id: user});
-        if(!existUser) return restart.status(404).send({message:'Usuario no encontro, no loggueado'});
 
-        //Validar si existe el proyecto al cual agregarse
-        let proyect = await Proyect.findOne({_id: data.proyect});
-        if(!proyect) return res.status(404).send({message: 'No se encontro el proyecto'});
-        
+        // Validar si existe el Usuario
+        let existUser = await User.findOne({ _id: user });
+        if (!existUser) return res.status(404).send({ message: 'Usuario no encontrado, no logueado' });
+
+        // Validar si existe el proyecto al cual agregarse
+        let proyect = await Proyect.findOne({ _id: data.proyect });
+        if (!proyect) return res.status(404).send({ message: 'No se encontró el proyecto' });
+
+        // Calcular la edad a partir de la fecha de nacimiento del usuario
+        let birthdate = new Date(existUser.birthdate);
+        let currentDate = new Date();
+        let ageInMilliseconds = currentDate - birthdate;
+        let ageInYears = Math.floor(ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25));
+        let ageString = ageInYears.toString();
+
         let params = {
             dpi: data.dpi,
-            age: data.age,
+            age: ageString,
             skills: data.skills,
             state: true,
             description: data.description,
@@ -36,10 +43,10 @@ exports.addVolunteering  = async(req,res)=>{
 
         let volunteering = new Volunteering(params);
         await volunteering.save();
-        return res.send({message: 'Se a ha agregado satisfactoriamente su peticion de volunariado', volunteering});
-    }catch(err){
+        return res.send({ message: 'Se ha agregado satisfactoriamente su petición de voluntariado', volunteering });
+    } catch (err) {
         console.error(err);
-        return res.status(500).send({message: 'Error al agregarse un voluntario', error: err.message});
+        return res.status(500).send({ message: 'Error al agregarse un voluntario', error: err.message });
     }
 }
 

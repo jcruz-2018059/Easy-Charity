@@ -37,7 +37,6 @@ export const UpdateVolunteringPage = () => {
       console.log(idvol)
       let volunter = {
         dpi: document.getElementById('dpi').value,
-        age: document.getElementById('age').value,
         skills: document.getElementById('skills').value,
         description: document.getElementById('description').value,
         proyect: idvol
@@ -71,16 +70,10 @@ export const UpdateVolunteringPage = () => {
                 <div className="card-body p-4 p-md-5" style={{ marginTop: -60 }}>
                   <div className="card-body">
                     <form className="row g-4 needs-validation" noValidate>
-                      <div className="row">
-                        <div className="col-sm-6">
+                        <div className="col-sm-12">
                           <label htmlFor="" className="form-label fs-base">DPI</label>
                           <input defaultValue={volunter.dpi} type="text" className="form-control form-control-lg" id="dpi" required />
                         </div>
-                        <div className="col-sm-6">
-                          <label htmlFor="time" className="form-label fs-base">Age</label>
-                          <input defaultValue={volunter.age} type="text" className="form-control form-control-lg" id="age" required />
-                        </div>
-                      </div>
                       <div className="col-12 pb-3">
                         <label htmlFor="" className="form-label fs-base">Habilidades</label>
                         <textarea defaultValue={volunter.skills} type="text" className="form-control form-control-lg" id="skills" required placeholder='Describe tus habilidades' />

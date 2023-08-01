@@ -15,31 +15,30 @@ export const AddVoluntaeringPage = () => {
 
   const navigate = useNavigate();
 
-    const addVolunter = async () => {
-        try {
-            let volunter = {
-                dpi: document.getElementById('dpi').value,
-                age: document.getElementById('age').value,
-                skills: document.getElementById('skills').value,
-                description: document.getElementById('description').value,
-                proyect: id
-            }
-            await axios.post('http://localhost:2651/volunteering/add', volunter, config);
-            Swal.fire({
-                title: '¡Voluntariado Agregado!',
-                icon: 'success',
-                timer: 4000
-            })
-            navigate('../');
-        } catch (err) {
-            console.log(err)
-            Swal.fire({
-                title: err.response.data.message || `Error añadiendo Voluntariado :(`,
-                icon: 'error',
-                timer: 4000
-            })
-        }
+  const addVolunter = async () => {
+    try {
+      let volunter = {
+        dpi: document.getElementById('dpi').value,
+        skills: document.getElementById('skills').value,
+        description: document.getElementById('description').value,
+        proyect: id
+      }
+      await axios.post('http://localhost:2651/volunteering/add', volunter, config);
+      Swal.fire({
+        title: '¡Voluntariado Agregado!',
+        icon: 'success',
+        timer: 4000
+      })
+      navigate('../');
+    } catch (err) {
+      console.log(err)
+      Swal.fire({
+        title: err.response.data.message || `Error añadiendo Voluntariado :(`,
+        icon: 'error',
+        timer: 4000
+      })
     }
+  }
 
   return (
 
@@ -55,16 +54,12 @@ export const AddVoluntaeringPage = () => {
                 <div className="card-body p-4 p-md-5" style={{ marginTop: -60 }}>
                   <div className="card-body">
                     <form className="row g-4 needs-validation" noValidate>
-                      <div className="row">
-                        <div className="col-sm-6">
-                          <label htmlFor="" className="form-label fs-base">DPI</label>
-                          <input type="text" className="form-control form-control-lg" id="dpi" required />
-                        </div>
-                        <div className="col-sm-6">
-                          <label htmlFor="time" className="form-label fs-base">Age</label>
-                          <input type="text" className="form-control form-control-lg" id="age" required />
-                        </div>
+
+                      <div className="col-sm-12">
+                        <label htmlFor="" className="form-label fs-base">DPI</label>
+                        <input type="text" className="form-control form-control-lg" id="dpi" required />
                       </div>
+
                       <div className="col-12 pb-3">
                         <label htmlFor="" className="form-label fs-base">Habilidades</label>
                         <textarea type="text" className="form-control form-control-lg" id="skills" required placeholder='Describe tus habilidades' />
@@ -75,7 +70,7 @@ export const AddVoluntaeringPage = () => {
                       </div>
                       <div className="col-12 pt-2 pt-sm-3">
                         <Link>
-                          <button onClick={(e)=>{addVolunter(), e.preventDefault()}} type="submit" className="btn btn-danger w-100 w-sm-auto">Guardar</button>
+                          <button onClick={(e) => { addVolunter(), e.preventDefault() }} type="submit" className="btn btn-danger w-100 w-sm-auto">Guardar</button>
                         </Link>
                       </div>
                     </form>
