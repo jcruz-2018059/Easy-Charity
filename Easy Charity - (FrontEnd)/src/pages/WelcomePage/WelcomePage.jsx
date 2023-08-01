@@ -70,7 +70,7 @@ export const WelcomePage = () => {
                     }
                     <hr />
                     {
-                        role === 'ADMIN' || role === 'ORGANIZATION ADMIN' ? (
+                        role === 'ADMIN' ?(
                             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                                 <div className="col">
                                     <div className="card shadow-sm">
@@ -113,6 +113,96 @@ export const WelcomePage = () => {
                                 </div>
                             </div>
                         ) : null
+                    }
+                    {
+                        role === 'CLIENT'? (
+                            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                                <div className="col">
+                                    <div className="card shadow-sm">
+                                        <img className="bd-placeholder-img card-img-top" src="/src/assets/Donaciones.svg" alt="Imagen" width="100%" height="225" />
+                                        <div className="card-body">
+                                            <p className="card-text">Sigue el registro de tus donaciones, revisa tu historial y cumple tus metas de ayudar a los demás. Comienza ya, no esperes más.</p>
+                                            <div className="d-grid gap-2">
+                                                <Link to='donations' className='btn btn-primary'>
+                                                    <button className='btn btn-primary'>Donaciones</button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="card shadow-sm">
+                                        <img className="bd-placeholder-img card-img-top" src="/src/assets/2.svg" alt="Imagen" width="100%" height="225" />
+                                        <div className="card-body">
+                                            <p className="card-text">Ve y añade nuevas organizaciones al sistema, entérate de los proyectos que tiene cada una y editalas si lo consideras necesario.</p>
+                                            <div className="d-grid gap-2">
+                                                <Link to='organization' className='btn btn-primary'>
+                                                    <button className='btn btn-primary'>Organizaciones</button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="card shadow-sm">
+                                        <img className="bd-placeholder-img card-img-top" src="/src/assets/3.svg" alt="Imagen" width="100%" height="225" />
+                                        <div className="card-body">
+                                            <p className="card-text">Entérate de los proyectos disponibles de cada organización caritativa y postúlate a ser voluntario en uno de ellos.</p>
+                                            <div className="d-grid gap-2">
+                                                <Link to='proyects' className='btn btn-primary'>
+                                                    <button className='btn btn-primary'>Proyectos</button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            ) : null
+                    }
+                    {
+                        role === 'ORGANIZATION ADMIN' ?(
+                            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                                <div className="col">
+                                    <div className="card shadow-sm">
+                                        <img className="bd-placeholder-img card-img-top" src="/src/assets/miorganización.svg" alt="Imagen" width="100%" height="225" />
+                                        <div className="card-body">
+                                            <p className="card-text">Administra nuevos proyectos, ajusta sus criterios si es apropiado y descarta a aquellos que también lo requieran.</p>
+                                            <div className="d-grid gap-2">
+                                                <Link to='organization/detail' className='btn btn-primary'>
+                                                    <button className='btn btn-primary'>Mi organización</button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="card shadow-sm">
+                                        <img className="bd-placeholder-img card-img-top" src="/src/assets/2.svg" alt="Imagen" width="100%" height="225" />
+                                        <div className="card-body">
+                                            <p className="card-text">Ve y añade nuevas organizaciones al sistema, entérate de los proyectos que tiene cada una y editalas si lo consideras necesario.</p>
+                                            <div className="d-grid gap-2">
+                                                <Link to='organization' className='btn btn-primary'>
+                                                    <button className='btn btn-primary'>Organizaciones</button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="card shadow-sm">
+                                        <img className="bd-placeholder-img card-img-top" src="/src/assets/3.svg" alt="Imagen" width="100%" height="225" />
+                                        <div className="card-body">
+                                            <p className="card-text">Entérate de los proyectos disponibles de cada organización caritativa y postúlate a ser voluntario en uno de ellos.</p>
+                                            <div className="d-grid gap-2">
+                                                <Link to='proyects' className='btn btn-primary'>
+                                                    <button className='btn btn-primary'>Proyectos</button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            ) : null
                     }
                 </div>
             </div>

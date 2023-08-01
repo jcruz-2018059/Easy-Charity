@@ -91,7 +91,7 @@ exports.deleteOrganization = async(req,res)=>{
         if(!deleteOrganization) return res.status(404).send({message: 'Organizacion no encontrada, no se pudo eliminar'});
         await User.findOneAndUpdate(
             {_id: user},
-            {role: 'CLIENT'},
+            {role: 'ADMIN'},
             {new: true}
             );
         return res.send({message: 'Organizacion eliminada', deleteOrganization});
